@@ -22,7 +22,7 @@ Subsub foo
 ######## An H8 Subsub Header
 Subsub bar
 
-<!-- ----------------------------------- -->
+<!-- ======================================= -->
 #1 An Subsub H1 Header numbered heading format
 Subsub foo
 

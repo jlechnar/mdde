@@ -386,8 +386,8 @@ class TocRefineLinksTreeProcessor(Treeprocessor):
                         if heading_text is None:
                             raise INHTException("FATAL: TocRefineLinksTreeProcessor: Could not find heading_text.")
 
-                        heading_id = "[" + heading_index + "_" + heading_text + "]_heading"
-                        heading_ref = "[" + heading_index + "_" + heading_text + "]_toc"
+                        heading_id = heading_index + "_" + heading_text + "_heading"
+                        heading_ref = heading_index + "_" + heading_text + "_toc"
 
                         child.set('id', heading_id) 
                         child.set('href', "#" + heading_ref) 

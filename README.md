@@ -1,8 +1,9 @@
 # MarkDown Documentation Extensions [MDDE] - Extensions for creating documentations.
 The following sub modules are provided:
 
-* INHT = [I]nclude other markdown files at selectable level, add [N]umbered [H]eadings of infinite depth and linked [T]able of contents
+* `inht` = [I]nclude other markdown files at selectable level, add [N]umbered [H]eadings of infinite depth and linked [T]able of contents
   Python Markdown extension which enables including other markdown files at selectable levels, adds numbered headings of infinte depth and linked table of contents.
+* `html_base`: HTML basic environment wrapper generating 'valid html files' according to [W3C Markup Validation Service](https://validator.w3.org/). It adds an external css style sheet and document title selection.
 
 ## Usage
 tbw.

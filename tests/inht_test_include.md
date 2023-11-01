@@ -22,7 +22,7 @@ Sub foo
 ######## An H8 Sub Header
 Sub bar
 
-<!-- ----------------------------------- -->
+<!-- ======================================= -->
 #1 An Sub H1 Header numbered heading format
 Sub foo
 
@@ -47,7 +47,7 @@ Sub foo
 #8 An Sub H8 Header numbered heading format
 Sub bar
 
-<!-- ----------------------------------- -->
+<!-- ======================================= -->
 #1 Include sub markdown files
 
 #2 level current
