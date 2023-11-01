@@ -1,0 +1,36 @@
+.h7 { color: navy; }
+
+.h8 { color: navy; }
+
+.h9 { color: navy; }
+
+.h10 { color: navy; }
+
+.h11 { color: navy; }
+
+.h12 { color: navy; }
+
+.h13 { color: navy; }
+
+.h14 { color: navy; }
+
+a:link {
+      text-decoration: none;
+}
+
+a:visited {
+      text-decoration: none;
+}
+
+a:hover {
+      text-decoration: none;
+}
+
+a:active {
+      text-decoration: none;
+}
+
+p.toc_heading { 
+  font-size: 16pt;
+  font-weight: bold:
+}

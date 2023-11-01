@@ -12,11 +12,12 @@ sys.path.append(relative_path)
 
 import markdown
 from mdde.inht import *
+from mdde.html_base import *
 
 with open('inht_test.md', 'r') as f:
     text = f.read()
     try:
-        html = markdown.markdown(text, extensions=[INHTExtension(verbose=True)])
+        html = markdown.markdown(text, extensions=[INHTExtension(verbose=True), HtmlBaseExtension(title="INHT Test")])
     except INHTException as e:
         print(str(e))
 
