@@ -1,0 +1,5 @@
+DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. bla
+WARNING: Ignoring abbreviation definition duplicate for <GNU>
+DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+DEBUG: ABBR: OS => Operating System: An operating system is system software that manages computer hardware and software resources, and provides common services for computer programs.

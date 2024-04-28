@@ -1,0 +1,46 @@
+<p>{loi}</p>
+<!--
+![alternative text](image_link "title")
+
+We need: Link title description
+![alternative_text](image_link "hover_text"): description
+-->
+
+<h1>All</h1>
+<p>More text.
+<img alt="Alternative text: Image: test.odt.png" src="content/test.odt.png" title="title: test odt png 1" />: Test image of opendocument file using png as image format. 1</p>
+<p>More text.
+<img alt="Alternative text: Image: test.odt.jpg" src="content/test.odt.jpg" title="title: test odt jpg 2" />: Test image of opendocument file using jpg as image format. 2</p>
+<p>More text.</p>
+<h1>Missing alternative text</h1>
+<p>More text.
+!(content/test.odt.png "title: test odt png 3"): Test image of opendocument file using png as image format. 3</p>
+<p>More text.
+!(content/test.odt.jpg "title: test odt jpg 4"): Test image of opendocument file using jpg as image format. 4</p>
+<p>More text.</p>
+<h1>Missing hoover text</h1>
+<p><img alt="Alternative text: Image: test.odt.png" src="content/test.odt.png" />: Test image of opendocument file using png as image format. 5</p>
+<p><img alt="Alternative text: Image: test.odt.jpg" src="content/test.odt.jpg" />: Test image of opendocument file using jpg as image format. 6</p>
+<h1>Missing alternative text and hover text</h1>
+<p>More text.
+!(content/test.odt.png): Test image of opendocument file using png as image format. 7</p>
+<p>More text.</p>
+<p>!(content/test.odt.jpg): Test image of opendocument file using jpg as image format. 8</p>
+<p>More text.</p>
+<h1>Missing image base document</h1>
+<p><img alt="Alternative text: Image: test.odt.png" src="content/test2.odt.png" title="title: test odt png 9" />: Test image of opendocument file using png as image format. 9</p>
+<p><img alt="Alternative text: Image: test.odt.jpg" src="content/test2.odt.jpg" title="title: test odt jpg 10" />: Test image of opendocument file using jpg as image format. 10</p>
+<h1>Missing image</h1>
+<p><img alt="Alternative text: Image: test.odt.png" src="content/test3.odt.png" title="title: test odt png 11" />: Test image of opendocument file using png as image format. 11</p>
+<p><img alt="Alternative text: Image: test.odt.jpg" src="content/test3.odt.jpg" title="title: test odt jpg 12" />: Test image of opendocument file using jpg as image format. 12</p>
+<h1>Missing all</h1>
+<p><img alt="Alternative text: Image: test.odt.png" src="content/test4.odt.png" title="title: test odt png 13" />: Test image of opendocument file using png as image format. 13</p>
+<p><img alt="Alternative text: Image: test.odt.jpg" src="content/test4.odt.jpg" title="title: test odt jpg 14" />: Test image of opendocument file using jpg as image format. 14</p>
+<!--
+=>
+
+Description (source link if exists):
+<image>
+
++list of images linked table using sections for numbering ? Selective section depth for numbering or simple counting ?
+-->

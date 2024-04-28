@@ -11,27 +11,27 @@ relative_path = os.path.join(current_dir, '..')
 sys.path.append(relative_path)
 
 import markdown
-from mdde.inht import *
+#from mdde.code import *
 from mdde.html_base import *
 from mdde.tools_c import *
 
-tools = tools_c()
+tools = tools_c() 
 
-with open('inht_test.md', 'r') as f:
+with open('code_test.md', 'r') as f:
     text = f.read()
-    try:
-        html = markdown.markdown(text, extensions=[INHTExtension(tools, debug=True), HtmlBaseExtension(title="INHT Test")])
-    except INHTException as e:
-        print(str(e))
+    #    try:
+    html = markdown.markdown(text, extensions=[HtmlBaseExtension(title="Code Test")])
+    #AbbreviationExtension(tools, debug=True), 
+    #    except AbbreviationException as e:
+    #        print(str(e))
 
-with open('inht_test.html', 'w') as f:
+with open('code_test.html', 'w') as f:
     f.write(html)
 
-
-with open('inht_test.md', 'r') as f:
+with open('code_test.md', 'r') as f:
     text = f.read()
     html = markdown.markdown(text)
 
-with open('inht_test_no_extension.html', 'w') as f:
+with open('code_test_no_extension.html', 'w') as f:
     f.write(html)
 

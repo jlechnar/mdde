@@ -35,15 +35,16 @@ class IncludePre(Preprocessor):
     RE_HEADING = r'^\s*#\s*(\d+)(\s+.+)$'
     RE_HEADING_FLAT = r'^\s*(#+)(\s+[^\d].*$)'
 
-    def __init__(self, md, config):
+    def __init__(self, tools, md, config):
         super().__init__(md)
-        self.verbose = config["verbose"]
+        self.tools = tools
+        self.config = config
 
     def read_include(self, level, filename):
         lines = []
 
-        if self.verbose:
-            print(' ' * int(level) + "INCLUDE: " + filename)
+        if self.config["debug"]:
+            self.tools.debug(' ' * int(level) + "INCLUDE: " + filename)
 
         with open(filename, 'r', encoding='UTF-8') as file:
             while line := file.readline():
@@ -87,20 +88,20 @@ class IncludePre(Preprocessor):
                 else: # len(self.md.toc_index_id_list) < level_actual:
                     while len(self.md.toc_index_id_list) < level_actual:
                         self.md.toc_index_id_list.append(1)
-                
-                # merge current toc_index_id_list to index_id string e.g. [1, 3, 4] => "1.3.4."    
+
+                # merge current toc_index_id_list to index_id string e.g. [1, 3, 4] => "1.3.4."
                 index_id = ""
                 for i in range(len(self.md.toc_index_id_list)):
                     index_id += str(self.md.toc_index_id_list[i]) + "."
 
                 line = "#" + str(level_actual) + " " + index_id + m.group(2)
 
-                if self.verbose:
-                    print(' ' * int(level_actual) + "HEADING: " + index_id + m.group(2))
+                if self.config["debug"]:
+                    self.tools.debug(' ' * int(level_actual) + "HEADING: " + index_id + m.group(2))
 
                 # [index_id, heading text]
                 self.md.toc_toc.append([index_id, " " * level_actual + m.group(2)])
-            
+
             # ----------------------
             # handle includes recursively
             mp = re.search(self.RE_INCLUDE_PLUS, line)
@@ -116,7 +117,7 @@ class IncludePre(Preprocessor):
             elif md:
                 new_lines.append("<!-- " + md.group(0) + " => include_direct: " + md.group(2) + " @(direct level) " + md.group(1) + " -->")
                 new_lines.extend(self.read_include(md.group(1), md.group(2)))
-                level_actual = md.group(1) 
+                level_actual = md.group(1)
                 new_lines.append("<!-- " + md.group(0) + " => include_direct end: " + " @(actual level) " + str(level_actual) + " -->")
             elif mf:
                 new_lines.append("<!-- " + mf.group(0) + " => include_flat: " + mf.group(1) + " @(actual level) " + str(level_actual) + " -->")
@@ -161,9 +162,9 @@ class AdvancedHeadingBlockProcessor(BlockProcessor):
             # <h...><a id="anchor_for_link_from_toc" href="link_to_toc">...</a></h...>
             a = etree.SubElement(e, 'a')
 
-            heading_id = m.group(4) + "_heading"
-            heading_ref = m.group(4) + "_toc"
-            
+            heading_id = "heading:" + m.group(4) + ":"
+            heading_ref = "toc:" + m.group(4) + ":"
+
             a.set('id', heading_id)
             a.set('href', "#" + heading_ref)
             a.set('class', 'heading_toc_links')
@@ -176,14 +177,14 @@ class AdvancedHeadingBlockProcessor(BlockProcessor):
             # add space between index and text
             s2 = etree.SubElement(a, 'span')
             s2.set('class', 'heading_space')
-            s2.text = " " 
+            s2.text = " "
 
             # heading text in s2, mark as heading_text class for later replace of surrounding <p>...</> that gets added automatically by the tool !
             s3 = etree.SubElement(a, 'span')
             s3.set('class', 'heading_text')
 
             # remove parsed heading block
-            blocks[0] = re.sub(self.RE_HEADING_PLUS_INDEX_ID, '', blocks[0])
+            blocks[0] = re.sub(re.escape(m.group(0)), '', blocks[0])
 
             # parse heading text if it is more complex
             self.parser.parseBlocks(s3, [m.group(6)])
@@ -192,22 +193,6 @@ class AdvancedHeadingBlockProcessor(BlockProcessor):
         else:
             return False
 
-    def get_link_text_from_heading(self, element):
-        link_text = "_".join(self.get_link_texts_from_heading(element))
-        link_text2 = re.sub(r'(\s+)', r'_', link_text)
-        link_text3 = re.sub(r'(\{([^:]+):([^\}]+)\})', r'\2_\3', link_text2)
-        return link_text3
-
-    def get_link_texts_from_heading(self, element):
-        link_texts = []
-
-        for child in element:
-            if child.text:
-                link_texts.append(child.text)
-            link_texts += self.get_link_texts_from_heading(child)
-
-        return link_texts
-       
 # -------------------------------------------------------------------------------
 #
 # Note that contents of <p class="h?"> elements are wrapped by a <p> by the tool.
@@ -232,6 +217,8 @@ class AdvancedHeadingCorrectTreeProcessor(Treeprocessor):
             self.remove_p_from_heading_text(child)
 
 # -------------------------------------------------------------------------------
+# find location / command to insert TOC and replace command with element to be filled later
+
 class TocPositionBlockProcessor(BlockProcessor):
     RE_TOC = r'^{toc}$'
 
@@ -246,17 +233,20 @@ class TocPositionBlockProcessor(BlockProcessor):
             d = etree.SubElement(parent, 'div')
             d.set('class', 'toc')
 
-            blocks[0] = re.sub(self.RE_TOC, '', blocks[0])
+            blocks[0] = re.sub(re.escape(m.group(0)), '', blocks[0])
             return True
         else:
             return False
 
 # ---------------------------------------------------------------
+#
+# fill toc element with contents and so heading texts and links corresponding headings and ids for links from headings to toc
+#
 class TocReplaceTreeProcessor(Treeprocessor):
 
     def __init__(self, md, config):
         super().__init__(md)
-        self.title = config["title"]
+        self.config = config
 
     def run(self, root):
         self.replace_toc(root)
@@ -270,25 +260,26 @@ class TocReplaceTreeProcessor(Treeprocessor):
                     if m:
                          etoc_heading = etree.SubElement(child, "p")
                          etoc_heading.set("class", 'toc_heading')
-                         etoc_heading.text = self.title
+                         etoc_heading.text = self.config["title"]
 
                          etoc_div = etree.SubElement(child, "div")
                          etoc_table = etree.SubElement(etoc_div, "table")
+                         etoc_table.set('class', "toc")
                          for toc in self.md.toc_toc:
                              etoc_row = etree.SubElement(etoc_table, "tr")
 
                              etoc_data = etree.SubElement(etoc_row, "td")
                              etoc_a = etree.SubElement(etoc_data, "a")
                              # Only one link valid ! skipped below intentionally
-                             #etoc_a.set('id', toc[0] + "_toc")
-                             etoc_a.set('href', "#" + toc[0] + "_heading")
+                             #etoc_a.set('id', "toc:" + toc[0] + ":")
+                             etoc_a.set('href', "#" + "heading:" + toc[0] + ":")
                              etoc_a.set('class', 'toc_heading_links_index')
                              etoc_a.text = toc[0]
 
                              etoc_data = etree.SubElement(etoc_row, "td")
                              etoc_a = etree.SubElement(etoc_data, "a")
-                             etoc_a.set('id', toc[0] + "_toc")
-                             etoc_a.set('href', "#" + toc[0] + "_heading")
+                             etoc_a.set('id', "toc:" + toc[0] + ":")
+                             etoc_a.set('href', "#" + "heading:" + toc[0] + ":")
                              etoc_a.set('class', 'toc_heading_links_text')
                              etoc_a.text = toc[1]
 
@@ -296,7 +287,8 @@ class TocReplaceTreeProcessor(Treeprocessor):
 
 # ---------------------------------------------------------------
 #
-# replace contents of toc link with the one of the heading (same decoded structure)
+# replace contents/text of toc link with the one of the heading (same decoded structure)
+# heading is decoded further after processing - here we duplicate the decoded text to the one used in the toc, which can still be undecoded due to processing structure
 #
 class TocRefineTreeProcessor(Treeprocessor):
 
@@ -334,6 +326,7 @@ class TocRefineTreeProcessor(Treeprocessor):
                             raise INHTException("FATAL: TocRefineTreeProcessor: Could not find heading_text.")
 
                         self.refine_replace_toc(root, heading_index, heading_text_copy)
+
             self.refine_toc(child, root)
 
     def refine_replace_toc(self, element, heading_index, heading_text_copy):
@@ -342,7 +335,7 @@ class TocRefineTreeProcessor(Treeprocessor):
                 if child.get("class") is not None:
                     m = re.match(r'toc_heading_links_text', child.get("class"))
                     if m:
-                        mi = re.match(heading_index + '_toc', child.get("id"))
+                        mi = re.match("toc:" + heading_index + ":", child.get("id"))
                         if mi:
                             # Replace temporary text with decoded one from heading
                             child.text = ""
@@ -353,6 +346,9 @@ class TocRefineTreeProcessor(Treeprocessor):
 #
 # refine/replace toc link text with decoded text from heading
 # refine link names between toc and headings
+# link names then contains the heading inside the link for readable references
+# note that before only id's are part of the link name hence links are not human readable
+# in case of document changes it is easier if heading is part of the link name
 #
 class TocRefineLinksTreeProcessor(Treeprocessor):
 
@@ -386,11 +382,11 @@ class TocRefineLinksTreeProcessor(Treeprocessor):
                         if heading_text is None:
                             raise INHTException("FATAL: TocRefineLinksTreeProcessor: Could not find heading_text.")
 
-                        heading_id = heading_index + "_" + heading_text + "_heading"
-                        heading_ref = heading_index + "_" + heading_text + "_toc"
+                        heading_id = "heading:" + heading_index + "_" + heading_text + ":"
+                        heading_ref = "toc:" + heading_index + "_" + heading_text + ":"
 
-                        child.set('id', heading_id) 
-                        child.set('href', "#" + heading_ref) 
+                        child.set('id', heading_id)
+                        child.set('href', "#" + heading_ref)
 
                         self.refine_links_replace_toc(root, heading_index, heading_ref, heading_id)
             self.refine_links_toc(child, root)
@@ -406,6 +402,8 @@ class TocRefineLinksTreeProcessor(Treeprocessor):
 
     def get_link_texts_from_heading(self, element):
         link_texts = []
+        #if element.text:
+        #    link_texts.append(element.text)
 
         for child in element:
             if child.text:
@@ -420,19 +418,19 @@ class TocRefineLinksTreeProcessor(Treeprocessor):
                 if child.get("class") is not None:
                     m = re.match(r'toc_heading_links_index', child.get("class"))
                     if m:
-                        mi = re.match('#' + heading_index + '_heading', child.get("href"))
+                        mi = re.match("#" + "heading:" + heading_index + ":", child.get("href"))
                         if mi:
                             # replace entry in toc with new href names
-                            child.set('href', "#" + heading_ref) 
+                            child.set('href', "#" + heading_ref)
                     m = re.match(r'toc_heading_links_text', child.get("class"))
                     if m:
-                        mi = re.match(heading_index + '_toc', child.get("id"))
+                        mi = re.match("toc:" + heading_index + ":", child.get("id"))
                         if mi:
                             # replace entry in toc with new id/href names
-                            child.set('id', heading_id) 
-                            child.set('href', "#" + heading_ref) 
+                            child.set('id', heading_id)
+                            child.set('href', "#" + heading_ref)
 
-                           
+
             self.refine_links_replace_toc(child, heading_index, heading_id, heading_ref)
 
 # -------------------------------------------------------------------------------
@@ -446,8 +444,14 @@ class INHTExtension(Extension):
 
     TocRefineLinksTreeProcessorClass = TocRefineLinksTreeProcessor
 
-    def __init__(self, **kwargs):
+    def __init__(self, tools, **kwargs):
+        self.tools = tools
         self.config = {
+            'debug': [
+                False,
+                'Debug mode'
+                'Default: off`.'
+            ],
             'verbose': [
                 False,
                 'Verbose mode'
@@ -474,7 +478,7 @@ class INHTExtension(Extension):
 
         # ------------
         # Preprocessors
-        include_ext = self.IncludePreClass(md, self.getConfigs())
+        include_ext = self.IncludePreClass(self.tools, md, self.getConfigs())
         md.preprocessors.register(include_ext, 'inht__include', 175)
 
         # ------------
@@ -535,4 +539,3 @@ class INHTException(Exception):
             return self.name + ': ' + self.message
         else:
             return self.name + ' has been raised'
-

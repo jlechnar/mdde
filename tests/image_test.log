@@ -1,0 +1,92 @@
+DEBUG: IMAGE: <# All
+More text.
+![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+  <Alternative text: Image: test.odt.png>
+  <content/test.odt.png "title: test odt png 1">
+  <Test image of opendocument file using png as image format. 1>
+DEBUG:     <content/test.odt.png>
+    <title: test odt png 1>
+DEBUG: IMAGE: <More text.
+![Alternative text: Image: test.odt.jpg](content/test.odt.jpg "title: test odt jpg 2"): Test image of opendocument file using jpg as image format. 2>:
+  <Alternative text: Image: test.odt.jpg>
+  <content/test.odt.jpg "title: test odt jpg 2">
+  <Test image of opendocument file using jpg as image format. 2>
+DEBUG:     <content/test.odt.jpg>
+    <title: test odt jpg 2>
+DEBUG: IMAGE: <# Missing alternative text
+More text.
+!(content/test.odt.png "title: test odt png 3"): Test image of opendocument file using png as image format. 3>:
+  <NONE>
+  <content/test.odt.png "title: test odt png 3">
+  <Test image of opendocument file using png as image format. 3>
+DEBUG:     <content/test.odt.png>
+    <title: test odt png 3>
+DEBUG: IMAGE: <More text.
+!(content/test.odt.jpg "title: test odt jpg 4"): Test image of opendocument file using jpg as image format. 4>:
+  <NONE>
+  <content/test.odt.jpg "title: test odt jpg 4">
+  <Test image of opendocument file using jpg as image format. 4>
+DEBUG:     <content/test.odt.jpg>
+    <title: test odt jpg 4>
+DEBUG: IMAGE: <# Missing hoover text
+![Alternative text: Image: test.odt.png](content/test.odt.png): Test image of opendocument file using png as image format. 5>:
+  <Alternative text: Image: test.odt.png>
+  <content/test.odt.png>
+  <Test image of opendocument file using png as image format. 5>
+DEBUG:     NO HOVER TEXT
+DEBUG: IMAGE: <![Alternative text: Image: test.odt.jpg](content/test.odt.jpg): Test image of opendocument file using jpg as image format. 6>:
+  <Alternative text: Image: test.odt.jpg>
+  <content/test.odt.jpg>
+  <Test image of opendocument file using jpg as image format. 6>
+DEBUG:     NO HOVER TEXT
+DEBUG: IMAGE: <# Missing alternative text and hover text
+More text.
+!(content/test.odt.png): Test image of opendocument file using png as image format. 7>:
+  <NONE>
+  <content/test.odt.png>
+  <Test image of opendocument file using png as image format. 7>
+DEBUG:     NO HOVER TEXT
+DEBUG: IMAGE: <!(content/test.odt.jpg): Test image of opendocument file using jpg as image format. 8>:
+  <NONE>
+  <content/test.odt.jpg>
+  <Test image of opendocument file using jpg as image format. 8>
+DEBUG:     NO HOVER TEXT
+DEBUG: IMAGE: <# Missing image base document
+![Alternative text: Image: test.odt.png](content/test2.odt.png "title: test odt png 9"): Test image of opendocument file using png as image format. 9>:
+  <Alternative text: Image: test.odt.png>
+  <content/test2.odt.png "title: test odt png 9">
+  <Test image of opendocument file using png as image format. 9>
+DEBUG:     <content/test2.odt.png>
+    <title: test odt png 9>
+DEBUG: IMAGE: <![Alternative text: Image: test.odt.jpg](content/test2.odt.jpg "title: test odt jpg 10"): Test image of opendocument file using jpg as image format. 10>:
+  <Alternative text: Image: test.odt.jpg>
+  <content/test2.odt.jpg "title: test odt jpg 10">
+  <Test image of opendocument file using jpg as image format. 10>
+DEBUG:     <content/test2.odt.jpg>
+    <title: test odt jpg 10>
+DEBUG: IMAGE: <# Missing image
+![Alternative text: Image: test.odt.png](content/test3.odt.png "title: test odt png 11"): Test image of opendocument file using png as image format. 11>:
+  <Alternative text: Image: test.odt.png>
+  <content/test3.odt.png "title: test odt png 11">
+  <Test image of opendocument file using png as image format. 11>
+DEBUG:     <content/test3.odt.png>
+    <title: test odt png 11>
+DEBUG: IMAGE: <![Alternative text: Image: test.odt.jpg](content/test3.odt.jpg "title: test odt jpg 12"): Test image of opendocument file using jpg as image format. 12>:
+  <Alternative text: Image: test.odt.jpg>
+  <content/test3.odt.jpg "title: test odt jpg 12">
+  <Test image of opendocument file using jpg as image format. 12>
+DEBUG:     <content/test3.odt.jpg>
+    <title: test odt jpg 12>
+DEBUG: IMAGE: <# Missing all
+![Alternative text: Image: test.odt.png](content/test4.odt.png "title: test odt png 13"): Test image of opendocument file using png as image format. 13>:
+  <Alternative text: Image: test.odt.png>
+  <content/test4.odt.png "title: test odt png 13">
+  <Test image of opendocument file using png as image format. 13>
+DEBUG:     <content/test4.odt.png>
+    <title: test odt png 13>
+DEBUG: IMAGE: <![Alternative text: Image: test.odt.jpg](content/test4.odt.jpg "title: test odt jpg 14"): Test image of opendocument file using jpg as image format. 14>:
+  <Alternative text: Image: test.odt.jpg>
+  <content/test4.odt.jpg "title: test odt jpg 14">
+  <Test image of opendocument file using jpg as image format. 14>
+DEBUG:     <content/test4.odt.jpg>
+    <title: test odt jpg 14>

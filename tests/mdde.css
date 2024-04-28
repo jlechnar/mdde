@@ -14,6 +14,10 @@
 
 .h14 { color: navy; }
 
+* {
+  font-family: sans-serif;
+}
+
 a:link {
       text-decoration: none;
 }
@@ -30,7 +34,214 @@ a:active {
       text-decoration: none;
 }
 
+:target {
+  border: 5px solid #ff0000;
+/*            background-color: orange;*/
+/*            color: white;*/
+}
+
+/* =================================== */
+span.artefact {
+  color: lightgreen;
+  font-weight: bold;
+}
+
+span.artefact::after {
+  content: "]";
+}
+
+span.artefact::before {
+  content: "[";
+}
+
+/* =================================== */
+span.milestone {
+  color: orange;
+  font-weight: bold;
+}
+
+span.milestone::after {
+  content: ")";
+}
+
+span.milestone::before {
+  content: "(";
+}
+
+/* =================================== */
+a.issue {
+  color: red;
+  font-weight: bold;
+}
+
+a.issue::after {
+  content: ">";
+}
+
+a.issue::before {
+  content: "<";
+}
+
+/* =================================== */
+a.bug {
+  color: magenta;
+  font-weight: bold;
+}
+
+a.bug::after {
+  content: "}";
+}
+
+a.bug::before {
+  content: "{";
+}
+
+/* =================================== */
 p.toc_heading { 
-  font-size: 16pt;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+dt.description_list {
+  font-weight: bold;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+dd.description_list {
+  font-style: italic;
+}
+
+dt.description_list::after {
+  content: ": ";
+}
+
+/* =================================== */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* =================================== */
+a.internal_reference {
+  color: darkorange;
+}
+
+a.internal_reference_link {
+  color: red;
+}
+
+p.lor_heading { 
+  font-size: 2.5em;
   font-weight: bold:
+}
+
+/* =================================== */
+.loa__bug th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loa__bug tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loa__bug td {
+    padding-right: 15px;
+}
+
+.loa__bug p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+.loa__issue th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loa__issue tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loa__issue td {
+    padding-right: 15px;
+}
+
+.loa__issue p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+.loa__milestone th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loa__milestone tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loa__milestone td {
+    padding-right: 15px;
+}
+
+.loa__milestone p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+.loa__artefact th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loa__artefact tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loa__artefact td {
+    padding-right: 15px;
+}
+
+.loa__artefact p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+.loa th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loa tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loa td {
+    padding-right: 15px;
+}
+
+.loa p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* ============================== */
+p.toc {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* ============================== */
+p.loi {
+  font-size: 2.5em;
+  font-weight: bold;
 }
