@@ -1,4 +1,5 @@
 {loa:artefact}
+# List of Milestones (own header)
 {loa:milestone}
 {loa:bug}
 {loa:issue}

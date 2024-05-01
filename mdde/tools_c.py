@@ -10,6 +10,7 @@ import os
 #import os.path
 #from os.path import abspath
 #from os import path
+import xml.etree.ElementTree as etree
 
 import sys
 #if sys.version_info[0] == 3:
@@ -249,7 +250,13 @@ class tools_c:
         file_handle.close()
 
         return data
-    
+
+    ###############################################################
+    def debug_etree(self, message, element):
+        print("DEBUG: " + message)
+        print(etree.tostring(element, encoding='utf8'))
+        sys.stdout.flush()     
+
 ##########################################
 ##########################################
 ##########################################

@@ -124,7 +124,6 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
   def __init__(self, md, config):
     super().__init__(md)
     self.config = config
-    self.title = config["title"]
     # self.numbered_links = config["numbered_links"]
 
   def run(self, root):
@@ -140,9 +139,10 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
           m = re.match(r'loa__' + tag, child.get("class"))
           if m:
 
-            e_loa_references = etree.SubElement(child, "p")
-            e_loa_references.set("class", 'loa_' + tag + '_heading')
-            e_loa_references.text = self.title
+            if self.config["title_enable"]:
+              e_loa_references = etree.SubElement(child, "p")
+              e_loa_references.set("class", 'loa_' + tag + '_heading')
+              e_loa_references.text = self.config["title"]
 
             e_loa_div = etree.SubElement(child, "div")
 
@@ -324,6 +324,11 @@ class ArtefactExtension(Extension):
         "artefact",
         'Identifier used for separating processors/class instances in case of inherited classes',
         'Default: "artefact"`.'
+      ],
+      'title_enable': [
+        True,
+        'Enable Title printing'
+        'Default: on`.'
       ],
       'title': [
         'List of Artefacts',

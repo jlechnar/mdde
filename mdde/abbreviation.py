@@ -90,7 +90,7 @@ class LoaReplaceTreeProcessor(Treeprocessor):
 
     def __init__(self, md, config):
         super().__init__(md)
-        self.title = config["title"]
+        self.config = config
 
     def run(self, root):
         self.replace_loa(root)
@@ -100,11 +100,12 @@ class LoaReplaceTreeProcessor(Treeprocessor):
         for child in element:
             if child.tag == "div":
                 if child.get("class") is not None:
-                    m = re.match(r'loa', child.get("class"))
+                    m = re.match(r'^loa$', child.get("class"))
                     if m:
-                         eloa_abbreviation = etree.SubElement(child, "p")
-                         eloa_abbreviation.set("class", 'loa_title')
-                         eloa_abbreviation.text = self.title
+                         if self.config["title_enable"]:
+                             eloa_abbreviation = etree.SubElement(child, "p")
+                             eloa_abbreviation.set("class", 'loa_title')
+                             eloa_abbreviation.text = self.config["title"]
 
                          eloa_div = etree.SubElement(child, "div")
                          eloa_table = etree.SubElement(eloa_div, "table")
@@ -153,6 +154,11 @@ class AbbreviationExtension(Extension):
                 False,
                 'Verbose mode'
                 'Default: off`.'
+            ],
+            'title_enable': [
+                 True,
+                 'Enable Title printing'
+                 'Default: on`.'
             ],
             'title': [
                 'List of Abbreviations',

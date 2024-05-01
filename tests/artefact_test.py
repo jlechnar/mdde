@@ -24,7 +24,7 @@ with open('artefact_test.md', 'r') as f:
   text = f.read()
   try:
     html = markdown.markdown(text, tab_length=2, extensions=[ArtefactExtension(tools, verbose=True),
-                                                             MilestoneExtension(tools, verbose=True),
+                                                             MilestoneExtension(tools, verbose=True, title_enable=False),
                                                              IssueExtension(tools, verbose=True),
                                                              BugExtension(tools, verbose=True),
                                                              HtmlBaseExtension(title="Artefact Test")])

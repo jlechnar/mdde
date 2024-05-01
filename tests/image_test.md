@@ -57,6 +57,8 @@ More text.
 ![Alternative text: Image: test.odt.jpg](content/test4.odt.jpg "title: test odt jpg 14"): Test image of opendocument file using jpg as image format. 14
 
 
+# No description
+![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): 
 
 
 

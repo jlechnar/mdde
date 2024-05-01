@@ -29,6 +29,9 @@ The following sub modules are provided:
   * definition
   * list of images (loi)
     * links back and forth
+  * click on image to enlarge
+  * adds a link to base file if existing for editing
+    * base file must be located in parallel to image and named like the image without the image extension
 * abbreviations
   * definition of abbreviations
   * list of abbreviations (loa)
@@ -43,9 +46,6 @@ The following sub modules are provided:
   * can be links (e.g. to issue tracker)
 
 ### TODO
-* images
-  * click to enlarge
-  * link to base file if existing for editing
 * description table/list (bold items and detailed description) 
 * tables ?
 * title

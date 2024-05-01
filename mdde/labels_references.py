@@ -144,8 +144,7 @@ class LorReplaceTreeProcessor(Treeprocessor):
 
   def __init__(self, md, config):
     super().__init__(md)
-    self.title = config["title"]
-    self.numbered_links = config["numbered_links"]
+    self.config = config
 
   def run(self, root):
     self.replace_lor(root)
@@ -157,9 +156,10 @@ class LorReplaceTreeProcessor(Treeprocessor):
         if child.get("class") is not None:
           m = re.match(r'lor', child.get("class"))
           if m:
-            elor_references = etree.SubElement(child, "p")
-            elor_references.set("class", 'lor_heading')
-            elor_references.text = self.title
+            if self.config["title_enable"]:
+              elor_references = etree.SubElement(child, "p")
+              elor_references.set("class", 'lor_heading')
+              elor_references.text = self.config["title"]
 
             elor_div = etree.SubElement(child, "div")
 
@@ -176,13 +176,13 @@ class LorReplaceTreeProcessor(Treeprocessor):
 
               elor_data = etree.SubElement(elor_row, "td")
               a = etree.SubElement(elor_data, 'a')
-              if self.numbered_links:
+              if self.config["numbered_links"]:
                 a.text = "[" + str(self.md.lor_labels_nr[label_link_id]) + "]"
               else:
                 a.text = "[" + label_link_id + "]"
               #
               a_title = ""
-              if self.numbered_links:
+              if self.config["numbered_links"]:
                 a_title = "[" + str(self.md.lor_labels_nr[label_link_id]) + "] = "
               a_title += "[" + label_link_id + "]"
               a.set('title', a_title)
@@ -205,13 +205,13 @@ class LorReplaceTreeProcessor(Treeprocessor):
 
                     elor_data = etree.SubElement(elor_row, "td")
                     a = etree.SubElement(elor_data, 'a')
-                    if self.numbered_links:
+                    if self.config["numbered_links"]:
                       a.text = "&nbsp;&nbsp;" + "&#x21b3;" + "[" + str(self.md.lor_references_nr[reference_link_id]) + "]"
                     else:
                       a.text = "&nbsp;&nbsp;" + "&#x21b3;" + "[" + reference_link_id + "]"
                     #
                     a_title = ""
-                    if self.numbered_links:
+                    if self.config["numbered_links"]:
                       a_title = "[" + str(self.md.lor_references_nr[reference_link_id]) + "] = "
                     a_title += "[" + reference_link_id + "]"
                     a.set('title', a_title)
@@ -257,8 +257,7 @@ class LabelReplaceInlineProcessor(InlineProcessor):
 
   def __init__(self, pat, md, set_id, config):
     super().__init__(pat, md)
-    self.numbered_links = config["numbered_links"]
-    self.reference_symbol = config["reference_symbol"]
+    self.config = config
     self.set_id = set_id
 
   def handleMatch(self, m, md):
@@ -271,10 +270,10 @@ class LabelReplaceInlineProcessor(InlineProcessor):
     a.set('class', 'internal_reference')
     # FIXME: recursive eetree processing for below ???
 
-    a.text = self.reference_symbol
+    a.text = self.config["reference_symbol"]
     #
     a_title = ""
-    if self.numbered_links:
+    if self.config["numbered_links"]:
       a_title = "[" + str(self.md.lor_labels_nr[label_link_id]) + "] = "
     a_title += "[" + label_link_id + "]: " + label_text
     a.set('title', a_title)
@@ -286,7 +285,7 @@ class ReferenceReplaceInlineProcessor(InlineProcessor):
 
   def __init__(self, pat, md, config):
     super().__init__(pat, md)
-    self.numbered_links = config["numbered_links"]
+    self.config = config
 
   def handleMatch(self, m, md):
     reference_link_id = m.group(1)
@@ -301,7 +300,7 @@ class ReferenceReplaceInlineProcessor(InlineProcessor):
     a.set('id', reference_link_id)
     a.set('href', '#' + reference_link)
     a_title = ""
-    if self.numbered_links:
+    if self.config["numbered_links"]:
       a_title = "[" + str(self.md.lor_labels_nr[label_link_id]) + "] = "
     a_title += "[" + reference_link_id + "]" + "&#x2794;" + "[" + label_link_id + "]: " + label_text
     a.set('title', a_title)
@@ -309,7 +308,7 @@ class ReferenceReplaceInlineProcessor(InlineProcessor):
     if reference_text:
       a.text = reference_text
     else:
-      if self.numbered_links:
+      if self.config["numbered_links"]:
         a.text = "[" + str(self.md.lor_labels_nr[label_link_id]) + "]"
       else:
         a.text = "[" + label_link_id + "]"
@@ -344,6 +343,11 @@ class LabelsReferencesExtension(Extension):
         "*", # e.g. "&#x1F517;" => link, "&#x2693;" => anchor
         'Select symbol to be used for references',
         'Default: *`.'
+      ],
+      'title_enable': [
+        True,
+        'Enable Title printing'
+        'Default: on`.'
       ],
       'title': [
         'List of References',

@@ -13,7 +13,12 @@ sys.path.append(relative_path)
 import markdown
 from mdde.inht import *
 from mdde.image import *
+from mdde.artefact import *
+from mdde.milestone import *
+from mdde.issue import *
+from mdde.bug import *
 from mdde.abbreviation import *
+from mdde.labels_references import *
 from mdde.html_base import *
 from mdde.tools_c import *
 
@@ -22,10 +27,16 @@ tools = tools_c()
 with open('all_test.md', 'r') as f:
     text = f.read()
     try:
-        html = markdown.markdown(text, extensions=[INHTExtension(tools, debug=True),
-                                                   AbbreviationExtension(tools, debug=True),
-                                                   ImageExtension(tools, debug=True),
-                                                   HtmlBaseExtension(title="Abbreviation Test")])
+        html = markdown.markdown(text, extensions=[
+          LabelsReferencesExtension(tools, debug=True, numbered_links=False, title_enable=False),
+          INHTExtension(tools, debug=True),
+          AbbreviationExtension(tools, debug=True, title_enable=False),
+          ArtefactExtension(tools, verbose=True, title_enable=False),
+          MilestoneExtension(tools, verbose=True, title_enable=False),
+          IssueExtension(tools, verbose=True, title_enable=False),
+          BugExtension(tools, verbose=True, title_enable=False),
+          ImageExtension(tools, debug=True, title_enable=False),
+          HtmlBaseExtension(title="Abbreviation Test")])
     except INHTException as e:
         print(str(e))
     except ImageException as e:

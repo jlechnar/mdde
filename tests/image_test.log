@@ -90,3 +90,11 @@ DEBUG: IMAGE: <![Alternative text: Image: test.odt.jpg](content/test4.odt.jpg "t
   <Test image of opendocument file using jpg as image format. 14>
 DEBUG:     <content/test4.odt.jpg>
     <title: test odt jpg 14>
+DEBUG: IMAGE: <
+# No description
+![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): >:
+  <Alternative text: Image: test.odt.png>
+  <content/test.odt.png "title: test odt png 1">
+  < >
+DEBUG:     <content/test.odt.png>
+    <title: test odt png 1>
