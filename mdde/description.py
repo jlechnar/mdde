@@ -30,9 +30,10 @@ class DescriptionTreeProcessor(Treeprocessor):
 #  RE_DESCRIPTION_LIST = r'^\s*\[([^\]]+)\]\:\s*(.+)$'
   RE_DESCRIPTION_LIST = r'^\s*\*\*([^\*]+)\*\*:\s*(.+)$'
 
-  def __init__(self, md, config):
+  def __init__(self, md, tools, config):
     super().__init__(md)
-    self.verbose = config["verbose"]
+    self.tools = tools
+    self.config = config
 
   def run(self, root):
     self.replace_list_with_descriptionlist(root)
@@ -43,7 +44,7 @@ class DescriptionTreeProcessor(Treeprocessor):
     if element.tag == "ul":
       li_cnt = 0
       dl_cnt = 0
-      if self.verbose:
+      if self.config["verbose"]:
         print("")
         print(etree.tostring(element, encoding='utf8'))
 
@@ -51,7 +52,7 @@ class DescriptionTreeProcessor(Treeprocessor):
       if element.tag == "ul":
         if child.tag == "li":
           li_cnt += 1
-          if self.verbose:
+          if self.config["verbose"]:
             print("LI: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + str(child.text))
           matched = False
           if child.text:
@@ -61,35 +62,41 @@ class DescriptionTreeProcessor(Treeprocessor):
             if m:
               dl_cnt += 1
               matched = True
-              if self.verbose:
+              if self.config["verbose"]:
                 print("  DL: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + m.group(1) + " : " + m.group(2))
           if not matched:
             for subchild in child:
-              if self.verbose:
+              if self.config["verbose"]:
                 print(" LI (SC) test: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + str(subchild.text))
               if subchild.tag == "p":
                  m = re.match(self.RE_DESCRIPTION_LIST, subchild.text, re.DOTALL)
                  if m:
                    dl_cnt += 1
-                   if self.verbose:
+                   if self.config["verbose"]:
                      print("    DL (SC): " + str(dl_cnt) + "/" + str(li_cnt) + " => " + m.group(1) + " : " + m.group(2))
         else:
-          DescriptionException("ERROR: unexpected element not li in ul list instead it is of type " + child.tag)
+          # we expect that ul elements only contain li elements !
+          raise DescriptionException("ERROR: unexpected element not li in ul list instead it is of type " + child.tag)
 
       self.replace_list_with_descriptionlist(child)
 
     # return
 
     if li_cnt > 0:
+      # if there are any li elements in ul element then:
+      
       if dl_cnt != li_cnt:
-         DescriptionException("ERROR: Only " + str(dl_cnt) + " of " + str(li_cnt) + " list items are proper description list items.")
+        # in case not all li elements follow descriptive defintion
+        raise DescriptionException("ERROR: Only " + str(dl_cnt) + " of " + str(li_cnt) + " list items are proper description list items.")
       else:
         element.tag = 'dl' # replace ul with dl
         position = 0
         for child in element:
           position += 1
-          if not child.tag == "li":
-            DescriptionException("ERROR: unexpected element not li in ul list instead it is of type " + child.tag)
+
+          # we expect li tags or previous with dd replaced li tags
+          if not child.tag == "li" and not child.tag == "dd":
+            raise DescriptionException("ERROR: (lic_cnt>0) unexpected element not li in ul list instead it is of type " + child.tag)
 
           # FIXME: implement check for <p> within list item ! => also check if we could have here more complex / different stuff too ?!
 
@@ -160,7 +167,7 @@ class DescriptionExtension(Extension):
     # Treeprocessors
 
     # replace lists with description lists
-    description_ext = self.DescriptionTreeProcessorClass(md, self.getConfigs())
+    description_ext = self.DescriptionTreeProcessorClass(md, self.tools, self.getConfigs())
     md.treeprocessors.register(description_ext, 'reference__description', 165)
 
     # ------------

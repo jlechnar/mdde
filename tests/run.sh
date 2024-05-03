@@ -21,3 +21,4 @@ python3 artefact_test.py | tee artefact_test.log
 python3 code_test.py | tee code_test.log
 python3 link_test.py | tee link_test.log
 python3 paragraph_test.py | tee paragraph_test.log
+python3 comments_test.py | tee comments_test.log

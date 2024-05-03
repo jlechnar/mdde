@@ -67,8 +67,14 @@ class AbbreviationBlockProcessor(BlockProcessor):
        
 # -------------------------------------------------------------------------------
 class LoaPositionBlockProcessor(BlockProcessor):
-    RE_LOA = r'^{loa}$'
-
+   
+    def __init__(self, tools, parser, md, config):
+        super().__init__(parser)
+        self.md = md
+        self.tools = tools
+        self.config = config
+        self.RE_LOA = r'^\s*(' + self.config['list_commands'] + ')\s*$'
+    
     def test(self, parent, block):
         return re.match(self.RE_LOA, block)
 
@@ -160,6 +166,11 @@ class AbbreviationExtension(Extension):
                  'Enable Title printing'
                  'Default: on`.'
             ],
+            'list_commands': [
+                '{loa}|{list_of_abbreviations}',
+                'Command to support for list of abbreviations generation'
+                'Default: `loa`, `list_of_abbreviations`.'
+            ],
             'title': [
                 'List of Abbreviations',
                 'Title for LOA'
@@ -188,7 +199,7 @@ class AbbreviationExtension(Extension):
         md.parser.blockprocessors.register(AbbreviationBlockProcessor(md.parser, self.tools, md, self.getConfigs()), 'abbreviation_block_processor', 175)
         
         # prepare loa for replacement
-        md.parser.blockprocessors.register(LoaPositionBlockProcessor(md.parser), 'abbreviation__loa_position', 175)
+        md.parser.blockprocessors.register(LoaPositionBlockProcessor(self.tools, md.parser, md, self.getConfigs()), 'abbreviation__loa_position', 175)
 
         # ------------
         # Treeprocessors

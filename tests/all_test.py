@@ -19,7 +19,9 @@ from mdde.issue import *
 from mdde.bug import *
 from mdde.abbreviation import *
 from mdde.labels_references import *
+from mdde.description import *
 from mdde.html_base import *
+from mdde.comments import *
 from mdde.tools_c import *
 
 tools = tools_c() 
@@ -27,8 +29,8 @@ tools = tools_c()
 with open('all_test.md', 'r') as f:
     text = f.read()
     try:
-        html = markdown.markdown(text, extensions=[
-          LabelsReferencesExtension(tools, debug=True, numbered_links=False, title_enable=False),
+        html = markdown.markdown(text, tab_length=2, extensions=[
+          LabelsReferencesExtension(tools, debug=True, numbered_links=False, title_enable=False, ignore_duplicates=True),
           INHTExtension(tools, debug=True),
           AbbreviationExtension(tools, debug=True, title_enable=False),
           ArtefactExtension(tools, verbose=True, title_enable=False),
@@ -36,12 +38,18 @@ with open('all_test.md', 'r') as f:
           IssueExtension(tools, verbose=True, title_enable=False),
           BugExtension(tools, verbose=True, title_enable=False),
           ImageExtension(tools, debug=True, title_enable=False),
+          DescriptionExtension(tools, verbose=True), 
+          CommentsExtension(tools, verbose=True), 
           HtmlBaseExtension(title="Abbreviation Test")])
     except INHTException as e:
         print(str(e))
     except ImageException as e:
         print(str(e))
     except AbbreviationException as e:
+        print(str(e))
+    except LabelsReferencesException as e:
+        print(str(e))
+    except Exception as e:
         print(str(e))
 
 with open('all_test.html', 'w') as f:

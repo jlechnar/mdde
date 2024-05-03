@@ -48,8 +48,9 @@ class IncludePre(Preprocessor):
 
         with open(filename, 'r', encoding='UTF-8') as file:
             while line := file.readline():
-                line.rstrip()
+                line = line.rstrip() # only remove trailing spaces and linebreaks, leading spaces must be untouched as required by markdown syntax !
                 lines.append(line)
+        # recursive call for read lines
         return self.run_with_level(level, lines)
 
     def run_with_level(self, level, lines):
@@ -128,8 +129,10 @@ class IncludePre(Preprocessor):
 
         return new_lines
 
+    # run is called for root
     def run(self, lines):
-      return self.run_with_level(0, lines)
+      lns = self.run_with_level(0, lines)
+      return lns
 
 # -------------------------------------------------------------------------------
 #

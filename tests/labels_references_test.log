@@ -1,3 +1,4 @@
+DEBUG: INT LINK: section_a: "section a"
 DEBUG: INT REF: section_a: "Section A"
 DEBUG: INT LINK: section_b: "Section B"
 DEBUG: INT LINK: section_c: "Section C"
@@ -15,6 +16,7 @@ DEBUG: INT REF: section_e: "Section E"
 DEBUG: INT REF: section_detailed_e: "Details section E"
 DEBUG: INT REF: section_f: ""
 DEBUG: INT REF: section_detailed_f: "Details section F"
+DEBUG: INT LINK: section_a: "section a"
 DEBUG: INT REF: section_a: "Section A"
 DEBUG: INT LINK: section_b: "Section B"
 DEBUG: INT LINK: section_c: "Section C"
@@ -32,12 +34,14 @@ DEBUG: INT REF: section_e: "Section E"
 DEBUG: INT REF: section_detailed_e: "Details section E"
 DEBUG: INT REF: section_f: ""
 DEBUG: INT REF: section_detailed_f: "Details section F"
-DEBUG:  HEADING: 1. Section A [Section A][#section_a]
-DEBUG:  HEADING: 2. Section B [Section B][#section_b]
-DEBUG:  HEADING: 3. Section C [Section C][#section_c]
-DEBUG:  HEADING: 4. Section D [Section D][#section_d]
-DEBUG:  HEADING: 5. Section E [Section E][#section_e]
-DEBUG:  HEADING: 6. Section F [][#section_f]
+DEBUG:  HEADING: 1. Section Test
+DEBUG:  HEADING: 2. Section A [Section A][#section_a]
+DEBUG:  HEADING: 3. Section B [Section B][#section_b]
+DEBUG:  HEADING: 4. Section C [Section C][#section_c]
+DEBUG:  HEADING: 5. Section D [Section D][#section_d]
+DEBUG:  HEADING: 6. Section E [Section E][#section_e]
+DEBUG:  HEADING: 7. Section F [][#section_f]
+DEBUG: INT LINK: section_a: "section a"
 DEBUG: INT REF: section_a: "Section A"
 DEBUG: INT LINK: section_b: "Section B"
 DEBUG: INT LINK: section_c: "Section C"
@@ -55,12 +59,14 @@ DEBUG: INT REF: section_e: "Section E"
 DEBUG: INT REF: section_detailed_e: "Details section E"
 DEBUG: INT REF: section_f: ""
 DEBUG: INT REF: section_detailed_f: "Details section F"
-DEBUG:  HEADING: 1. Section A [Section A][#section_a]
-DEBUG:  HEADING: 2. Section B [Section B][#section_b]
-DEBUG:  HEADING: 3. Section C [Section C][#section_c]
-DEBUG:  HEADING: 4. Section D [Section D][#section_d]
-DEBUG:  HEADING: 5. Section E [Section E][#section_e]
-DEBUG:  HEADING: 6. Section F [][#section_f]
+DEBUG:  HEADING: 1. Section Test
+DEBUG:  HEADING: 2. Section A [Section A][#section_a]
+DEBUG:  HEADING: 3. Section B [Section B][#section_b]
+DEBUG:  HEADING: 4. Section C [Section C][#section_c]
+DEBUG:  HEADING: 5. Section D [Section D][#section_d]
+DEBUG:  HEADING: 6. Section E [Section E][#section_e]
+DEBUG:  HEADING: 7. Section F [][#section_f]
+DEBUG: INT LINK: section_a: "section a"
 DEBUG: INT REF: section_a: "Section A"
 DEBUG: INT LINK: section_b: "Section B"
 DEBUG: INT LINK: section_c: "Section C"

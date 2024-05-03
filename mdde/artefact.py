@@ -14,6 +14,7 @@ from mdde.tools_c import *
 # Licence:     MIT Licence 
 # Source:      https://github.com/jlechnar/mdde
 
+
 # -------------------------------------------------------------------------------
 # Artefact:
 # ============
@@ -124,7 +125,6 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
   def __init__(self, md, config):
     super().__init__(md)
     self.config = config
-    # self.numbered_links = config["numbered_links"]
 
   def run(self, root):
     self.replace_loa(root)
@@ -226,18 +226,12 @@ class ArtefactReplaceInlineProcessor(InlineProcessor):
   def __init__(self, pat, md, config):
     super().__init__(pat, md)
     self.config = config
-    #self.numbered_links = config["numbered_links"]
-    #self.reference_symbol = config["reference_symbol"]
-    #self.set_id = set_id
 
   def handleMatch(self, m, md):
     artefact_id = m.group(1)
     # label_link_id = m.group(1)
     # label_text = self.md.lor_labels[label_link_id]
 
-    # FIXME: check this already before ?!
-    if not artefact_id in self.md.loa:
-      ArtefactException("ERROR: Unexpected artefact id")
 
     if self.config["link"]:
       e = etree.Element('a')
@@ -256,19 +250,6 @@ class ArtefactReplaceInlineProcessor(InlineProcessor):
     if self.config["link"]:
       e.set('href', self.config["link_prefix"] + artefact + self.config["link_postfix"])
 
-    # if self.set_id:
-    #   a.set('id', label_link_id)
-    # a.set('href', '#' + "lor:" + label_link_id + ":")
-    # a.set('class', 'internal_reference')
-    # # FIXME: recursive eetree processing for below ???
-    #
-    # a.text = self.reference_symbol
-    # #
-    # a_title = ""
-    # if self.numbered_links:
-    #   a_title = "[" + str(self.md.lor_labels_nr[label_link_id]) + "] = "
-    # a_title += "[" + label_link_id + "]: " + label_text
-    # a.set('title', a_title)
 
     return e, m.start(0), m.end(0)
 

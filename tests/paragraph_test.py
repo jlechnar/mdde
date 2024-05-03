@@ -12,28 +12,32 @@ sys.path.append(relative_path)
 
 import markdown
 from mdde.html_base import *
+from mdde.inht import *
 from mdde.tools_c import *
 
 tools = tools_c() 
 
 with open('paragraph_test.md', 'r') as f:
-    text = f.read()
-#    try:
-    html = markdown.markdown(text, extensions=[HtmlBaseExtension(title="Paragrapth Test")])
-#    except INHTException as e:
-#        print(str(e))
+  text = f.read()
+  try:
+    html = markdown.markdown(text, extensions=[
+        HtmlBaseExtension(title="Paragrapth Test"),
+        INHTExtension(tools, debug=True)
+      ])
+  except INHTException as e:
+    print(str(e))
 #    except ImageException as e:
 #        print(str(e))
 #    except AbbreviationException as e:
 #        print(str(e))
 
 with open('paragraph_test.html', 'w') as f:
-    f.write(html)
+  f.write(html)
 
 with open('paragraph_test.md', 'r') as f:
-    text = f.read()
-    html = markdown.markdown(text)
+  text = f.read()
+  html = markdown.markdown(text)
 
 with open('paragraph_test_no_extension.html', 'w') as f:
-    f.write(html)
+  f.write(html)
 

@@ -1,6 +1,8 @@
 
 {loa}
 
+{list_of_abbreviations}
+
 <!--
 Trials
 [a:abbreviation](expanded "details")

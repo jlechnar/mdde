@@ -50,7 +50,10 @@ class LabelBlockProcessor(BlockProcessor):
         self.tools.debug("INT REF: " + label_link_id + ": \"" + label_text + "\"")
 
       if label_link_id in self.md.lor_labels:
-        LabelsReferencesException("FATAL: Duplicated definition of internal reference: " + label_link_id)
+        if self.config["ignore_duplicates"]:
+          self.tools.warning("(ingored FATAL ERROR) Duplicated definition of internal reference: " + label_link_id)
+        else:
+          raise LabelsReferencesException("FATAL: Duplicated definition of internal reference: " + label_link_id)
       else:
         self.md.lor_labels[label_link_id] = label_text
 
@@ -93,8 +96,9 @@ class ReferenceBlockProcessor(BlockProcessor):
       # FIXME: we need a check but we need it later when everything is read in !
       # if not self.lor.ilor[]
 
-      if not reference_link in self.md.lor_labels:
-        LabelsReferencesException("FATAL: Undefined label for reference to: " + reference_link)
+      # we must not check until we have read all lines could be the case that we defined a reference after referenceing it !
+      # if not reference_link in self.md.lor_labels:
+      #   raise LabelsReferencesException("FATAL: Undefined lable for reference to: " + reference_link)
 
       if not reference_link in self.md.lor_references_index:
         self.md.lor_references_index[reference_link] = 0
@@ -222,7 +226,7 @@ class LorReplaceTreeProcessor(Treeprocessor):
                     elor_data = etree.SubElement(elor_row, "td")
                     elor_data.text = reference_text
                   else:
-                    LabelsReferencesException("missing ID for <" + reference_link_id + "> in lor_references.")
+                    raise LabelsReferencesException("missing ID for <" + reference_link_id + "> in lor_references.")
 
       self.replace_lor(child)
 
@@ -293,7 +297,7 @@ class ReferenceReplaceInlineProcessor(InlineProcessor):
 
     label_link_id = reference_link
     if not label_link_id in self.md.lor_labels:
-      LabelsReferencesException("ERROR: Missing link to refrerence with id: <" + label_link_id + ">")
+      raise LabelsReferencesException("ERROR: Missing link to refrerence with id: <" + label_link_id + ">")
     label_text = self.md.lor_labels[label_link_id]
 
     a = etree.Element('a')
@@ -332,6 +336,11 @@ class LabelsReferencesExtension(Extension):
       'verbose': [
         False,
         'Verbose mode'
+        'Default: off`.'
+      ],
+      'ignore_duplicates': [
+        False,
+        'Ignore duplicated defintions of references'
         'Default: off`.'
       ],
       'numbered_links': [
