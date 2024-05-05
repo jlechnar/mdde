@@ -1,3 +1,4 @@
+DEBUG: CODE MOVE: ``` [Yet another Code] => {code:Yet another Code} + ``` 
 INFO: Comments: Ignoring comment: <% this is a comment 1>
 INFO: Comments: Not Ignoring command part of comment: <Hello world! >
 INFO: Comments: Ignoring comment: <% this is a comment 2>
@@ -22,6 +23,7 @@ DEBUG:   HEADING: 1.4. List of Artefacts
 DEBUG:   HEADING: 1.5. List of Milestones
 DEBUG:   HEADING: 1.6. List of Bugs
 DEBUG:   HEADING: 1.7. List of Issues
+DEBUG:   HEADING: 1.8. List of Codes
 DEBUG:  HEADING: 2. Images [img][#images]
 DEBUG:  HEADING: 3. Abbreviations [abbrev][#abbreviations]
 DEBUG:  HEADING: 4. References
@@ -169,6 +171,7 @@ DEBUG:         HEADING: 6.5.3.10.4.1.5.3. test separator 3
 DEBUG:         HEADING: 6.5.3.10.4.1.5.4. test separator 3
 DEBUG:   HEADING: 6.6. Descriptions
 DEBUG:  HEADING: 7. Comments
+DEBUG:  HEADING: 8. Code
 DEBUG: INT REF: images: "img"
 DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
@@ -667,6 +670,10 @@ A (artefact): artefact:3:26 => 3
 A (milestone): milestone:beta:26 => beta
 A (issue): issue:1:26 => 1
 A (bug): bug:1:26 => 1
+DEBUG: CODE: Yet another Code
+A (artefact): artefact:1:1 => 1
+DEBUG: CODE: code block
+LOA (artefact): artefact:1:1 => 1
 LOA (artefact): artefact:3:1 => 3
 LOA (artefact): artefact:3:2 => 3
 LOA (artefact): artefact:3:3 => 3

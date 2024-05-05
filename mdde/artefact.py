@@ -29,7 +29,7 @@ from mdde.tools_c import *
 #
 # A List of artefacts can be created with links to items.
 #
-  
+
 # -------------------------------------------------------------------------------
 # parses the code and detects and uniquifies each found artefact by adding a artefact number / replacing the original artefact for later unique processing.
 #
@@ -51,6 +51,7 @@ class ArtefactBlockProcessor(BlockProcessor):
   def run(self, parent, blocks):
     tag = self.config['tag']
 
+    # multiple artefacts per line are possible so we iterate over them!
     seenany = False
     for match in re.finditer(self.re_artefact, blocks[0], re.DOTALL):
       seenany = True
@@ -60,22 +61,21 @@ class ArtefactBlockProcessor(BlockProcessor):
       self.md.loa_id_nr[tag][artefact] += 1
 
       artefact_id = tag + ":" + artefact + ":" + str(self.md.loa_id_nr[tag][artefact])
-      
+
       self.md.loa_artefact_id_to_id_nr[tag][artefact_id] = self.md.loa_id_nr[tag][artefact]
-      
+
       # each artefact may be there multiple times
       # we need a list of uniqe ids so that we can print the loa
       if not artefact in self.md.loa[tag]:
-        self.md.loa[tag][artefact] = [] # collections.defaultdict(list)
-      self.md.loa[tag][artefact].append(artefact_id) # FIXME: does not work as append is not part of defaultdict(list) ??? # create own class for this ???
-        
+        self.md.loa[tag][artefact] = []
+      self.md.loa[tag][artefact].append(artefact_id)
+
       if self.config["verbose"]:
         print("A (" + tag + "): " + artefact_id + " => " + artefact)
 
       self.md.loa_id_map[tag][artefact_id] = artefact
 
       blocks[0] = match.group(1) + "{DONE:" + match.group(2) + artefact_id + "}" + match.group(4)
-      #re.sub(re.escape(match.group(0)), "{DONE:" + match.group(1) + artefact_id + "}", blocks[0])
 
     if seenany:
       return True
@@ -114,9 +114,9 @@ class ArtefactLoaPositionBlockProcessor(BlockProcessor):
 # ---------------------------------------------------------------
 # natural sorting of alphanumeric numbers
 tokenize = re.compile(r'(\d+)|(\D+)').findall
-def natural_sortkey(string):          
+def natural_sortkey(string):
     return tuple(int(num) if num else alpha for num, alpha in tokenize(string))
-  
+
 # ---------------------------------------------------------------
 # Creates the 'list of artefacts'
 #
@@ -152,9 +152,9 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
             e_loa_table.set('class', "loa__" + tag)
 
             for artefact in sorted(self.md.loa[tag], key=natural_sortkey):
-              
+
               e_loa_row = etree.SubElement(e_loa_table, "tr")
-                
+
               e_loa_data = etree.SubElement(e_loa_row, "td")
               if self.config["link"]:
                 a = etree.SubElement(e_loa_data, 'a')
@@ -162,13 +162,13 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
                 a = etree.SubElement(e_loa_data, 'span')
 
               artefact_text = self.config["text_prefix"] + artefact + self.config["text_postfix"]
-              
+
               #if self.numbered_links:
               #  a.text = "[" + str(self.md.loa_labels_nr[label_link_id]) + "]"
               #else:
               a.text = "[" + artefact_text + "]"
               a.set('href', self.config["link_prefix"] + artefact + self.config["link_postfix"])
-              
+
               a_title = ""
               #if self.numbered_links:
               #  a_title = "[" + str(self.md.loa_labels_nr[artefact_id]) + "] = "
@@ -182,9 +182,9 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
               e_loa_data_links = etree.SubElement(e_loa_row, "td")
 
               first_element = True
-              
+
               for artefact_id in sorted(self.md.loa[tag][artefact], key=natural_sortkey):
-                
+
                 if self.config["verbose"]:
                   print("LOA (" + tag + "): " + artefact_id + " => " + artefact)
 
@@ -192,11 +192,11 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
                   e_loa_data = etree.SubElement(e_loa_data_links, "span")
                   e_loa_data.text = ", "
                 first_element = False
-                
+
                 artefact_id_nr = self.md.loa_artefact_id_to_id_nr[tag][artefact_id]
-                
+
                 # e_loa_row = etree.SubElement(e_loa_table, "tr")
-            
+
                 e_loa_data = etree.SubElement(e_loa_data_links, "span")
                 a = etree.SubElement(e_loa_data, 'a')
                 #if self.numbered_links:
@@ -213,8 +213,8 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
                 #
                 a.set('class', 'internal_reference_link')
                 a.set('href', "#" + artefact_id)
-                
-                
+
+
       self.replace_loa(child)
 
 # ------------------------------------------------------------------------
@@ -352,7 +352,8 @@ class ArtefactExtension(Extension):
     # Inlineprocessors
 
     ARTEFACT_PATTERN = r'\{DONE:' + self.config["tag"][0] + ':([^\}]+)\}'
-    md.inlinePatterns.register(ArtefactReplaceInlineProcessor(ARTEFACT_PATTERN, md, self.getConfigs()), md_id + '_replace_inline', 165)
+    # > 190-194 required as else parts inside code sections do not get replaced before code is decoded by python-markdown !!!
+    md.inlinePatterns.register(ArtefactReplaceInlineProcessor(ARTEFACT_PATTERN, md, self.getConfigs()), md_id + '_replace_inline', 200)
 
     # ------------
     # Postprocessors
@@ -396,7 +397,7 @@ class ArtefactExtension(Extension):
     # map artefact_id to id_nr
     self.md.loa_artefact_id_to_id_nr = collections.defaultdict(dict)
     self.md.loa_artefact_id_to_id_nr[tag] = {}
-    
+
     pass
 
 # -------------------------------------------------------------------------------

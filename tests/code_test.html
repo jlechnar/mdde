@@ -6,7 +6,22 @@
     <link rel="stylesheet" href="mdde.css">
   </head>
   <body>
-<p>{loc}</p>
+<div class="loc">
+<p class="loc_title">List of Codes</p>
+<div>
+<table class="loc_table">
+<tr>
+<td><a class="code_loc" href="#code:1:" id="loc:1:">Code 1: More detailed code</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:2:" id="loc:2:">Code 2: Yet another Code</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:3:" id="loc:3:">Code 3: code block direct</a></td>
+</tr>
+</table>
+</div>
+</div>
 <h1>Section A</h1>
 <p>Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p>
 <p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p>
@@ -14,13 +29,26 @@
 <!-- we could reuse the definition of split links for defining header description of code blocks ??? -->
 
 <!-- [below shows code block for]: -->
-<p><code>{ .html }
+<p><span><a class="code_header" href="#loc:1:" id="code:1:">Code 1:</a><span class="code_header_text"> More detailed code</span></span>
+<pre>{ .html }
 a = a+1
-c = c*a</code></p>
+c = c*a</pre>
+</p>
 <p>[below shows code block for code without markdown code block maker but just using spaces]:
     a = a+1
     b = b+2</p>
 <p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p>
 <p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p>
+<h1>Codes</h1>
+<p>The code is below.</p>
+<p><span><a class="code_header" href="#loc:2:" id="code:2:">Code 2:</a><span class="code_header_text"> Yet another Code</span></span>
+<pre>a = a + 1
+bla {artefact:1}</pre>
+</p>
+<p><span><a class="code_header" href="#loc:3:" id="code:3:">Code 3:</a><span class="code_header_text"> code block direct</span></span>
+<pre>test
+test2
+test3</pre>
+</p>
   </body>
 </html>

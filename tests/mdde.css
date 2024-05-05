@@ -45,6 +45,23 @@ body {
 }
 
 /* =================================== */
+a.code_header {
+  font-weight: bold;
+}
+
+span.code_header_text {
+  font-style: italic;
+}
+
+pre {
+  font-family: monospace;
+  background: #f0f0f0;
+  color: #000000;
+  padding: 15px 15px; 
+  border-radius: 5px;
+}
+
+/* =================================== */
 span.artefact {
   color: lightgreen;
   font-weight: bold;
@@ -247,6 +264,12 @@ p.toc {
 
 /* ============================== */
 p.loi {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* ============================== */
+p.loc_title {
   font-size: 2.5em;
   font-weight: bold;
 }

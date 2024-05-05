@@ -1,0 +1,5 @@
+DEBUG: CODE MOVE: ``` [More detailed code] { .html } => {code:More detailed code} + ```  { .html }
+DEBUG: CODE MOVE: ``` [Yet another Code] => {code:Yet another Code} + ``` 
+DEBUG: CODE: More detailed code
+DEBUG: CODE: Yet another Code
+DEBUG: CODE: code block direct

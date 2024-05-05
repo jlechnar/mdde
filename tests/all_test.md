@@ -24,6 +24,9 @@
 ## List of Issues
 {loa:issue}
 
+## List of Codes
+{loc}
+
 <!-- ======================================= -->
 # Images [img][#images]
 
@@ -132,3 +135,20 @@ Hello again!
 
 %
 Hi!
+
+
+# Code
+The code is below.
+
+``` [Yet another Code]
+a = a + 1
+bla {artefact:1}
+```
+
+{code:code block}
+```
+test
+test2
+test3
+```
+

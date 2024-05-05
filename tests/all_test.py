@@ -22,6 +22,7 @@ from mdde.labels_references import *
 from mdde.description import *
 from mdde.html_base import *
 from mdde.comments import *
+from mdde.codes import *
 from mdde.tools_c import *
 
 tools = tools_c() 
@@ -38,6 +39,7 @@ with open('all_test.md', 'r') as f:
           IssueExtension(tools, verbose=True, title_enable=False),
           BugExtension(tools, verbose=True, title_enable=False),
           ImageExtension(tools, debug=True, title_enable=False),
+          CodesExtension(tools, verbose=True, title_enable=False), 
           DescriptionExtension(tools, verbose=True), 
           CommentsExtension(tools, verbose=True), 
           HtmlBaseExtension(title="Abbreviation Test")])

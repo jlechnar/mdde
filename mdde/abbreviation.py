@@ -40,7 +40,7 @@ class AbbreviationBlockProcessor(BlockProcessor):
    def run(self, parent, blocks):
 
         m = re.search(self.RE_ABBREVIATION, blocks[0])
-        
+
         if m:
             abbreviation_short = m.group(2)
             abbreviation_long = m.group(3)
@@ -64,17 +64,17 @@ class AbbreviationBlockProcessor(BlockProcessor):
             return True
         else:
             return False
-       
+
 # -------------------------------------------------------------------------------
 class LoaPositionBlockProcessor(BlockProcessor):
-   
-    def __init__(self, tools, parser, md, config):
+
+    def __init__(self, parser, tools, md, config):
         super().__init__(parser)
         self.md = md
         self.tools = tools
         self.config = config
         self.RE_LOA = r'^\s*(' + self.config['list_commands'] + ')\s*$'
-    
+
     def test(self, parent, block):
         return re.match(self.RE_LOA, block)
 
@@ -124,12 +124,12 @@ class LoaReplaceTreeProcessor(Treeprocessor):
                          eloa_data.text = "Long"
                          eloa_data = etree.SubElement(eloa_row, "th")
                          eloa_data.text = "Description"
-                         
+
                          for loa in self.md.loa_loa:
                              abbreviation_short = self.md.loa_loa[loa][0]
                              abbreviation_long = self.md.loa_loa[loa][1]
                              abbreviation_description = self.md.loa_loa[loa][2]
-                             
+
                              eloa_row = etree.SubElement(eloa_table, "tr")
 
                              eloa_data = etree.SubElement(eloa_row, "td")
@@ -145,11 +145,11 @@ class LoaReplaceTreeProcessor(Treeprocessor):
 
 # -------------------------------------------------------------------------------
 class AbbreviationExtension(Extension):
-    
+
     LoaReplaceTreeProcessorClass = LoaReplaceTreeProcessor
 
     def __init__(self, tools, **kwargs):
-        self.tools = tools 
+        self.tools = tools
         self.config = {
            'debug': [
                 False,
@@ -197,9 +197,9 @@ class AbbreviationExtension(Extension):
         # Blockprocessors
 
         md.parser.blockprocessors.register(AbbreviationBlockProcessor(md.parser, self.tools, md, self.getConfigs()), 'abbreviation_block_processor', 175)
-        
+
         # prepare loa for replacement
-        md.parser.blockprocessors.register(LoaPositionBlockProcessor(self.tools, md.parser, md, self.getConfigs()), 'abbreviation__loa_position', 175)
+        md.parser.blockprocessors.register(LoaPositionBlockProcessor(md.parser, self.tools, md, self.getConfigs()), 'abbreviation__loa_position', 175)
 
         # ------------
         # Treeprocessors
@@ -207,7 +207,7 @@ class AbbreviationExtension(Extension):
         # generate loa
         loa_replace_ext = self.LoaReplaceTreeProcessorClass(md, self.getConfigs())
         md.treeprocessors.register(loa_replace_ext, 'abbreviation__loa_replace', 177)
-        
+
         # ------------
         # Inlineprocessors
 
@@ -216,14 +216,14 @@ class AbbreviationExtension(Extension):
 
     def reset(self):
         # global variables to share between processing sequences
-        
+
         # loa_loa contains the table of contents in the form of dictionary entries each consisting of a list of three elements:
         # loa_loa[abbreviation_short_uppercase] = [abbreviation_short, abbreviation_long, abbreviation_description]
         #
         self.md.loa_loa = {}
 
         pass
-        
+
 # -------------------------------------------------------------------------------
 class AbbreviationException(Exception):
     name = "AbbreviationException"

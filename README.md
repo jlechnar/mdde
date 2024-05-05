@@ -12,6 +12,11 @@ The following sub modules are provided:
 * `description`: Is used to defines descriptions within list elements. Text headings are defined per list element instead of bullets. Nested descriptions are supported. The user can format the sections using css.
 * `image`: Defines images with label texts. Also list of images can be generated with links back and forth.
 * `labels_references.py`: Enables to define lables and referenes to these labels. Links are generated for the references. Further, list with links of references and labels can be generated as document index.
+* `comments.py`: support for single line comments starting with 
+* `codes.py`: provides headings for code sections, list of codes and links back and forth
+
+Furthermore there is a vim folder that shows how to add syntax highlighting for new commands.
+See `vim/readme.md` for more details.
 
 ## Features
 * Files
@@ -44,9 +49,16 @@ The following sub modules are provided:
   * artefacts can easily be reused for defining new classes of elements
   * supports list of artefacts generation (loa)
   * can be links (e.g. to issue tracker)
+* comments
+  * single line comments
+* code section
+  * titles for code sections
+  * list of codes
+* description table/list
+  * bold items and detailed description
+  * provided by normal lists with follow with a bold text followed by a double dot
 
 ### TODO
-* description table/list (bold items and detailed description) 
 * tables ?
 * title
 * show other features of markdown
@@ -54,11 +66,15 @@ The following sub modules are provided:
   * list of lists
   * quotes
   * html
-* code section
-  * titles for code sections
-  * list of codes
 * external links / direct links
   * list of links
+  * links to links
+* reformat python code to common format pep8 ?
+* inht
+  * disable heading id printing for lists (lor, ...)
+  * count with symbols for appendix
+* more differnt commands for lists => lor => list_of_references
+  * add selection of codes via configuration
 
 ## Usage
 tbw.
