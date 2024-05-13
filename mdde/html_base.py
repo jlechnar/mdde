@@ -6,15 +6,14 @@ class HtmlBasePostprocesor(Postprocessor):
 
     def __init__(self, md, config):
         super().__init__(md)
-        self.verbose = config["verbose"]
-        self.title = config["title"]
+        self.config = config
 
     def run(self, text):
         all  = '<!DOCTYPE html>\n'
         all += '<html lang="en">\n'
         all += '  <head>\n'
         all += '<meta charset="UTF-8">\n'
-        all += '    <title>' + self.title + '</title>\n'
+        all += '    <title>' + self.config["title"] + '</title>\n'
         all += '    <link rel="stylesheet" href="mdde.css">\n'
         all += '  </head>\n'
         all += '  <body>\n'
@@ -22,22 +21,28 @@ class HtmlBasePostprocesor(Postprocessor):
         all += '  </body>\n'
         all += '</html>\n'
 
-        return all 
+        return all
 
 class HtmlBaseExtension(Extension):
 
     HtmlBasePostprocessorClass = HtmlBasePostprocesor
 
-    def __init__(self, **kwargs):
+    def __init__(self, tools, **kwargs):
+        self.tools = tools
         self.config = {
+            'message_identifier': [
+                'HTML_BASE',
+                'Message Identifier',
+                'Default: HTML_BASE`.'
+            ],
             'verbose': [
                 False,
-                'Verbose mode'
+                'Verbose mode',
                 'Default: off`.'
             ],
             'title': [
                 'Document Title',
-                'Title for Document'
+                'Title for Document',
                 'Default: `Document Title`.'
             ],
         }
@@ -51,4 +56,3 @@ class HtmlBaseExtension(Extension):
 
         html_base_ext = self.HtmlBasePostprocessorClass(md, self.getConfigs())
         md.postprocessors.register(html_base_ext, 'html_base', 175)
-

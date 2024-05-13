@@ -21,10 +21,10 @@ tools = tools_c()
 with open('labels_references_test.md', 'r') as f:
     text = f.read()
     try:
-        html1 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, debug=True, numbered_links=True), HtmlBaseExtension(title="Labels References Test (numbered links)")])
-        html2 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, debug=True, numbered_links=False), HtmlBaseExtension(title="Labels References Test (normal links)")])
-        html3 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, debug=True, numbered_links=True),INHTExtension(tools, debug=True), HtmlBaseExtension(title="Labels References Test (numbered links and INHT)")])
-        html4 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, debug=True, numbered_links=False),INHTExtension(tools, debug=True), HtmlBaseExtension(title="Labels References Test (normal links and INHT)")])
+        html1 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=True), HtmlBaseExtension(tools, title="Labels References Test (numbered links)")])
+        html2 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=False), HtmlBaseExtension(tools, title="Labels References Test (normal links)")])
+        html3 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=True),INHTExtension(tools, verbose=True), HtmlBaseExtension(tools, title="Labels References Test (numbered links and INHT)")])
+        html4 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=False),INHTExtension(tools, verbose=True), HtmlBaseExtension(tools, title="Labels References Test (normal links and INHT)")])
         html_none = markdown.markdown(text)
     except Labels_ReferencesException as e:
         print(str(e))

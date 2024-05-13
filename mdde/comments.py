@@ -18,15 +18,15 @@ class Comments(Preprocessor):
             m = re.search(self.RE_COMMENTS, line)
             if m:
                 if self.config["verbose"]:
-                    self.tools.info("Comments: Ignoring comment: <" + m.group(2) + ">")
+                    self.tools.verbose(self.config["message_identifier"], "Comments: Ignoring comment: <" + m.group(2) + ">")
                 m2 = re.search(r'[^ \t]', m.group(1))
                 if m2:
                     if self.config["verbose"]:
-                        self.tools.info("Comments: Not Ignoring command part of comment: <" + m.group(1) + ">")
+                        self.tools.verbose(self.config["message_identifier"], "Comments: Not Ignoring command part of comment: <" + m.group(1) + ">")
                     new_lines.append(m.group(1))
                 else:
                     if self.config["verbose"]:
-                        self.tools.info("Comments: Ignoring none command part of comment: <" + m.group(1) + ">")
+                        self.tools.verbose(self.config["message_identifier"], "Comments: Ignoring none command part of comment: <" + m.group(1) + ">")
             else:
                 new_lines.append(line)
         return new_lines
@@ -37,6 +37,11 @@ class CommentsExtension(Extension):
   def __init__(self, tools, **kwargs):
     self.tools = tools
     self.config = {
+      'message_identifier': [
+        'COMMENTS',
+        'Message Identifier',
+        'Default: COMMENTS`.'
+      ],
       'debug': [
         False,
         'Debug mode',
@@ -63,7 +68,9 @@ class CommentsExtension(Extension):
 
     # ------------
     # Preprocessors
-    md.preprocessors.register(Comments(md.parser, self.tools, self.config), 'comments', 180)
+    # level must be abive preprocessor of inht ! higher numbers first !
+    # level should be higher than most of the others !
+    md.preprocessors.register(Comments(md.parser, self.tools, self.getConfigs()), 'comments', 180)
 
     # ------------
     # Blockprocessors

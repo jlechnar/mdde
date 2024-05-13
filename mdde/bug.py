@@ -8,6 +8,8 @@ class BugExtension(ArtefactExtension):
 
     super().__init__(tools, **kwargs)
 
+    self.config['message_identifier'][0] = 'BUG'
+
     self.config['tag'][0] = "bug"
 
     self.config['id'][0] = "bug"

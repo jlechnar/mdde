@@ -8,6 +8,8 @@ class IssueExtension(ArtefactExtension):
 
     super().__init__(tools, **kwargs)
 
+    self.config['message_identifier'][0] = 'ISSUE'
+
     self.config['tag'][0] = "issue"
 
     self.config['id'][0] = "issue"
@@ -17,7 +19,7 @@ class IssueExtension(ArtefactExtension):
     self.config['text_prefix'][0] = "issue"
 
     self.config['text_postfix'][0] = ""
-    
+
     self.config['link_prefix'][0] = "http://my.issue.tracker.org/issue"
 
     self.config['link_postfix'][0] = "/details"

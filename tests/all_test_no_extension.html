@@ -1,3 +1,4 @@
+<p>{title:Test of all items}</p>
 <!-- ======================================= -->
 <p>{toc}</p>
 <h1>Lists</h1>
@@ -26,7 +27,9 @@
 <p>{abbr:[BSD][Berkeley Software Distribution][The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.]}</p>
 <h1>References</h1>
 <p>Links to <a href="#images">Images</a> and <a href="#abbreviations">Abbreviations</a> and <a href="#artefacts">Artefacts</a> and <a href="#paragraph_duplicated">Paragraph duplicated</a>.
-Links to <a href="#images_included">Images included</a> and <a href="#abbreviations_included">Abbreviations includeed</a> and <a href="#artefacts_included">Artefacts included</a> and <a href="#paragraph_duplicated">Paragraph duplicated</a>.</p>
+Links to <a href="#images_included">Images included</a> and <a href="#abbreviations_included">Abbreviations includeed</a> and <a href="#artefacts_included">Artefacts included</a> and <a href="#paragraph_duplicated">Paragraph duplicated</a>.
+Broken link to <a href="#broken_link">Broken Link</a>.
+Link with no reference <a href="#missing_reference">Missing Reference</a>.</p>
 <h1>Artefacts [artf][#artefacts]</h1>
 <p>Also {artefact:3} is the same as {issue:1} and will resolve {bug:1}.
 Note futher that {milestone:beta} requires to fix all the bugs and issues and artefacts from above.</p>
@@ -107,12 +110,99 @@ Hello again!
 %</p>
 <p>%
 Hi!</p>
-<h1>Code</h1>
+<h1>Codes</h1>
 <p>The code is below.</p>
-<p><code>[Yet another Code]
+<h2>Standalone code block</h2>
+<p><code>standalone
+code
+block</code></p>
+<h2>Standalone code block with space at the beginning</h2>
+<p>```</p>
+<p>standalone
+code
+block
+```</p>
+<h2>Standalone code block with space in the middle</h2>
+<p>```
+standalone</p>
+<p>code
+block
+```</p>
+<h2>Standalone code block with space at end</h2>
+<p>```
+standalone
+code
+block</p>
+<p>```</p>
+<h2>Code</h2>
+<p><code>[Yet another Code 1]
 a = a + 1
-bla {artefact:1}</code></p>
-<p>{code:code block}
-<code>test
+b = b * 2
+bla
+s {artefact:1}
+{artefact:2}
+{artefact:3} s
+bla2 {artefact:4} foo2
+bla3 {artefact:5} foo3 {artefact:6} bar3
+foo
+bar</code></p>
+<h2>Code starting with artefact</h2>
+<p><code>[Yet another Code 2]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar</code></p>
+<h2>Code ending with artefact</h2>
+<p><code>[Yet another Code 3]
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+{artefact:5}</code></p>
+<h2>Code starting and ending with artefact</h2>
+<p><code>[Yet another Code 4]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+{artefact:5}</code></p>
+<h2>Code starting and ending with space plus artefact</h2>
+<p>``` [Yet another Code 5]</p>
+<p>{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3</p>
+<p>foo
+bar
+{artefact:5}</p>
+<p>```</p>
+<h2>Code starting with artefact with space line</h2>
+<p>``` [Yet another Code 6]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3</p>
+<p>foo
+bar
+```</p>
+<h2>Code with space lines</h2>
+<p>``` [Yet another Code 7]
+bla2</p>
+<p>foo</p>
+<p>bar
+```</p>
+<h2>Code element without decoding</h2>
+<!--{code:code block direct}-->
+<p><code>test
 test2
 test3</code></p>
+<h2>Inline code</h2>
+<p>Inline code <code>c = d+e</code> test. [inline code][#inline_code].</p>
+<h2>Codes with links</h2>
+<p>``` [Yet another Code 8]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3 <a href="#inline_code">Link to somewhere inside code</a></p>
+<p>foo
+bar
+```</p>

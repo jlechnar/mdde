@@ -8,6 +8,8 @@ class MilestoneExtension(ArtefactExtension):
 
     super().__init__(tools, **kwargs)
 
+    self.config['message_identifier'][0] = 'MILESTONE'
+
     self.config['tag'][0] = "milestone"
 
     self.config['id'][0] = "milestone"

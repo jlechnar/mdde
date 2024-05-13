@@ -20,7 +20,10 @@ tools = tools_c()
 with open('description_test.md', 'r') as f:
   text = f.read()
   try:
-    html = markdown.markdown(text, tab_length=2, extensions=[DescriptionExtension(tools, verbose=True), HtmlBaseExtension(title="Description Test")])
+    html = markdown.markdown(text,
+                             tab_length=2,
+                             extensions=[DescriptionExtension(tools, verbose=True),
+                                         HtmlBaseExtension(tools, title="Description Test")])
     html_no_ext = markdown.markdown(text, tab_length=2)
   except DescriptionException as e:
     print(str(e))

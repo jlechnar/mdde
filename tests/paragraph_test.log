@@ -1,8 +1,0 @@
-DEBUG:  HEADING: 1. test separator 1
-DEBUG:  HEADING: 2. test separator 2
-DEBUG:  HEADING: 3. test separator 3
-DEBUG:  HEADING: 4. Include
-DEBUG:  INCLUDE: paragraph_test_include.md
-DEBUG:   HEADING: 4.1. test separator 1
-DEBUG:   HEADING: 4.2. test separator 2
-DEBUG:   HEADING: 4.3. test separator 3

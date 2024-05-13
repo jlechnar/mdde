@@ -53,12 +53,29 @@ span.code_header_text {
   font-style: italic;
 }
 
-pre {
+pre.code_data {
   font-family: monospace;
   background: #f0f0f0;
   color: #000000;
   padding: 15px 15px; 
   border-radius: 5px;
+  display: block;
+  counter-reset: line;
+}
+
+pre.code_data code:before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  padding: 0 .5em;
+  margin-right: .5em;
+  color: #888
+}
+
+code {
+  font-family: monospace;
+  color: #0f00ff;
 }
 
 /* =================================== */
@@ -137,6 +154,15 @@ dd.description_list {
 
 dt.description_list::after {
   content: ": ";
+}
+
+/* =================================== */
+span.title {
+  font-size: 5em;
+  font-weight: bold;
+  width:100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* =================================== */

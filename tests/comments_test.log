@@ -1,16 +1,16 @@
-INFO: Comments: Ignoring comment: <% this is a comment 1>
-INFO: Comments: Not Ignoring command part of comment: <Hello world! >
-INFO: Comments: Ignoring comment: <% this is a comment 2>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <% this is a comment 3>
-INFO: Comments: Ignoring none command part of comment: <  >
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 1>
+(COMMENTS) VERBOSE: Comments: Not Ignoring command part of comment: <Hello world! >
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 2>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 3>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <  >
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>

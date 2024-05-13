@@ -15,13 +15,14 @@ import markdown
 from mdde.html_base import *
 from mdde.tools_c import *
 
-tools = tools_c() 
+tools = tools_c()
 
 with open('link_test.md', 'r') as f:
     text = f.read()
     #    try:
-    html = markdown.markdown(text, extensions=['fenced_code', HtmlBaseExtension(title="Link Test")])
-    #AbbreviationExtension(tools, debug=True), 
+    html = markdown.markdown(text, extensions=['fenced_code',
+                                               HtmlBaseExtension(tools, title="Link Test")])
+    #AbbreviationExtension(tools, verbose=True),
     #    except AbbreviationException as e:
     #        print(str(e))
 
@@ -34,4 +35,3 @@ with open('link_test.md', 'r') as f:
 
 with open('link_test_no_extension.html', 'w') as f:
     f.write(html)
-

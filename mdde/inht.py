@@ -12,6 +12,7 @@ import copy
 # Licence:     MIT Licence 
 # Source:      https://github.com/jlechnar/mdde
 
+
 # -------------------------------------------------------------------------------
 #
 # include markdown files and extend headings to common format: #(\d+) <name>
@@ -43,8 +44,8 @@ class IncludePre(Preprocessor):
     def read_include(self, level, filename):
         lines = []
 
-        if self.config["debug"]:
-            self.tools.debug(' ' * int(level) + "INCLUDE: " + filename)
+        if self.config["verbose"]:
+            self.tools.verbose(self.config["message_identifier"], ' ' * int(level) + "INCLUDE: " + filename)
 
         with open(filename, 'r', encoding='UTF-8') as file:
             while line := file.readline():
@@ -97,11 +98,11 @@ class IncludePre(Preprocessor):
 
                 line = "#" + str(level_actual) + " " + index_id + m.group(2)
 
-                if self.config["debug"]:
-                    self.tools.debug(' ' * int(level_actual) + "HEADING: " + index_id + m.group(2))
+                if self.config["verbose"]:
+                    self.tools.verbose(self.config["message_identifier"], ' ' * int(level_actual) + "HEADING: " + index_id + m.group(2))
 
                 # [index_id, heading text]
-                self.md.toc_toc.append([index_id, " " * level_actual + m.group(2)])
+                self.md.toc_toc.append([index_id, m.group(2), level_actual])
 
             # ----------------------
             # handle includes recursively
@@ -285,6 +286,7 @@ class TocReplaceTreeProcessor(Treeprocessor):
                              etoc_a.set('href', "#" + "heading:" + toc[0] + ":")
                              etoc_a.set('class', 'toc_heading_links_text')
                              etoc_a.text = toc[1]
+                             etoc_a.set('level', str(toc[2]))
 
             self.replace_toc(child)
 
@@ -341,6 +343,11 @@ class TocRefineTreeProcessor(Treeprocessor):
                         mi = re.match("toc:" + heading_index + ":", child.get("id"))
                         if mi:
                             # Replace temporary text with decoded one from heading
+                            prefix = "&nbsp;&nbsp;" * int(child.get("level"))
+                            if heading_text_copy.text:
+                                heading_text_copy.text = prefix + heading_text_copy.text
+                            else:
+                                heading_text_copy.text = prefix
                             child.text = ""
                             child.insert(0, heading_text_copy)
             self.refine_replace_toc(child, heading_index, heading_text_copy)
@@ -450,19 +457,24 @@ class INHTExtension(Extension):
     def __init__(self, tools, **kwargs):
         self.tools = tools
         self.config = {
+            'message_identifier': [
+                'INHT',
+                'Message Identifier',
+                'Default: INHT`.'
+            ],
             'debug': [
                 False,
-                'Debug mode'
+                'Debug mode',
                 'Default: off`.'
             ],
             'verbose': [
                 False,
-                'Verbose mode'
+                'Verbose mode',
                 'Default: off`.'
             ],
             'title': [
                 'Table of Contents',
-                'Title for TOC'
+                'Title for TOC',
                 'Default: `Table of Contents`.'
             ],
         }

@@ -27,7 +27,7 @@ with open('artefact_test.md', 'r') as f:
                                                              MilestoneExtension(tools, verbose=True, title_enable=False),
                                                              IssueExtension(tools, verbose=True),
                                                              BugExtension(tools, verbose=True),
-                                                             HtmlBaseExtension(title="Artefact Test")])
+                                                             HtmlBaseExtension(tools, title="Artefact Test")])
     html_no_ext = markdown.markdown(text, tab_length=2)
   except ArtefactException as e:
     print(str(e))

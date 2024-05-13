@@ -15,13 +15,13 @@ from mdde.html_base import *
 from mdde.inht import *
 from mdde.tools_c import *
 
-tools = tools_c() 
+tools = tools_c()
 
 with open('paragraph_test.md', 'r') as f:
   text = f.read()
   try:
     html = markdown.markdown(text, extensions=[
-        HtmlBaseExtension(title="Paragrapth Test"),
+        HtmlBaseExtension(tools, title="Paragrapth Test"),
         INHTExtension(tools, debug=True)
       ])
   except INHTException as e:
@@ -40,4 +40,3 @@ with open('paragraph_test.md', 'r') as f:
 
 with open('paragraph_test_no_extension.html', 'w') as f:
   f.write(html)
-

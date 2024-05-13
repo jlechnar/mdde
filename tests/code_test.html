@@ -11,13 +11,31 @@
 <div>
 <table class="loc_table">
 <tr>
-<td><a class="code_loc" href="#code:1:" id="loc:1:">Code 1: More detailed code</a></td>
+<td><a class="code_loc" href="#code:1:" id="loc:1:">Code 1: Code</a></td>
 </tr>
 <tr>
-<td><a class="code_loc" href="#code:2:" id="loc:2:">Code 2: Yet another Code</a></td>
+<td><a class="code_loc" href="#code:2:" id="loc:2:">Code 2: Code</a></td>
 </tr>
 <tr>
-<td><a class="code_loc" href="#code:3:" id="loc:3:">Code 3: code block direct</a></td>
+<td><a class="code_loc" href="#code:3:" id="loc:3:">Code 3: Yet another Code 1</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:4:" id="loc:4:">Code 4: Yet another Code 2</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:5:" id="loc:5:">Code 5: Yet another Code 3</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:6:" id="loc:6:">Code 6: Yet another Code 4</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:7:" id="loc:7:">Code 7: Yet another Code 5</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:8:" id="loc:8:">Code 8: Yet another Code 6</a></td>
+</tr>
+<tr>
+<td><a class="code_loc" href="#code:9:" id="loc:9:">Code 9: Yet another Code 7</a></td>
 </tr>
 </table>
 </div>
@@ -29,26 +47,132 @@
 <!-- we could reuse the definition of split links for defining header description of code blocks ??? -->
 
 <!-- [below shows code block for]: -->
-<p><span><a class="code_header" href="#loc:1:" id="code:1:">Code 1:</a><span class="code_header_text"> More detailed code</span></span>
-<pre>{ .html }
+<p><span><a class="code_header" href="#loc:1:" id="code:1:">Code 1:</a><span class="code_header_text"> Code</span></span>
+<pre class="code_data">
+<code>a = a+1</code>
+<code>c = c*a</code>
+</pre></p>
+<p><span><a class="code_header" href="#loc:2:" id="code:2:">Code 2:</a><span class="code_header_text"> Code</span></span>
+<pre class="code_data">
+<code>a = a+1</code>
+<code></code>
+<code>c = c*a</code>
+</pre></p>
+<!--
+` `` [More detailed code] { .html }
 a = a+1
-c = c*a</pre>
-</p>
-<p>[below shows code block for code without markdown code block maker but just using spaces]:
-    a = a+1
-    b = b+2</p>
+c = c*a
+` ``
+
+` `` { .html }
+a = a+1
+c = c*a
+` ``
+-->
+
 <p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p>
 <p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p>
 <h1>Codes</h1>
 <p>The code is below.</p>
-<p><span><a class="code_header" href="#loc:2:" id="code:2:">Code 2:</a><span class="code_header_text"> Yet another Code</span></span>
-<pre>a = a + 1
-bla {artefact:1}</pre>
-</p>
-<p><span><a class="code_header" href="#loc:3:" id="code:3:">Code 3:</a><span class="code_header_text"> code block direct</span></span>
-<pre>test
+<h2>Standalone code block</h2>
+<p><pre>standalone
+code
+block</pre></p>
+<h2>Standalone code block with space at the beginning</h2>
+<p><pre>&nbsp;
+standalone
+code
+block</pre></p>
+<h2>Standalone code block with space in the middle</h2>
+<p><pre>standalone
+&nbsp;
+code
+block</pre></p>
+<h2>Standalone code block with space at end</h2>
+<p><pre>standalone
+code
+block
+&nbsp;</pre></p>
+<h2>Code</h2>
+<p><span><a class="code_header" href="#loc:3:" id="code:3:">Code 3:</a><span class="code_header_text"> Yet another Code 1</span></span>
+<pre class="code_data">
+<code>a = a + 1</code>
+<code>b = b * 2</code>
+<code>bla</code>
+<code>s <span class="artefact">1</span></code>
+<code><span class="artefact">2</span></code>
+<code><span class="artefact">3</span> s</code>
+<code>bla2 <span class="artefact">4</span> foo2 </code>
+<code>bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>
+<code>foo</code>
+<code>bar</code>
+</pre></p>
+<h2>Code starting with artefact</h2>
+<p><span><a class="code_header" href="#loc:4:" id="code:4:">Code 4:</a><span class="code_header_text"> Yet another Code 2</span></span>
+<pre class="code_data">
+<code><span class="artefact">1</span></code>
+<code>bla2 <span class="artefact">2</span> foo2</code>
+<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code>foo</code>
+<code>bar</code>
+</pre></p>
+<h2>Code ending with artefact</h2>
+<p><span><a class="code_header" href="#loc:5:" id="code:5:">Code 5:</a><span class="code_header_text"> Yet another Code 3</span></span>
+<pre class="code_data">
+<code>bla2 <span class="artefact">2</span> foo2</code>
+<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code>foo</code>
+<code>bar</code>
+<code><span class="artefact">5</span></code>
+</pre></p>
+<h2>Code starting and ending with artefact</h2>
+<p><span><a class="code_header" href="#loc:6:" id="code:6:">Code 6:</a><span class="code_header_text"> Yet another Code 4</span></span>
+<pre class="code_data">
+<code><span class="artefact">1</span></code>
+<code>bla2 <span class="artefact">2</span> foo2</code>
+<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code>foo</code>
+<code>bar</code>
+<code><span class="artefact">5</span></code>
+</pre></p>
+<h2>Code starting and ending with space plus artefact</h2>
+<p><span><a class="code_header" href="#loc:7:" id="code:7:">Code 7:</a><span class="code_header_text"> Yet another Code 5</span></span>
+<pre class="code_data">
+<code></code>
+<code><span class="artefact">1</span></code>
+<code>bla2 <span class="artefact">2</span> foo2</code>
+<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code></code>
+<code>foo</code>
+<code>bar</code>
+<code><span class="artefact">5</span></code>
+<code></code>
+</pre></p>
+<h2>Code starting with artefact with space line</h2>
+<p><span><a class="code_header" href="#loc:8:" id="code:8:">Code 8:</a><span class="code_header_text"> Yet another Code 6</span></span>
+<pre class="code_data">
+<code><span class="artefact">1</span></code>
+<code>bla2 <span class="artefact">2</span> foo2</code>
+<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code></code>
+<code>foo</code>
+<code>bar</code>
+</pre></p>
+<h2>Code with space lines</h2>
+<p><span><a class="code_header" href="#loc:9:" id="code:9:">Code 9:</a><span class="code_header_text"> Yet another Code 7</span></span>
+<pre class="code_data">
+<code>bla2</code>
+<code></code>
+<code>foo</code>
+<code></code>
+<code>bar</code>
+</pre></p>
+<h2>Code element without decoding</h2>
+<!--{code:code block direct}-->
+<p><pre>test
 test2
-test3</pre>
-</p>
+test3</pre></p>
+<h2>Inline code</h2>
+<p>Inline code <code>c = d+e</code> test.</p>
   </body>
 </html>

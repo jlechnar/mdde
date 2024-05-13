@@ -17,14 +17,14 @@ from os.path import exists
 # -------------------------------------------------------------------------------
 #
 class ImageBlockProcessor(BlockProcessor):
-  # ![<alternative_text_if_image_is_gone>](<image_path> "<hover_text>"): <description> 
+  # ![<alternative_text_if_image_is_gone>](<image_path> "<hover_text>"): <description>
   #
   # ![...](...):...
   # ![](...):...
   # !(...):...
   RE_IMAGE = r'\!(|\[([^\]]*)\])\(([^\)]+)\)\s*\:\s*(.+)'
   # contents of (...) => (... "...") = (<image_path> "<hover text>")
-  #  
+  #
   RE_IMAGE_HOOVER = r'^(.+)\s+\"([^\"]*)\"\s*$'
 
   def __init__(self, tools, parser, md, config):
@@ -39,20 +39,20 @@ class ImageBlockProcessor(BlockProcessor):
   def run(self, parent, blocks):
 
     m = re.search(self.RE_IMAGE, blocks[0])
-    
+
     if m:
       image_alt = ""
-      
+
       if m.group(2) is None:
         image_description = m.group(4)
-        if self.config["debug"]:
-          self.tools.debug("IMAGE: <" + blocks[0] + ">:\n  <NONE>\n  <" + m.group(3)+ ">\n  <" + m.group(4)+ ">")
+        if self.config["verbose"]:
+          self.tools.verbose(self.config["message_identifier"], "IMAGE: <" + blocks[0] + ">:\n  <NONE>\n  <" + m.group(3)+ ">\n  <" + m.group(4)+ ">")
       else:
         image_alt = m.group(2)
         image_description = m.group(4)
-        if self.config["debug"]:
-          self.tools.debug("IMAGE: <" + blocks[0] + ">:\n  <" + m.group(2) + ">\n  <" + m.group(3)+ ">\n  <" + m.group(4)+ ">")
-      
+        if self.config["verbose"]:
+          self.tools.verbose(self.config["message_identifier"], "IMAGE: <" + blocks[0] + ">:\n  <" + m.group(2) + ">\n  <" + m.group(3)+ ">\n  <" + m.group(4)+ ">")
+
       image_src = m.group(3)
       image_title = ""
 
@@ -60,12 +60,12 @@ class ImageBlockProcessor(BlockProcessor):
       if mh:
         image_src = mh.group(1)
         image_title = mh.group(2)
-        if self.config["debug"]:
-          self.tools.debug("    <" + mh.group(1) + ">\n    <" + mh.group(2) + ">")
+        if self.config["verbose"]:
+          self.tools.verbose(self.config["message_identifier"], "    <" + mh.group(1) + ">\n    <" + mh.group(2) + ">")
       else:
-        if self.config["debug"]:
-          self.tools.debug("    NO HOVER TEXT")
-      
+        if self.config["verbose"]:
+          self.tools.verbose(self.config["message_identifier"], "    NO HOVER TEXT")
+
       # ---------------------------------
       # <p>
       #   <a>[link and id]</a>
@@ -74,7 +74,7 @@ class ImageBlockProcessor(BlockProcessor):
       #   <img>
       # </p>
       p = etree.SubElement(parent, 'p')
-      
+
       # ========================================
       # ========================================
       # description
@@ -87,13 +87,13 @@ class ImageBlockProcessor(BlockProcessor):
       # <h...><a id="anchor_for_link_from_loi" href="link_to_loi">...</a></h...>
       a = etree.SubElement(p, 'a')
 
-      # FIXME: 
+      # FIXME:
       self.md.loi_index_id_list[-1] += 1
 
       #if len(self.md.loi_index_id_list)
       # image = "1." # FIXME
 
-      # merge current loi_index_id_list to index_id string e.g. [1, 3, 4] => "1.3.4."    
+      # merge current loi_index_id_list to index_id string e.g. [1, 3, 4] => "1.3.4."
       image_id = ""
       for i in range(len(self.md.loi_index_id_list)):
         image_id += str(self.md.loi_index_id_list[i]) + "."
@@ -105,7 +105,7 @@ class ImageBlockProcessor(BlockProcessor):
 
       image_id2 = "image:" + image_id + ":"
       image_ref = "loi:" + image_id + ":"
-      
+
       p.set('id', image_id2) # set anchor to paragraph so that we can move the description before/after image
       a.set('href', "#" + image_ref)
       a.set('class', 'image_loi_links')
@@ -151,7 +151,7 @@ class ImageBlockProcessor(BlockProcessor):
       #s4 = etree.SubElement(a, 'span')
       #s4.set('class', 'image_title')
       #s4.set('title', image_title_text)
-      
+
       ## s4 = etree.SubElement(a, 'span')
       ## s4.set('class', 'image_postfix')
       ## s4.text = ": "
@@ -166,26 +166,26 @@ class ImageBlockProcessor(BlockProcessor):
 
       if image_src != image_src_base:
         if exists(image_src_base):
-      
+
           s = etree.SubElement(p, 'span')
           s.text = " ("
 
           a = etree.SubElement(p, 'a')
           a.text = image_src_base
           a.set('href', image_src_base)
-      
+
           s = etree.SubElement(p, 'span')
           s.text = ")"
-      
+
       # ========================================
       # ========================================
       b = etree.SubElement(p, 'br')
-      
+
       # ========================================
       # ========================================
       a = etree.SubElement(p, 'a')
       a.set('href', image_src)
-            
+
       e = etree.SubElement(a, 'img')
       e.set('src', image_src)
       if image_alt != "":
@@ -203,7 +203,7 @@ class ImageBlockProcessor(BlockProcessor):
       return True
     else:
       return False
-       
+
 # -------------------------------------------------------------------------------
 class LoiPositionBlockProcessor(BlockProcessor):
   RE_LOI = r'^{loi}$'
@@ -274,7 +274,7 @@ class LoiReplaceTreeProcessor(Treeprocessor):
 #
 # replace contents/text of loi link with the one of the image (same decoded structure)
 # heading is decoded further after processing - here we duplicate the decoded text to the one used in the loi, which can still be undecoded due to processing structure
-# 
+#
 class LoiRefineTreeProcessor(Treeprocessor):
 
   def __init__(self, tools, md, config):
@@ -299,7 +299,7 @@ class LoiRefineTreeProcessor(Treeprocessor):
                 mi = re.match(r'image_index', sub_child.get("class"))
                 if mi:
                   image_index = sub_child.text
-                  
+
                 mt = re.match(r'image_text', sub_child.get("class"))
                 if mt:
                   # Flatten surrounding span might not be that easy hence keep it
@@ -363,7 +363,7 @@ class LoiRefineLinksTreeProcessor(Treeprocessor):
                 mi = re.match(r'image_index', sub_child.get("class"))
                 if mi:
                   image_index = sub_child.text
-                      
+
                 mt = re.match(r'image_text', sub_child.get("class"))
                 if mt:
                   # decode link text and flatten contents
@@ -418,47 +418,52 @@ class LoiRefineLinksTreeProcessor(Treeprocessor):
             mi = re.match("#" + "image:" + image_index + ":", child.get("href"))
             if mi:
               # replace entry in loi with new href names
-              child.set('href', "#" + image_ref) 
+              child.set('href', "#" + image_ref)
           m = re.match(r'loi_image_links_text', child.get("class"))
           if m:
             mi = re.match("loi:" + image_index + ":", child.get("id"))
             if mi:
               # replace entry in loi with new id/href names
-              child.set('id', image_id) 
+              child.set('id', image_id)
               child.set('href', "#" + image_ref)
-                     
+
       self.refine_links_replace_loi(child, image_index, image_id, image_ref)
 
 # -------------------------------------------------------------------------------
 class ImageExtension(Extension):
-    
+
   LoiReplaceTreeProcessorClass = LoiReplaceTreeProcessor
-    
+
   LoiRefineTreeProcessorClass = LoiRefineTreeProcessor
-    
+
   LoiRefineLinksTreeProcessorClass = LoiRefineLinksTreeProcessor
 
   def __init__(self, tools, **kwargs):
     self.tools = tools
     self.config = {
+      'message_identifier': [
+          'IMAGE',
+          'Message Identifier',
+          'Default: IMAGE`.'
+      ],
       'debug': [
         False,
-        'Debug mode'
+        'Debug mode',
         'Default: off`.'
       ],
       'verbose': [
         False,
-        'Verbose mode'
+        'Verbose mode',
         'Default: off`.'
       ],
       'title_enable': [
         True,
-        'Enable Title printing'
+        'Enable Title printing',
         'Default: on`.'
       ],
       'title': [
         'List of Images',
-        'Title for LOI'
+        'Title for LOI',
         'Default: `List of Images`.'
       ],
     }
@@ -482,7 +487,7 @@ class ImageExtension(Extension):
     # Blockprocessors
 
     md.parser.blockprocessors.register(ImageBlockProcessor(self.tools, md.parser, md, self.getConfigs()), 'image_block_processor', 175)
-    
+
     # prepare loi for replacement
     md.parser.blockprocessors.register(LoiPositionBlockProcessor(md.parser), 'image__loi_position', 175)
 
@@ -492,11 +497,11 @@ class ImageExtension(Extension):
     # generate loi
     loi_replace_ext = self.LoiReplaceTreeProcessorClass(self.tools, md, self.getConfigs())
     md.treeprocessors.register(loi_replace_ext, 'image__loi_replace', 177)
-    
+
     # refine loi text
     loi_refine_ext = self.LoiRefineTreeProcessorClass(self.tools, md, self.getConfigs())
     md.treeprocessors.register(loi_refine_ext, 'image__loi_refine', 176)
-    
+
     # refine loi/image links
     loi_refine_links_ext = self.LoiRefineLinksTreeProcessorClass(self.tools, md, self.getConfigs())
     md.treeprocessors.register(loi_refine_links_ext, 'image__loi_refine_links', 175)
@@ -515,14 +520,14 @@ class ImageExtension(Extension):
     # it gets incremented/extended/reduced according to the current index level
     self.md.loi_index_id_list = []
     self.md.loi_index_id_list.append(0)
-      
+
     # loi_loi contains the table of contents in the form of list entries (list of lists):
     # [index_id, heading_text]
     #
     self.md.loi_loi = []
 
     pass
-        
+
 # -------------------------------------------------------------------------------
 class ImageException(Exception):
   name = "ImageException"
@@ -536,4 +541,3 @@ class ImageException(Exception):
       return self.name + ': ' + self.message
     else:
       return self.name + ' has been raised'
-

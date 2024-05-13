@@ -17,7 +17,7 @@ from mdde.tools_c import *
 # -------------------------------------------------------------------------------
 # Reference->Label links:
 # =======================
-# References to lables are defined as       [<reference_text>](#<label_title>)
+# References to labels are defined as       [<reference_text>](#<label_title>)
 # Labels are defined as                     [<label_text>][#<label_title>]
 #
 # References/labels use the original way of markdown to define a redefined link.
@@ -47,16 +47,19 @@ class LabelBlockProcessor(BlockProcessor):
       label_text = m.group(1)
       label_link_id = m.group(2)
 
-      if self.config["debug"]:
-        self.tools.debug("INT REF: " + label_link_id + ": \"" + label_text + "\"")
+      if self.config["verbose"]:
+        self.tools.verbose(self.config['message_identifier'], "INT REF: " + label_link_id + ": \"" + label_text + "\"")
 
       if label_link_id in self.md.lor_labels:
         if self.config["ignore_duplicates"]:
-          self.tools.warning("(ingored FATAL ERROR) Duplicated definition of internal reference: " + label_link_id)
+          self.tools.warning(self.config['message_identifier'], " (ingnored FATAL ERROR) Duplicated definition of internal reference: " + label_link_id)
         else:
           raise LabelsReferencesException("FATAL: Duplicated definition of internal reference: " + label_link_id)
       else:
         self.md.lor_labels[label_link_id] = label_text
+
+      if self.config["verbose"]:
+          self.tools.verbose(self.config['message_identifier'], "LABEL: " + label_link_id + ": \"" + label_text + "\"")
 
       self.md.lor_labels_nr_cnt = self.md.lor_labels_nr_cnt + 1
       self.md.lor_labels_nr[label_link_id] = self.md.lor_labels_nr_cnt
@@ -72,7 +75,7 @@ class LabelBlockProcessor(BlockProcessor):
 #
 class ReferenceBlockProcessor(BlockProcessor):
 
-  RE_REFERENCE = r'\[([^\]]*)\]\(#([^\]]+)\)'
+  RE_REFERENCE = r'\[([^\]]*)\]\(#([^\)]+)\)'
 
   def __init__(self, parser, tools, md, config):
     super().__init__(parser)
@@ -91,15 +94,15 @@ class ReferenceBlockProcessor(BlockProcessor):
       reference_text = m.group(1)
       reference_link = m.group(2)
 
-      if self.config["debug"]:
-        self.tools.debug("INT LINK: " + reference_link + ": \"" + reference_text + "\"")
+      if self.config["verbose"]:
+        self.tools.verbose(self.config['message_identifier'], "INT LINK: " + reference_link + ": \"" + reference_text + "\"")
 
       # FIXME: we need a check but we need it later when everything is read in !
       # if not self.lor.ilor[]
 
       # we must not check until we have read all lines could be the case that we defined a reference after referenceing it !
       # if not reference_link in self.md.lor_labels:
-      #   raise LabelsReferencesException("FATAL: Undefined lable for reference to: " + reference_link)
+      #   raise LabelsReferencesException("FATAL: Undefined label for reference to: " + reference_link)
 
       if not reference_link in self.md.lor_references_index:
         self.md.lor_references_index[reference_link] = 0
@@ -108,6 +111,9 @@ class ReferenceBlockProcessor(BlockProcessor):
       if reference_link_id in self.md.lor_references:
         raise LabelsReferencesException("FATAL: exists already")
       self.md.lor_references[reference_link_id] = [reference_link, reference_text]
+
+      if self.config["verbose"]:
+          self.tools.verbose(self.config['message_identifier'], "REFERENCE: " + reference_link + ": \"" + reference_text + "\"")
 
       self.md.lor_references_nr_cnt = self.md.lor_references_nr_cnt + 1
       self.md.lor_references_nr[reference_link_id] = self.md.lor_references_nr_cnt
@@ -288,9 +294,10 @@ class LabelReplaceInlineProcessor(InlineProcessor):
 # ------------------------------------------------------------------------
 class ReferenceReplaceInlineProcessor(InlineProcessor):
 
-  def __init__(self, pat, md, config):
+  def __init__(self, pat, md, tools, config):
     super().__init__(pat, md)
     self.config = config
+    self.tools = tools
 
   def handleMatch(self, m, md):
     reference_link_id = m.group(1)
@@ -298,8 +305,10 @@ class ReferenceReplaceInlineProcessor(InlineProcessor):
 
     label_link_id = reference_link
     if not label_link_id in self.md.lor_labels:
-      raise LabelsReferencesException("ERROR: Missing link to refrerence with id: <" + label_link_id + ">")
-    label_text = self.md.lor_labels[label_link_id]
+        self.tools.error(self.config['message_identifier'], "Missing link to refrerence with id: <" + label_link_id + ">")
+        label_text = "Broken Link to <" + label_link_id + ">"
+    else:
+        label_text = self.md.lor_labels[label_link_id]
 
     a = etree.Element('a')
     a.set('id', reference_link_id)
@@ -329,24 +338,29 @@ class LabelsReferencesExtension(Extension):
   def __init__(self, tools, **kwargs):
     self.tools = tools
     self.config = {
+      'message_identifier': [
+        'LABELS_REFERENCES',
+        'Message Identifier',
+        'Default: LABELS_REFERENCES`.'
+      ],
       'debug': [
         False,
-        'Debug mode'
+        'Debug mode',
         'Default: off`.'
       ],
       'verbose': [
         False,
-        'Verbose mode'
+        'Verbose mode',
         'Default: off`.'
       ],
       'ignore_duplicates': [
         False,
-        'Ignore duplicated defintions of references'
+        'Ignore duplicated defintions of references',
         'Default: off`.'
       ],
       'numbered_links': [
         False,
-        'Enable numbered links instead of text'
+        'Enable numbered links instead of text',
         'Default: off`.'
       ],
       'reference_symbol': [
@@ -356,12 +370,12 @@ class LabelsReferencesExtension(Extension):
       ],
       'title_enable': [
         True,
-        'Enable Title printing'
+        'Enable Title printing',
         'Default: on`.'
       ],
       'title': [
         'List of References',
-        'Title for LOR'
+        'Title for LOR',
         'Default: `List of References`.'
       ],
     }
@@ -403,13 +417,13 @@ class LabelsReferencesExtension(Extension):
     # Inlineprocessors
 
     LABEL_PATTERN = r'\{LABEL:([^\}]+)\}'
-    md.inlinePatterns.register(LabelReplaceInlineProcessor(LABEL_PATTERN, md, True, self.getConfigs()), 'reference__intref_replace_inline', 165)
+    md.inlinePatterns.register(LabelReplaceInlineProcessor(LABEL_PATTERN, md, True, self.getConfigs()), 'reference__intref_replace_inline', 265)
 
     LABEL_TOC_PATTERN = r'\{TOC_LABEL:([^\}]+)\}'
-    md.inlinePatterns.register(LabelReplaceInlineProcessor(LABEL_TOC_PATTERN, md, False, self.getConfigs()), 'reference__intref_replace_inline_toc', 165)
+    md.inlinePatterns.register(LabelReplaceInlineProcessor(LABEL_TOC_PATTERN, md, False, self.getConfigs()), 'reference__intref_replace_inline_toc', 265)
 
     REFERENCE_PATTERN = r'\{REFERENCE:([^\}]+)\}'
-    md.inlinePatterns.register(ReferenceReplaceInlineProcessor(REFERENCE_PATTERN, md, self.getConfigs()), 'reference__intreflink_replace_inline', 165)
+    md.inlinePatterns.register(ReferenceReplaceInlineProcessor(REFERENCE_PATTERN, md, self.tools, self.getConfigs()), 'reference__intreflink_replace_inline', 265)
 
     # ------------
     # Postprocessors

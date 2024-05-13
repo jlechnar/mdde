@@ -6,20 +6,112 @@
 <!-- we could reuse the definition of split links for defining header description of code blocks ??? -->
 
 <!-- [below shows code block for]: -->
-<p><code>[More detailed code] { .html }
+<p><code>[Code]
 a = a+1
 c = c*a</code></p>
-<p>[below shows code block for code without markdown code block maker but just using spaces]:
-    a = a+1
-    b = b+2</p>
+<p>``` [Code]
+a = a+1</p>
+<p>c = c*a
+```</p>
+<!--
+` `` [More detailed code] { .html }
+a = a+1
+c = c*a
+` ``
+
+` `` { .html }
+a = a+1
+c = c*a
+` ``
+-->
+
 <p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p>
 <p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p>
 <h1>Codes</h1>
 <p>The code is below.</p>
-<p><code>[Yet another Code]
+<h2>Standalone code block</h2>
+<p><code>standalone
+code
+block</code></p>
+<h2>Standalone code block with space at the beginning</h2>
+<p>```</p>
+<p>standalone
+code
+block
+```</p>
+<h2>Standalone code block with space in the middle</h2>
+<p>```
+standalone</p>
+<p>code
+block
+```</p>
+<h2>Standalone code block with space at end</h2>
+<p>```
+standalone
+code
+block</p>
+<p>```</p>
+<h2>Code</h2>
+<p><code>[Yet another Code 1]
 a = a + 1
-bla {artefact:1}</code></p>
-<p>{code:code block direct}
-<code>test
+b = b * 2
+bla
+s {artefact:1}
+{artefact:2}
+{artefact:3} s
+bla2 {artefact:4} foo2 
+bla3 {artefact:5} foo3 {artefact:6} bar3
+foo
+bar</code></p>
+<h2>Code starting with artefact</h2>
+<p><code>[Yet another Code 2]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar</code></p>
+<h2>Code ending with artefact</h2>
+<p><code>[Yet another Code 3]
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+{artefact:5}</code></p>
+<h2>Code starting and ending with artefact</h2>
+<p><code>[Yet another Code 4]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+{artefact:5}</code></p>
+<h2>Code starting and ending with space plus artefact</h2>
+<p>``` [Yet another Code 5]</p>
+<p>{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3</p>
+<p>foo
+bar
+{artefact:5}</p>
+<p>```</p>
+<h2>Code starting with artefact with space line</h2>
+<p>``` [Yet another Code 6]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3</p>
+<p>foo
+bar
+```</p>
+<h2>Code with space lines</h2>
+<p>``` [Yet another Code 7]
+bla2</p>
+<p>foo</p>
+<p>bar
+```</p>
+<h2>Code element without decoding</h2>
+<!--{code:code block direct}-->
+<p><code>test
 test2
 test3</code></p>
+<h2>Inline code</h2>
+<p>Inline code <code>c = d+e</code> test.</p>

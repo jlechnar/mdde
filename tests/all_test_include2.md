@@ -14,6 +14,8 @@
 # References
 Links to [Images](#images) and [Abbreviations](#abbreviations) and [Artefacts](#artefacts) and [Paragraph duplicated](#paragraph_duplicated).
 Links to [Images included](#images_included) and [Abbreviations includeed](#abbreviations_included) and [Artefacts included](#artefacts_included) and [Paragraph duplicated](#paragraph_duplicated).
+Broken link to [Broken Link include2](#broken_link_include2).
+Link with no reference [Missing Reference include2](#missing_reference_include2).
 
 # Artefacts [artfinc][#artefacts_included]
 Also {artefact:3} is the same as {issue:1} and will resolve {bug:1}.

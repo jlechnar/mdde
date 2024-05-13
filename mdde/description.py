@@ -45,15 +45,15 @@ class DescriptionTreeProcessor(Treeprocessor):
       li_cnt = 0
       dl_cnt = 0
       if self.config["verbose"]:
-        print("")
-        print(etree.tostring(element, encoding='utf8'))
+        self.tools.verbose(self.config["message_identifier"], "")
+        self.tools.debug_etree(self.config["message_identifier"], "", element)
 
     for child in element:
       if element.tag == "ul":
         if child.tag == "li":
           li_cnt += 1
           if self.config["verbose"]:
-            print("LI: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + str(child.text))
+              self.tools.verbose(self.config["message_identifier"], "LI: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + str(child.text))
           matched = False
           if child.text:
             #mr = re.compile(self.RE_DESCRIPTION_LIST,  re.DOTALL)
@@ -63,17 +63,17 @@ class DescriptionTreeProcessor(Treeprocessor):
               dl_cnt += 1
               matched = True
               if self.config["verbose"]:
-                print("  DL: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + m.group(1) + " : " + m.group(2))
+                  self.tools.verbose(self.config["message_identifier"], "  DL: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + m.group(1) + " : " + m.group(2))
           if not matched:
             for subchild in child:
               if self.config["verbose"]:
-                print(" LI (SC) test: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + str(subchild.text))
+                  self.tools.verbose(self.config["message_identifier"], " LI (SC) test: " + str(dl_cnt) + "/" + str(li_cnt) + " => " + str(subchild.text))
               if subchild.tag == "p":
                  m = re.match(self.RE_DESCRIPTION_LIST, subchild.text, re.DOTALL)
                  if m:
                    dl_cnt += 1
                    if self.config["verbose"]:
-                     print("    DL (SC): " + str(dl_cnt) + "/" + str(li_cnt) + " => " + m.group(1) + " : " + m.group(2))
+                       self.tools.verbose(self.config["message_identifier"], "    DL (SC): " + str(dl_cnt) + "/" + str(li_cnt) + " => " + m.group(1) + " : " + m.group(2))
         else:
           # we expect that ul elements only contain li elements !
           raise DescriptionException("ERROR: unexpected element not li in ul list instead it is of type " + child.tag)
@@ -82,9 +82,9 @@ class DescriptionTreeProcessor(Treeprocessor):
 
     # return
 
-    if li_cnt > 0:
-      # if there are any li elements in ul element then:
-      
+    if li_cnt > 0 and dl_cnt > 0:
+      # if there are any li elements (li_cnt>0) in ul element and any dl item to replace is seen (dl_cnt>0) then:
+
       if dl_cnt != li_cnt:
         # in case not all li elements follow descriptive defintion
         raise DescriptionException("ERROR: Only " + str(dl_cnt) + " of " + str(li_cnt) + " list items are proper description list items.")
@@ -133,14 +133,19 @@ class DescriptionExtension(Extension):
   def __init__(self, tools, **kwargs):
     self.tools = tools
     self.config = {
+      'message_identifier': [
+        'DESCRIPTION',
+        'Message Identifier',
+        'Default: DESCRIPTION`.'
+      ],
       'debug': [
         False,
-        'Debug mode'
+        'Debug mode',
         'Default: off`.'
       ],
       'verbose': [
         False,
-        'Verbose mode'
+        'Verbose mode',
         'Default: off`.'
       ],
     }

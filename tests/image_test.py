@@ -20,7 +20,10 @@ tools = tools_c()
 with open('image_test.md', 'r') as f:
     text = f.read()
     try:
-        html = markdown.markdown(text, extensions=[ImageExtension(tools, debug=True), HtmlBaseExtension(title="IMAGE Test")])
+        html = markdown.markdown(text,
+                                extensions=[
+                                    ImageExtension(tools, verbose=True),
+                                    HtmlBaseExtension(tools, title="IMAGE Test")])
     except ImageException as e:
         print(str(e))
 
@@ -34,4 +37,3 @@ with open('image_test.md', 'r') as f:
 
 with open('image_test_no_extension.html', 'w') as f:
     f.write(html)
-

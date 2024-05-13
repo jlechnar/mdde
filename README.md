@@ -73,7 +73,7 @@ See `vim/readme.md` for more details.
 * inht
   * disable heading id printing for lists (lor, ...)
   * count with symbols for appendix
-* more differnt commands for lists => lor => list_of_references
+* more different commands for lists => lor => list_of_references
   * add selection of codes via configuration
 
 ## Usage

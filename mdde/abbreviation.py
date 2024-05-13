@@ -49,11 +49,11 @@ class AbbreviationBlockProcessor(BlockProcessor):
             if not m.group(4) is None:
                 abbreviation_details = m.group(5)
 
-            if self.config["debug"]:
-               self.tools.debug("ABBR: " + abbreviation_short + " => " + abbreviation_long + ": " + abbreviation_details)
+            if self.config["verbose"]:
+               self.tools.verbose(self.config["message_identifier"], "ABBR: " + abbreviation_short + " => " + abbreviation_long + ": " + abbreviation_details)
 
             if abbreviation_short.upper() in self.md.loa_loa:
-               self.tools.warning("Ignoring abbreviation definition duplicate for <" + abbreviation_short + ">")
+               self.tools.warning(self.config["message_identifier"], "Ignoring abbreviation definition duplicate for <" + abbreviation_short + ">")
             else:
                self.md.loa_loa[abbreviation_short.upper()] = [abbreviation_short, abbreviation_long, abbreviation_details]
 
@@ -151,29 +151,34 @@ class AbbreviationExtension(Extension):
     def __init__(self, tools, **kwargs):
         self.tools = tools
         self.config = {
+            'message_identifier': [
+                'ABBREVIATION',
+                'Message Identifier',
+                'Default: ABBREVIATION`.'
+            ],
            'debug': [
                 False,
-                'Debug mode'
+                'Debug mode',
                 'Default: off`.'
             ],
             'verbose': [
                 False,
-                'Verbose mode'
+                'Verbose mode',
                 'Default: off`.'
             ],
             'title_enable': [
                  True,
-                 'Enable Title printing'
+                 'Enable Title printing',
                  'Default: on`.'
             ],
             'list_commands': [
                 '{loa}|{list_of_abbreviations}',
-                'Command to support for list of abbreviations generation'
+                'Command to support for list of abbreviations generation',
                 'Default: `loa`, `list_of_abbreviations`.'
             ],
             'title': [
                 'List of Abbreviations',
-                'Title for LOA'
+                'Title for LOA',
                 'Default: `List of Abbreviations`.'
             ],
         }

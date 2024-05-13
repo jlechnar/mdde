@@ -15,14 +15,19 @@ from mdde.codes import *
 from mdde.html_base import *
 from mdde.tools_c import *
 
+from mdde.artefact import *
+
 tools = tools_c()
 
 with open('code_test.md', 'r') as f:
     text = f.read()
     try:
-        html = markdown.markdown(text, extensions=[
-            CodesExtension(tools, verbose=True),
-            HtmlBaseExtension(title="Code Test")])
+        html = markdown.markdown(text,
+                                 extensions=[
+                                     #CodesExtension(tools, verbose=True),
+                                     CodesExtension(tools, verbose=True, debug=True),
+                                     ArtefactExtension(tools, verbose=True, title_enable=False),
+                                     HtmlBaseExtension(tools, title="Code Test")])
     except CodesException as e:
         print(str(e))
 

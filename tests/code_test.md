@@ -9,16 +9,29 @@ Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis
 
 <!-- we could reuse the definition of split links for defining header description of code blocks ??? -->
 
-
 <!-- [below shows code block for]: -->
-``` [More detailed code] { .html }
+``` [Code]
 a = a+1
 c = c*a
 ```
 
-[below shows code block for code without markdown code block maker but just using spaces]:
-    a = a+1
-    b = b+2
+``` [Code]
+a = a+1
+
+c = c*a
+```
+
+<!--
+` `` [More detailed code] { .html }
+a = a+1
+c = c*a
+` ``
+
+` `` { .html }
+a = a+1
+c = c*a
+` ``
+-->
 
 Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
 
@@ -27,15 +40,118 @@ Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est r
 # Codes
 The code is below.
 
-``` [Yet another Code]
-a = a + 1
-bla {artefact:1}
+## Standalone code block
+```
+standalone
+code
+block
 ```
 
-{code:code block direct}
+## Standalone code block with space at the beginning
+```
+
+standalone
+code
+block
+```
+
+## Standalone code block with space in the middle
+```
+standalone
+
+code
+block
+```
+
+## Standalone code block with space at end
+```
+standalone
+code
+block
+
+```
+
+## Code
+``` [Yet another Code 1]
+a = a + 1
+b = b * 2
+bla
+s {artefact:1}
+{artefact:2}
+{artefact:3} s
+bla2 {artefact:4} foo2 
+bla3 {artefact:5} foo3 {artefact:6} bar3
+foo
+bar
+```
+
+## Code starting with artefact
+``` [Yet another Code 2]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+```
+
+## Code ending with artefact
+``` [Yet another Code 3]
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+{artefact:5}
+```
+
+## Code starting and ending with artefact
+``` [Yet another Code 4]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+foo
+bar
+{artefact:5}
+```
+
+## Code starting and ending with space plus artefact
+``` [Yet another Code 5]
+
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+
+foo
+bar
+{artefact:5}
+
+```
+
+## Code starting with artefact with space line
+``` [Yet another Code 6]
+{artefact:1}
+bla2 {artefact:2} foo2
+bla3 {artefact:3} foo3 {artefact:4} bar3
+
+foo
+bar
+```
+
+## Code with space lines
+``` [Yet another Code 7]
+bla2
+
+foo
+
+bar
+```
+
+## Code element without decoding
+<!--{code:code block direct}-->
 ```
 test
 test2
 test3
 ```
 
+## Inline code
+Inline code `c = d+e` test.

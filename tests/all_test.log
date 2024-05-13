@@ -1,818 +1,1164 @@
-DEBUG: CODE MOVE: ``` [Yet another Code] => {code:Yet another Code} + ``` 
-INFO: Comments: Ignoring comment: <% this is a comment 1>
-INFO: Comments: Not Ignoring command part of comment: <Hello world! >
-INFO: Comments: Ignoring comment: <% this is a comment 2>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <% this is a comment 3>
-INFO: Comments: Ignoring none command part of comment: <  >
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-INFO: Comments: Ignoring comment: <%>
-INFO: Comments: Ignoring none command part of comment: <>
-DEBUG:  HEADING: 1. Lists
-DEBUG:   HEADING: 1.1. List of Images
-DEBUG:   HEADING: 1.2. List of Abbreviations
-DEBUG:   HEADING: 1.3. List of References
-DEBUG:   HEADING: 1.4. List of Artefacts
-DEBUG:   HEADING: 1.5. List of Milestones
-DEBUG:   HEADING: 1.6. List of Bugs
-DEBUG:   HEADING: 1.7. List of Issues
-DEBUG:   HEADING: 1.8. List of Codes
-DEBUG:  HEADING: 2. Images [img][#images]
-DEBUG:  HEADING: 3. Abbreviations [abbrev][#abbreviations]
-DEBUG:  HEADING: 4. References
-DEBUG:  HEADING: 5. Artefacts [artf][#artefacts]
-DEBUG:  HEADING: 6. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:   HEADING: 6.1. test separator 1
-DEBUG:   HEADING: 6.2. test separator 2
-DEBUG:   HEADING: 6.3. test separator 3
-DEBUG:   HEADING: 6.4. test separator 3
-DEBUG:   HEADING: 6.5. Includes
-DEBUG:    HEADING: 6.5.1. Includes relative
-DEBUG:    INCLUDE: all_test_include.md
-DEBUG:     HEADING: 6.5.1.1. Images [imginc][#images_included]
-DEBUG:     HEADING: 6.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:     HEADING: 6.5.1.3. References
-DEBUG:     HEADING: 6.5.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:     HEADING: 6.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:      HEADING: 6.5.1.5.1. test separator 1
-DEBUG:      HEADING: 6.5.1.5.2. test separator 2
-DEBUG:      HEADING: 6.5.1.5.3. test separator 3
-DEBUG:      HEADING: 6.5.1.5.4. test separator 3
-DEBUG:      HEADING: 6.5.1.5.5. Includes
-DEBUG:       HEADING: 6.5.1.5.5.1. Includes relative
-DEBUG:       INCLUDE: all_test_include2.md
-DEBUG:        HEADING: 6.5.1.5.5.1.1. Images [imginc][#images_included]
-DEBUG:        HEADING: 6.5.1.5.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:        HEADING: 6.5.1.5.5.1.3. References
-DEBUG:        HEADING: 6.5.1.5.5.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:        HEADING: 6.5.1.5.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:         HEADING: 6.5.1.5.5.1.5.1. test separator 1
-DEBUG:         HEADING: 6.5.1.5.5.1.5.2. test separator 2
-DEBUG:         HEADING: 6.5.1.5.5.1.5.3. test separator 3
-DEBUG:         HEADING: 6.5.1.5.5.1.5.4. test separator 3
-DEBUG:       HEADING: 6.5.1.5.5.2. Include absolute
-DEBUG:    INCLUDE: all_test_include2.md
-DEBUG:     HEADING: 6.5.1.6. Images [imginc][#images_included]
-DEBUG:     HEADING: 6.5.1.7. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:     HEADING: 6.5.1.8. References
-DEBUG:     HEADING: 6.5.1.9. Artefacts [artfinc][#artefacts_included]
-DEBUG:     HEADING: 6.5.1.10. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:      HEADING: 6.5.1.10.1. test separator 1
-DEBUG:      HEADING: 6.5.1.10.2. test separator 2
-DEBUG:      HEADING: 6.5.1.10.3. test separator 3
-DEBUG:      HEADING: 6.5.1.10.4. test separator 3
-DEBUG:       HEADING: 6.5.1.10.4.1. Include relative to previous
-DEBUG:       INCLUDE: all_test_include2.md
-DEBUG:        HEADING: 6.5.1.10.4.1.1. Images [imginc][#images_included]
-DEBUG:        HEADING: 6.5.1.10.4.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:        HEADING: 6.5.1.10.4.1.3. References
-DEBUG:        HEADING: 6.5.1.10.4.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:        HEADING: 6.5.1.10.4.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:         HEADING: 6.5.1.10.4.1.5.1. test separator 1
-DEBUG:         HEADING: 6.5.1.10.4.1.5.2. test separator 2
-DEBUG:         HEADING: 6.5.1.10.4.1.5.3. test separator 3
-DEBUG:         HEADING: 6.5.1.10.4.1.5.4. test separator 3
-DEBUG:    HEADING: 6.5.2. Include absolute
-DEBUG:    INCLUDE: all_test_include.md
-DEBUG:     HEADING: 6.5.2.1. Images [imginc][#images_included]
-DEBUG:     HEADING: 6.5.2.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:     HEADING: 6.5.2.3. References
-DEBUG:     HEADING: 6.5.2.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:     HEADING: 6.5.2.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:      HEADING: 6.5.2.5.1. test separator 1
-DEBUG:      HEADING: 6.5.2.5.2. test separator 2
-DEBUG:      HEADING: 6.5.2.5.3. test separator 3
-DEBUG:      HEADING: 6.5.2.5.4. test separator 3
-DEBUG:      HEADING: 6.5.2.5.5. Includes
-DEBUG:       HEADING: 6.5.2.5.5.1. Includes relative
-DEBUG:       INCLUDE: all_test_include2.md
-DEBUG:        HEADING: 6.5.2.5.5.1.1. Images [imginc][#images_included]
-DEBUG:        HEADING: 6.5.2.5.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:        HEADING: 6.5.2.5.5.1.3. References
-DEBUG:        HEADING: 6.5.2.5.5.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:        HEADING: 6.5.2.5.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:         HEADING: 6.5.2.5.5.1.5.1. test separator 1
-DEBUG:         HEADING: 6.5.2.5.5.1.5.2. test separator 2
-DEBUG:         HEADING: 6.5.2.5.5.1.5.3. test separator 3
-DEBUG:         HEADING: 6.5.2.5.5.1.5.4. test separator 3
-DEBUG:       HEADING: 6.5.2.5.5.2. Include absolute
-DEBUG:    INCLUDE: all_test_include2.md
-DEBUG:     HEADING: 6.5.2.6. Images [imginc][#images_included]
-DEBUG:     HEADING: 6.5.2.7. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:     HEADING: 6.5.2.8. References
-DEBUG:     HEADING: 6.5.2.9. Artefacts [artfinc][#artefacts_included]
-DEBUG:     HEADING: 6.5.2.10. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:      HEADING: 6.5.2.10.1. test separator 1
-DEBUG:      HEADING: 6.5.2.10.2. test separator 2
-DEBUG:      HEADING: 6.5.2.10.3. test separator 3
-DEBUG:      HEADING: 6.5.2.10.4. test separator 3
-DEBUG:       HEADING: 6.5.2.10.4.1. Include relative to previous
-DEBUG:       INCLUDE: all_test_include2.md
-DEBUG:        HEADING: 6.5.2.10.4.1.1. Images [imginc][#images_included]
-DEBUG:        HEADING: 6.5.2.10.4.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:        HEADING: 6.5.2.10.4.1.3. References
-DEBUG:        HEADING: 6.5.2.10.4.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:        HEADING: 6.5.2.10.4.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:         HEADING: 6.5.2.10.4.1.5.1. test separator 1
-DEBUG:         HEADING: 6.5.2.10.4.1.5.2. test separator 2
-DEBUG:         HEADING: 6.5.2.10.4.1.5.3. test separator 3
-DEBUG:         HEADING: 6.5.2.10.4.1.5.4. test separator 3
-DEBUG:    HEADING: 6.5.3. Include relative to previous
-DEBUG:    INCLUDE: all_test_include.md
-DEBUG:     HEADING: 6.5.3.1. Images [imginc][#images_included]
-DEBUG:     HEADING: 6.5.3.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:     HEADING: 6.5.3.3. References
-DEBUG:     HEADING: 6.5.3.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:     HEADING: 6.5.3.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:      HEADING: 6.5.3.5.1. test separator 1
-DEBUG:      HEADING: 6.5.3.5.2. test separator 2
-DEBUG:      HEADING: 6.5.3.5.3. test separator 3
-DEBUG:      HEADING: 6.5.3.5.4. test separator 3
-DEBUG:      HEADING: 6.5.3.5.5. Includes
-DEBUG:       HEADING: 6.5.3.5.5.1. Includes relative
-DEBUG:       INCLUDE: all_test_include2.md
-DEBUG:        HEADING: 6.5.3.5.5.1.1. Images [imginc][#images_included]
-DEBUG:        HEADING: 6.5.3.5.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:        HEADING: 6.5.3.5.5.1.3. References
-DEBUG:        HEADING: 6.5.3.5.5.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:        HEADING: 6.5.3.5.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:         HEADING: 6.5.3.5.5.1.5.1. test separator 1
-DEBUG:         HEADING: 6.5.3.5.5.1.5.2. test separator 2
-DEBUG:         HEADING: 6.5.3.5.5.1.5.3. test separator 3
-DEBUG:         HEADING: 6.5.3.5.5.1.5.4. test separator 3
-DEBUG:       HEADING: 6.5.3.5.5.2. Include absolute
-DEBUG:    INCLUDE: all_test_include2.md
-DEBUG:     HEADING: 6.5.3.6. Images [imginc][#images_included]
-DEBUG:     HEADING: 6.5.3.7. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:     HEADING: 6.5.3.8. References
-DEBUG:     HEADING: 6.5.3.9. Artefacts [artfinc][#artefacts_included]
-DEBUG:     HEADING: 6.5.3.10. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:      HEADING: 6.5.3.10.1. test separator 1
-DEBUG:      HEADING: 6.5.3.10.2. test separator 2
-DEBUG:      HEADING: 6.5.3.10.3. test separator 3
-DEBUG:      HEADING: 6.5.3.10.4. test separator 3
-DEBUG:       HEADING: 6.5.3.10.4.1. Include relative to previous
-DEBUG:       INCLUDE: all_test_include2.md
-DEBUG:        HEADING: 6.5.3.10.4.1.1. Images [imginc][#images_included]
-DEBUG:        HEADING: 6.5.3.10.4.1.2. Abbreviations [abbrevinc][#abbreviations_included]
-DEBUG:        HEADING: 6.5.3.10.4.1.3. References
-DEBUG:        HEADING: 6.5.3.10.4.1.4. Artefacts [artfinc][#artefacts_included]
-DEBUG:        HEADING: 6.5.3.10.4.1.5. Pargraphs [paradup][#paragraph_duplicated]
-DEBUG:         HEADING: 6.5.3.10.4.1.5.1. test separator 1
-DEBUG:         HEADING: 6.5.3.10.4.1.5.2. test separator 2
-DEBUG:         HEADING: 6.5.3.10.4.1.5.3. test separator 3
-DEBUG:         HEADING: 6.5.3.10.4.1.5.4. test separator 3
-DEBUG:   HEADING: 6.6. Descriptions
-DEBUG:  HEADING: 7. Comments
-DEBUG:  HEADING: 8. Code
-DEBUG: INT REF: images: "img"
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 1>
+(COMMENTS) VERBOSE: Comments: Not Ignoring command part of comment: <Hello world! >
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 2>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 3>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <  >
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(INHT) VERBOSE:  HEADING: 1. Lists
+(INHT) VERBOSE:   HEADING: 1.1. List of Images
+(INHT) VERBOSE:   HEADING: 1.2. List of Abbreviations
+(INHT) VERBOSE:   HEADING: 1.3. List of References
+(INHT) VERBOSE:   HEADING: 1.4. List of Artefacts
+(INHT) VERBOSE:   HEADING: 1.5. List of Milestones
+(INHT) VERBOSE:   HEADING: 1.6. List of Bugs
+(INHT) VERBOSE:   HEADING: 1.7. List of Issues
+(INHT) VERBOSE:   HEADING: 1.8. List of Codes
+(INHT) VERBOSE:  HEADING: 2. Images [img][#images]
+(INHT) VERBOSE:  HEADING: 3. Abbreviations [abbrev][#abbreviations]
+(INHT) VERBOSE:  HEADING: 4. References
+(INHT) VERBOSE:  HEADING: 5. Artefacts [artf][#artefacts]
+(INHT) VERBOSE:  HEADING: 6. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:   HEADING: 6.1. test separator 1
+(INHT) VERBOSE:   HEADING: 6.2. test separator 2
+(INHT) VERBOSE:   HEADING: 6.3. test separator 3
+(INHT) VERBOSE:   HEADING: 6.4. test separator 3
+(INHT) VERBOSE:   HEADING: 6.5. Includes
+(INHT) VERBOSE:    HEADING: 6.5.1. Includes relative
+(INHT) VERBOSE:    INCLUDE: all_test_include.md
+(INHT) VERBOSE:     HEADING: 6.5.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:     HEADING: 6.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:     HEADING: 6.5.1.3. References
+(INHT) VERBOSE:     HEADING: 6.5.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:     HEADING: 6.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:      HEADING: 6.5.1.5.1. test separator 1
+(INHT) VERBOSE:      HEADING: 6.5.1.5.2. test separator 2
+(INHT) VERBOSE:      HEADING: 6.5.1.5.3. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.1.5.4. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.1.5.5. Includes
+(INHT) VERBOSE:       HEADING: 6.5.1.5.5.1. Includes relative
+(INHT) VERBOSE:       INCLUDE: all_test_include2.md
+(INHT) VERBOSE:        HEADING: 6.5.1.5.5.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:        HEADING: 6.5.1.5.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:        HEADING: 6.5.1.5.5.1.3. References
+(INHT) VERBOSE:        HEADING: 6.5.1.5.5.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:        HEADING: 6.5.1.5.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:         HEADING: 6.5.1.5.5.1.5.1. test separator 1
+(INHT) VERBOSE:         HEADING: 6.5.1.5.5.1.5.2. test separator 2
+(INHT) VERBOSE:         HEADING: 6.5.1.5.5.1.5.3. test separator 3
+(INHT) VERBOSE:         HEADING: 6.5.1.5.5.1.5.4. test separator 3
+(INHT) VERBOSE:       HEADING: 6.5.1.5.5.2. Include absolute
+(INHT) VERBOSE:    INCLUDE: all_test_include2.md
+(INHT) VERBOSE:     HEADING: 6.5.1.6. Images [imginc][#images_included]
+(INHT) VERBOSE:     HEADING: 6.5.1.7. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:     HEADING: 6.5.1.8. References
+(INHT) VERBOSE:     HEADING: 6.5.1.9. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:     HEADING: 6.5.1.10. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:      HEADING: 6.5.1.10.1. test separator 1
+(INHT) VERBOSE:      HEADING: 6.5.1.10.2. test separator 2
+(INHT) VERBOSE:      HEADING: 6.5.1.10.3. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.1.10.4. test separator 3
+(INHT) VERBOSE:       HEADING: 6.5.1.10.4.1. Include relative to previous
+(INHT) VERBOSE:       INCLUDE: all_test_include2.md
+(INHT) VERBOSE:        HEADING: 6.5.1.10.4.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:        HEADING: 6.5.1.10.4.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:        HEADING: 6.5.1.10.4.1.3. References
+(INHT) VERBOSE:        HEADING: 6.5.1.10.4.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:        HEADING: 6.5.1.10.4.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:         HEADING: 6.5.1.10.4.1.5.1. test separator 1
+(INHT) VERBOSE:         HEADING: 6.5.1.10.4.1.5.2. test separator 2
+(INHT) VERBOSE:         HEADING: 6.5.1.10.4.1.5.3. test separator 3
+(INHT) VERBOSE:         HEADING: 6.5.1.10.4.1.5.4. test separator 3
+(INHT) VERBOSE:    HEADING: 6.5.2. Include absolute
+(INHT) VERBOSE:    INCLUDE: all_test_include.md
+(INHT) VERBOSE:     HEADING: 6.5.2.1. Images [imginc][#images_included]
+(INHT) VERBOSE:     HEADING: 6.5.2.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:     HEADING: 6.5.2.3. References
+(INHT) VERBOSE:     HEADING: 6.5.2.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:     HEADING: 6.5.2.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:      HEADING: 6.5.2.5.1. test separator 1
+(INHT) VERBOSE:      HEADING: 6.5.2.5.2. test separator 2
+(INHT) VERBOSE:      HEADING: 6.5.2.5.3. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.2.5.4. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.2.5.5. Includes
+(INHT) VERBOSE:       HEADING: 6.5.2.5.5.1. Includes relative
+(INHT) VERBOSE:       INCLUDE: all_test_include2.md
+(INHT) VERBOSE:        HEADING: 6.5.2.5.5.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:        HEADING: 6.5.2.5.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:        HEADING: 6.5.2.5.5.1.3. References
+(INHT) VERBOSE:        HEADING: 6.5.2.5.5.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:        HEADING: 6.5.2.5.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:         HEADING: 6.5.2.5.5.1.5.1. test separator 1
+(INHT) VERBOSE:         HEADING: 6.5.2.5.5.1.5.2. test separator 2
+(INHT) VERBOSE:         HEADING: 6.5.2.5.5.1.5.3. test separator 3
+(INHT) VERBOSE:         HEADING: 6.5.2.5.5.1.5.4. test separator 3
+(INHT) VERBOSE:       HEADING: 6.5.2.5.5.2. Include absolute
+(INHT) VERBOSE:    INCLUDE: all_test_include2.md
+(INHT) VERBOSE:     HEADING: 6.5.2.6. Images [imginc][#images_included]
+(INHT) VERBOSE:     HEADING: 6.5.2.7. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:     HEADING: 6.5.2.8. References
+(INHT) VERBOSE:     HEADING: 6.5.2.9. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:     HEADING: 6.5.2.10. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:      HEADING: 6.5.2.10.1. test separator 1
+(INHT) VERBOSE:      HEADING: 6.5.2.10.2. test separator 2
+(INHT) VERBOSE:      HEADING: 6.5.2.10.3. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.2.10.4. test separator 3
+(INHT) VERBOSE:       HEADING: 6.5.2.10.4.1. Include relative to previous
+(INHT) VERBOSE:       INCLUDE: all_test_include2.md
+(INHT) VERBOSE:        HEADING: 6.5.2.10.4.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:        HEADING: 6.5.2.10.4.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:        HEADING: 6.5.2.10.4.1.3. References
+(INHT) VERBOSE:        HEADING: 6.5.2.10.4.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:        HEADING: 6.5.2.10.4.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:         HEADING: 6.5.2.10.4.1.5.1. test separator 1
+(INHT) VERBOSE:         HEADING: 6.5.2.10.4.1.5.2. test separator 2
+(INHT) VERBOSE:         HEADING: 6.5.2.10.4.1.5.3. test separator 3
+(INHT) VERBOSE:         HEADING: 6.5.2.10.4.1.5.4. test separator 3
+(INHT) VERBOSE:    HEADING: 6.5.3. Include relative to previous
+(INHT) VERBOSE:    INCLUDE: all_test_include.md
+(INHT) VERBOSE:     HEADING: 6.5.3.1. Images [imginc][#images_included]
+(INHT) VERBOSE:     HEADING: 6.5.3.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:     HEADING: 6.5.3.3. References
+(INHT) VERBOSE:     HEADING: 6.5.3.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:     HEADING: 6.5.3.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:      HEADING: 6.5.3.5.1. test separator 1
+(INHT) VERBOSE:      HEADING: 6.5.3.5.2. test separator 2
+(INHT) VERBOSE:      HEADING: 6.5.3.5.3. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.3.5.4. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.3.5.5. Includes
+(INHT) VERBOSE:       HEADING: 6.5.3.5.5.1. Includes relative
+(INHT) VERBOSE:       INCLUDE: all_test_include2.md
+(INHT) VERBOSE:        HEADING: 6.5.3.5.5.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:        HEADING: 6.5.3.5.5.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:        HEADING: 6.5.3.5.5.1.3. References
+(INHT) VERBOSE:        HEADING: 6.5.3.5.5.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:        HEADING: 6.5.3.5.5.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:         HEADING: 6.5.3.5.5.1.5.1. test separator 1
+(INHT) VERBOSE:         HEADING: 6.5.3.5.5.1.5.2. test separator 2
+(INHT) VERBOSE:         HEADING: 6.5.3.5.5.1.5.3. test separator 3
+(INHT) VERBOSE:         HEADING: 6.5.3.5.5.1.5.4. test separator 3
+(INHT) VERBOSE:       HEADING: 6.5.3.5.5.2. Include absolute
+(INHT) VERBOSE:    INCLUDE: all_test_include2.md
+(INHT) VERBOSE:     HEADING: 6.5.3.6. Images [imginc][#images_included]
+(INHT) VERBOSE:     HEADING: 6.5.3.7. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:     HEADING: 6.5.3.8. References
+(INHT) VERBOSE:     HEADING: 6.5.3.9. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:     HEADING: 6.5.3.10. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:      HEADING: 6.5.3.10.1. test separator 1
+(INHT) VERBOSE:      HEADING: 6.5.3.10.2. test separator 2
+(INHT) VERBOSE:      HEADING: 6.5.3.10.3. test separator 3
+(INHT) VERBOSE:      HEADING: 6.5.3.10.4. test separator 3
+(INHT) VERBOSE:       HEADING: 6.5.3.10.4.1. Include relative to previous
+(INHT) VERBOSE:       INCLUDE: all_test_include2.md
+(INHT) VERBOSE:        HEADING: 6.5.3.10.4.1.1. Images [imginc][#images_included]
+(INHT) VERBOSE:        HEADING: 6.5.3.10.4.1.2. Abbreviations [abbrevinc][#abbreviations_included]
+(INHT) VERBOSE:        HEADING: 6.5.3.10.4.1.3. References
+(INHT) VERBOSE:        HEADING: 6.5.3.10.4.1.4. Artefacts [artfinc][#artefacts_included]
+(INHT) VERBOSE:        HEADING: 6.5.3.10.4.1.5. Pargraphs [paradup][#paragraph_duplicated]
+(INHT) VERBOSE:         HEADING: 6.5.3.10.4.1.5.1. test separator 1
+(INHT) VERBOSE:         HEADING: 6.5.3.10.4.1.5.2. test separator 2
+(INHT) VERBOSE:         HEADING: 6.5.3.10.4.1.5.3. test separator 3
+(INHT) VERBOSE:         HEADING: 6.5.3.10.4.1.5.4. test separator 3
+(INHT) VERBOSE:   HEADING: 6.6. Descriptions
+(INHT) VERBOSE:  HEADING: 7. Comments
+(INHT) VERBOSE:  HEADING: 8. Codes
+(INHT) VERBOSE:   HEADING: 8.1. Standalone code block
+(INHT) VERBOSE:   HEADING: 8.2. Standalone code block with space at the beginning
+(INHT) VERBOSE:   HEADING: 8.3. Standalone code block with space in the middle
+(INHT) VERBOSE:   HEADING: 8.4. Standalone code block with space at end
+(INHT) VERBOSE:   HEADING: 8.5. Code
+(INHT) VERBOSE:   HEADING: 8.6. Code starting with artefact
+(INHT) VERBOSE:   HEADING: 8.7. Code ending with artefact
+(INHT) VERBOSE:   HEADING: 8.8. Code starting and ending with artefact
+(INHT) VERBOSE:   HEADING: 8.9. Code starting and ending with space plus artefact
+(INHT) VERBOSE:   HEADING: 8.10. Code starting with artefact with space line
+(INHT) VERBOSE:   HEADING: 8.11. Code with space lines
+(INHT) VERBOSE:   HEADING: 8.12. Code element without decoding
+(INHT) VERBOSE:   HEADING: 8.13. Inline code
+(INHT) VERBOSE:   HEADING: 8.14. Codes with links
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 1] => {code:Yet another Code 1} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 2] => {code:Yet another Code 2} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 3] => {code:Yet another Code 3} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 4] => {code:Yet another Code 4} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 5] => {code:Yet another Code 5} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 6] => {code:Yet another Code 6} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 7] => {code:Yet another Code 7} + ``` [CODES]
+(CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 8] => {code:Yet another Code 8} + ``` [CODES]
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(TITLE) VERBOSE: A (title): title:Test of all items:1 => Test of all items
+(LABELS_REFERENCES) VERBOSE: INT REF: images: "img"
+(LABELS_REFERENCES) VERBOSE: LABEL: images: "img"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations: "abbrev"
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts: "artf"
-A (artefact): artefact:3:1 => 3
-A (milestone): milestone:beta:1 => beta
-A (issue): issue:1:1 => 1
-A (bug): bug:1:1 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-A (artefact): artefact:3:2 => 3
-A (milestone): milestone:beta:2 => beta
-A (issue): issue:1:2 => 1
-A (bug): bug:1:2 => 1
-DEBUG: INT REF: images_included: "imginc"
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations: "abbrev"
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations: "abbrev"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link: "Broken Link"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link: "Broken Link"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference: "Missing Reference"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference: "Missing Reference"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts: "artf"
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts: "artf"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:1 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:1 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:1 => 1
+(BUG) VERBOSE: A (bug): bug:1:1 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:2 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:2 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:2 => 1
+(BUG) VERBOSE: A (bug): bug:1:2 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-A (artefact): artefact:3:3 => 3
-A (milestone): milestone:beta:3 => beta
-A (issue): issue:1:3 => 1
-A (bug): bug:1:3 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:4 => 3
-A (milestone): milestone:beta:4 => beta
-A (issue): issue:1:4 => 1
-A (bug): bug:1:4 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include: "Broken Link include"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include: "Broken Link include"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include: "Missing Reference include"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include: "Missing Reference include"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:3 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:3 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:3 => 1
+(BUG) VERBOSE: A (bug): bug:1:3 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:4 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:4 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:4 => 1
+(BUG) VERBOSE: A (bug): bug:1:4 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:5 => 3
-A (milestone): milestone:beta:5 => beta
-A (issue): issue:1:5 => 1
-A (bug): bug:1:5 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:6 => 3
-A (milestone): milestone:beta:6 => beta
-A (issue): issue:1:6 => 1
-A (bug): bug:1:6 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:5 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:5 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:5 => 1
+(BUG) VERBOSE: A (bug): bug:1:5 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:6 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:6 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:6 => 1
+(BUG) VERBOSE: A (bug): bug:1:6 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:7 => 3
-A (milestone): milestone:beta:7 => beta
-A (issue): issue:1:7 => 1
-A (bug): bug:1:7 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:8 => 3
-A (milestone): milestone:beta:8 => beta
-A (issue): issue:1:8 => 1
-A (bug): bug:1:8 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:7 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:7 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:7 => 1
+(BUG) VERBOSE: A (bug): bug:1:7 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:8 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:8 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:8 => 1
+(BUG) VERBOSE: A (bug): bug:1:8 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:9 => 3
-A (milestone): milestone:beta:9 => beta
-A (issue): issue:1:9 => 1
-A (bug): bug:1:9 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:10 => 3
-A (milestone): milestone:beta:10 => beta
-A (issue): issue:1:10 => 1
-A (bug): bug:1:10 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:9 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:9 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:9 => 1
+(BUG) VERBOSE: A (bug): bug:1:9 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:10 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:10 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:10 => 1
+(BUG) VERBOSE: A (bug): bug:1:10 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:11 => 3
-A (milestone): milestone:beta:11 => beta
-A (issue): issue:1:11 => 1
-A (bug): bug:1:11 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:12 => 3
-A (milestone): milestone:beta:12 => beta
-A (issue): issue:1:12 => 1
-A (bug): bug:1:12 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include: "Broken Link include"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include: "Broken Link include"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include: "Missing Reference include"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include: "Missing Reference include"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:11 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:11 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:11 => 1
+(BUG) VERBOSE: A (bug): bug:1:11 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:12 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:12 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:12 => 1
+(BUG) VERBOSE: A (bug): bug:1:12 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:13 => 3
-A (milestone): milestone:beta:13 => beta
-A (issue): issue:1:13 => 1
-A (bug): bug:1:13 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:14 => 3
-A (milestone): milestone:beta:14 => beta
-A (issue): issue:1:14 => 1
-A (bug): bug:1:14 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:13 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:13 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:13 => 1
+(BUG) VERBOSE: A (bug): bug:1:13 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:14 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:14 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:14 => 1
+(BUG) VERBOSE: A (bug): bug:1:14 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:15 => 3
-A (milestone): milestone:beta:15 => beta
-A (issue): issue:1:15 => 1
-A (bug): bug:1:15 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:16 => 3
-A (milestone): milestone:beta:16 => beta
-A (issue): issue:1:16 => 1
-A (bug): bug:1:16 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:15 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:15 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:15 => 1
+(BUG) VERBOSE: A (bug): bug:1:15 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:16 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:16 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:16 => 1
+(BUG) VERBOSE: A (bug): bug:1:16 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:17 => 3
-A (milestone): milestone:beta:17 => beta
-A (issue): issue:1:17 => 1
-A (bug): bug:1:17 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:18 => 3
-A (milestone): milestone:beta:18 => beta
-A (issue): issue:1:18 => 1
-A (bug): bug:1:18 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:17 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:17 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:17 => 1
+(BUG) VERBOSE: A (bug): bug:1:17 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:18 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:18 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:18 => 1
+(BUG) VERBOSE: A (bug): bug:1:18 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:19 => 3
-A (milestone): milestone:beta:19 => beta
-A (issue): issue:1:19 => 1
-A (bug): bug:1:19 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:20 => 3
-A (milestone): milestone:beta:20 => beta
-A (issue): issue:1:20 => 1
-A (bug): bug:1:20 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include: "Broken Link include"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include: "Broken Link include"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include: "Missing Reference include"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include: "Missing Reference include"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:19 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:19 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:19 => 1
+(BUG) VERBOSE: A (bug): bug:1:19 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:20 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:20 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:20 => 1
+(BUG) VERBOSE: A (bug): bug:1:20 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:21 => 3
-A (milestone): milestone:beta:21 => beta
-A (issue): issue:1:21 => 1
-A (bug): bug:1:21 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:22 => 3
-A (milestone): milestone:beta:22 => beta
-A (issue): issue:1:22 => 1
-A (bug): bug:1:22 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:21 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:21 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:21 => 1
+(BUG) VERBOSE: A (bug): bug:1:21 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:22 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:22 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:22 => 1
+(BUG) VERBOSE: A (bug): bug:1:22 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:23 => 3
-A (milestone): milestone:beta:23 => beta
-A (issue): issue:1:23 => 1
-A (bug): bug:1:23 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:24 => 3
-A (milestone): milestone:beta:24 => beta
-A (issue): issue:1:24 => 1
-A (bug): bug:1:24 => 1
-DEBUG: INT REF: images_included: "imginc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: images_included
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:23 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:23 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:23 => 1
+(BUG) VERBOSE: A (bug): bug:1:23 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:24 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:24 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:24 => 1
+(BUG) VERBOSE: A (bug): bug:1:24 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: images_included: "imginc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: images_included
+(LABELS_REFERENCES) VERBOSE: LABEL: images_included: "imginc"
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): Test image of opendocument file using png as image format. 1>:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
   <Test image of opendocument file using png as image format. 1>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
-DEBUG: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png 2](content/test.odt.png "title: test odt png 2"): Test image of opendocument file using png as image format. 2>:
   <Alternative text: Image: test.odt.png 2>
   <content/test.odt.png "title: test odt png 2">
   <Test image of opendocument file using png as image format. 2>
-DEBUG:     <content/test.odt.png>
+(IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 2>
-DEBUG: INT REF: abbreviations_included: "abbrevinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
-DEBUG: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
-WARNING: Ignoring abbreviation definition duplicate for <GNU>
-DEBUG: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
-WARNING: Ignoring abbreviation definition duplicate for <BSD>
-DEBUG: INT LINK: images: "Images"
-DEBUG: INT LINK: abbreviations: "Abbreviations"
-DEBUG: INT LINK: artefacts: "Artefacts"
-DEBUG: INT LINK: paragraph_duplicated: "Paragraph duplicated"
-DEBUG: INT LINK: images_included: "Images included"
-DEBUG: INT LINK: abbreviations_included: "Abbreviations includeed"
-DEBUG: INT LINK: artefacts_included: "Artefacts included"
-DEBUG: INT REF: artefacts_included: "artfinc"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
-A (artefact): artefact:3:25 => 3
-A (milestone): milestone:beta:25 => beta
-A (issue): issue:1:25 => 1
-A (bug): bug:1:25 => 1
-DEBUG: INT REF: paragraph_duplicated: "paradup"
-WARNING: (ingored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
-A (artefact): artefact:3:26 => 3
-A (milestone): milestone:beta:26 => beta
-A (issue): issue:1:26 => 1
-A (bug): bug:1:26 => 1
-DEBUG: CODE: Yet another Code
-A (artefact): artefact:1:1 => 1
-DEBUG: CODE: code block
-LOA (artefact): artefact:1:1 => 1
-LOA (artefact): artefact:3:1 => 3
-LOA (artefact): artefact:3:2 => 3
-LOA (artefact): artefact:3:3 => 3
-LOA (artefact): artefact:3:4 => 3
-LOA (artefact): artefact:3:5 => 3
-LOA (artefact): artefact:3:6 => 3
-LOA (artefact): artefact:3:7 => 3
-LOA (artefact): artefact:3:8 => 3
-LOA (artefact): artefact:3:9 => 3
-LOA (artefact): artefact:3:10 => 3
-LOA (artefact): artefact:3:11 => 3
-LOA (artefact): artefact:3:12 => 3
-LOA (artefact): artefact:3:13 => 3
-LOA (artefact): artefact:3:14 => 3
-LOA (artefact): artefact:3:15 => 3
-LOA (artefact): artefact:3:16 => 3
-LOA (artefact): artefact:3:17 => 3
-LOA (artefact): artefact:3:18 => 3
-LOA (artefact): artefact:3:19 => 3
-LOA (artefact): artefact:3:20 => 3
-LOA (artefact): artefact:3:21 => 3
-LOA (artefact): artefact:3:22 => 3
-LOA (artefact): artefact:3:23 => 3
-LOA (artefact): artefact:3:24 => 3
-LOA (artefact): artefact:3:25 => 3
-LOA (artefact): artefact:3:26 => 3
-LOA (milestone): milestone:beta:1 => beta
-LOA (milestone): milestone:beta:2 => beta
-LOA (milestone): milestone:beta:3 => beta
-LOA (milestone): milestone:beta:4 => beta
-LOA (milestone): milestone:beta:5 => beta
-LOA (milestone): milestone:beta:6 => beta
-LOA (milestone): milestone:beta:7 => beta
-LOA (milestone): milestone:beta:8 => beta
-LOA (milestone): milestone:beta:9 => beta
-LOA (milestone): milestone:beta:10 => beta
-LOA (milestone): milestone:beta:11 => beta
-LOA (milestone): milestone:beta:12 => beta
-LOA (milestone): milestone:beta:13 => beta
-LOA (milestone): milestone:beta:14 => beta
-LOA (milestone): milestone:beta:15 => beta
-LOA (milestone): milestone:beta:16 => beta
-LOA (milestone): milestone:beta:17 => beta
-LOA (milestone): milestone:beta:18 => beta
-LOA (milestone): milestone:beta:19 => beta
-LOA (milestone): milestone:beta:20 => beta
-LOA (milestone): milestone:beta:21 => beta
-LOA (milestone): milestone:beta:22 => beta
-LOA (milestone): milestone:beta:23 => beta
-LOA (milestone): milestone:beta:24 => beta
-LOA (milestone): milestone:beta:25 => beta
-LOA (milestone): milestone:beta:26 => beta
-LOA (issue): issue:1:1 => 1
-LOA (issue): issue:1:2 => 1
-LOA (issue): issue:1:3 => 1
-LOA (issue): issue:1:4 => 1
-LOA (issue): issue:1:5 => 1
-LOA (issue): issue:1:6 => 1
-LOA (issue): issue:1:7 => 1
-LOA (issue): issue:1:8 => 1
-LOA (issue): issue:1:9 => 1
-LOA (issue): issue:1:10 => 1
-LOA (issue): issue:1:11 => 1
-LOA (issue): issue:1:12 => 1
-LOA (issue): issue:1:13 => 1
-LOA (issue): issue:1:14 => 1
-LOA (issue): issue:1:15 => 1
-LOA (issue): issue:1:16 => 1
-LOA (issue): issue:1:17 => 1
-LOA (issue): issue:1:18 => 1
-LOA (issue): issue:1:19 => 1
-LOA (issue): issue:1:20 => 1
-LOA (issue): issue:1:21 => 1
-LOA (issue): issue:1:22 => 1
-LOA (issue): issue:1:23 => 1
-LOA (issue): issue:1:24 => 1
-LOA (issue): issue:1:25 => 1
-LOA (issue): issue:1:26 => 1
-LOA (bug): bug:1:1 => 1
-LOA (bug): bug:1:2 => 1
-LOA (bug): bug:1:3 => 1
-LOA (bug): bug:1:4 => 1
-LOA (bug): bug:1:5 => 1
-LOA (bug): bug:1:6 => 1
-LOA (bug): bug:1:7 => 1
-LOA (bug): bug:1:8 => 1
-LOA (bug): bug:1:9 => 1
-LOA (bug): bug:1:10 => 1
-LOA (bug): bug:1:11 => 1
-LOA (bug): bug:1:12 => 1
-LOA (bug): bug:1:13 => 1
-LOA (bug): bug:1:14 => 1
-LOA (bug): bug:1:15 => 1
-LOA (bug): bug:1:16 => 1
-LOA (bug): bug:1:17 => 1
-LOA (bug): bug:1:18 => 1
-LOA (bug): bug:1:19 => 1
-LOA (bug): bug:1:20 => 1
-LOA (bug): bug:1:21 => 1
-LOA (bug): bug:1:22 => 1
-LOA (bug): bug:1:23 => 1
-LOA (bug): bug:1:24 => 1
-LOA (bug): bug:1:25 => 1
-LOA (bug): bug:1:26 => 1
-
+(LABELS_REFERENCES) VERBOSE: INT REF: abbreviations_included: "abbrevinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: abbreviations_included
+(LABELS_REFERENCES) VERBOSE: LABEL: abbreviations_included: "abbrevinc"
+(ABBREVIATION) VERBOSE: ABBR: GNU => GNU's not Unix!: GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <GNU>
+(ABBREVIATION) VERBOSE: ABBR: BSD => Berkeley Software Distribution: The Berkeley Software Distribution or Berkeley Standard Distribution BSD is a discontinued operating system based on Research Unix, developed and distributed by the Computer Systems Research Group at the University of California, Berkeley.
+(ABBREVIATION) WARNING: Ignoring abbreviation definition duplicate for <BSD>
+(LABELS_REFERENCES) VERBOSE: INT LINK: images: "Images"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images: "Images"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations: "Abbreviations"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts: "Artefacts"
+(LABELS_REFERENCES) VERBOSE: INT LINK: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: paragraph_duplicated: "Paragraph duplicated"
+(LABELS_REFERENCES) VERBOSE: INT LINK: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: images_included: "Images included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: abbreviations_included: "Abbreviations includeed"
+(LABELS_REFERENCES) VERBOSE: INT LINK: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: artefacts_included: "Artefacts included"
+(LABELS_REFERENCES) VERBOSE: INT LINK: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: broken_link_include2: "Broken Link include2"
+(LABELS_REFERENCES) VERBOSE: INT LINK: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: missing_reference_include2: "Missing Reference include2"
+(LABELS_REFERENCES) VERBOSE: INT REF: artefacts_included: "artfinc"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: artefacts_included
+(LABELS_REFERENCES) VERBOSE: LABEL: artefacts_included: "artfinc"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:25 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:25 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:25 => 1
+(BUG) VERBOSE: A (bug): bug:1:25 => 1
+(LABELS_REFERENCES) VERBOSE: INT REF: paragraph_duplicated: "paradup"
+(LABELS_REFERENCES) WARNING:  (ingnored FATAL ERROR) Duplicated definition of internal reference: paragraph_duplicated
+(LABELS_REFERENCES) VERBOSE: LABEL: paragraph_duplicated: "paradup"
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:26 => 3
+(MILESTONE) VERBOSE: A (milestone): milestone:beta:26 => beta
+(ISSUE) VERBOSE: A (issue): issue:1:26 => 1
+(BUG) VERBOSE: A (bug): bug:1:26 => 1
+(CODES) VERBOSE: CODE: Yet another Code 1
+(ARTEFACT) VERBOSE: A (artefact): artefact:6:1 => 6
+(ARTEFACT) VERBOSE: A (artefact): artefact:5:1 => 5
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:1 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:27 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:1 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:1 => 1
+(CODES) VERBOSE: CODE: Yet another Code 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:2 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:28 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:2 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:2 => 1
+(CODES) VERBOSE: CODE: Yet another Code 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:5:2 => 5
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:3 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:29 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:3 => 2
+(CODES) VERBOSE: CODE: Yet another Code 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:5:3 => 5
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:4 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:30 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:4 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:3 => 1
+(CODES) VERBOSE: CODE: Yet another Code 5
+(ARTEFACT) VERBOSE: A (artefact): artefact:5:4 => 5
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:5 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:31 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:5 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:4 => 1
+(CODES) VERBOSE: CODE: Yet another Code 6
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:6 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:32 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:6 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:5 => 1
+(CODES) VERBOSE: CODE: Yet another Code 7
+(LABELS_REFERENCES) VERBOSE: INT REF: inline_code: "inline code"
+(LABELS_REFERENCES) VERBOSE: LABEL: inline_code: "inline code"
+(CODES) VERBOSE: CODE: Yet another Code 8
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:7 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:33 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:7 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:6 => 1
+(LABELS_REFERENCES) VERBOSE: INT LINK: inline_code: "Link to somewhere inside code"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: inline_code: "Link to somewhere inside code"
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:1:1 => 1
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:1:2 => 1
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:1:3 => 1
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:1:4 => 1
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:1:5 => 1
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:1:6 => 1
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:1 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:2 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:3 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:4 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:5 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:6 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:2:7 => 2
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:1 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:2 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:3 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:4 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:5 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:6 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:7 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:8 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:9 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:10 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:11 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:12 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:13 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:14 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:15 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:16 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:17 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:18 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:19 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:20 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:21 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:22 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:23 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:24 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:25 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:26 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:27 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:28 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:29 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:30 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:31 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:32 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:3:33 => 3
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:1 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:2 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:3 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:4 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:5 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:6 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:4:7 => 4
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:5:1 => 5
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:5:2 => 5
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:5:3 => 5
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:5:4 => 5
+(ARTEFACT) VERBOSE: LOA (artefact): artefact:6:1 => 6
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:1 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:2 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:3 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:4 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:5 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:6 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:7 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:8 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:9 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:10 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:11 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:12 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:13 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:14 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:15 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:16 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:17 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:18 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:19 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:20 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:21 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:22 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:23 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:24 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:25 => beta
+(MILESTONE) VERBOSE: LOA (milestone): milestone:beta:26 => beta
+(ISSUE) VERBOSE: LOA (issue): issue:1:1 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:2 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:3 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:4 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:5 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:6 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:7 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:8 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:9 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:10 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:11 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:12 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:13 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:14 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:15 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:16 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:17 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:18 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:19 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:20 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:21 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:22 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:23 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:24 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:25 => 1
+(ISSUE) VERBOSE: LOA (issue): issue:1:26 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:1 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:2 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:3 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:4 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:5 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:6 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:7 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:8 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:9 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:10 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:11 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:12 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:13 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:14 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:15 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:16 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:17 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:18 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:19 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:20 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:21 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:22 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:23 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:24 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:25 => 1
+(BUG) VERBOSE: LOA (bug): bug:1:26 => 1
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**Test 1**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**Test 2**: is a more complex test case.</p></li><li><p>**Test 3**: is a very complex test case.\n  We need more work on this one</p><ul><li><p>**Test 3a**: is a very complex test case.\n  We need more work on this one</p><ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul></li></ul>"
-LI: 0/1 => 
- LI (SC) test: 0/1 => **Test 1**: is a simple test case.
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **Test 1**: is a simple test case.
   Where it is simple than others
-    DL (SC): 1/1 => Test 1 : is a simple test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => Test 1 : is a simple test case.
   Where it is simple than others
-LI: 1/2 => None
- LI (SC) test: 1/2 => **Test 2**: is a more complex test case.
-    DL (SC): 2/2 => Test 2 : is a more complex test case.
-LI: 2/3 => None
- LI (SC) test: 2/3 => **Test 3**: is a very complex test case.
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **Test 2**: is a more complex test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => Test 2 : is a more complex test case.
+(DESCRIPTION) VERBOSE: LI: 2/3 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/3 => **Test 3**: is a very complex test case.
   We need more work on this one
-    DL (SC): 3/3 => Test 3 : is a very complex test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 3/3 => Test 3 : is a very complex test case.
   We need more work on this one
- LI (SC) test: 3/3 => None
-
+(DESCRIPTION) VERBOSE:  LI (SC) test: 3/3 => None
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**Test 3a**: is a very complex test case.\n  We need more work on this one</p><ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul>"
-LI: 0/1 => 
- LI (SC) test: 0/1 => **Test 3a**: is a very complex test case.
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **Test 3a**: is a very complex test case.
   We need more work on this one
-    DL (SC): 1/1 => Test 3a : is a very complex test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => Test 3a : is a very complex test case.
   We need more work on this one
- LI (SC) test: 1/1 => None
-
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/1 => None
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul>"
-LI: 0/1 => **Test 3b**: is a very complex test case.
+(DESCRIPTION) VERBOSE: LI: 0/1 => **Test 3b**: is a very complex test case.
   We need more work on this one
-  DL: 1/1 => Test 3b : is a very complex test case.
+(DESCRIPTION) VERBOSE:   DL: 1/1 => Test 3b : is a very complex test case.
   We need more work on this one
-LI: 1/2 => None
- LI (SC) test: 1/2 => **Lorem**:
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **Lorem**:
   Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
-    DL (SC): 2/2 => Lorem : Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
- LI (SC) test: 2/2 => Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.
- LI (SC) test: 2/2 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
- LI (SC) test: 2/2 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
- LI (SC) test: 2/2 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => Lorem : Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include2>
+(LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference_include2>
+line: <standalone>
+line: <code>
+line: <block>
+line: <{code_empty_line}>
+line: <standalone>
+line: <code>
+line: <block>
+line: <standalone>
+line: <{code_empty_line}>
+line: <code>
+line: <block>
+line: <standalone>
+line: <code>
+line: <block>
+line: <{code_empty_line}>
+line: <test>
+line: <test2>
+line: <test3>

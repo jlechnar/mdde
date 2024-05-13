@@ -1,46 +1,49 @@
-
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**Test 1**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**Test 2**: is a more complex test case.</p></li><li><p>**Test 3**: is a very complex test case.\n  We need more work on this one</p><ul><li><p>**Test 3a**: is a very complex test case.\n  We need more work on this one</p><ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul>"
-LI: 0/1 => 
- LI (SC) test: 0/1 => **Test 1**: is a simple test case.
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **Test 1**: is a simple test case.
   Where it is simple than others
-    DL (SC): 1/1 => Test 1 : is a simple test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => Test 1 : is a simple test case.
   Where it is simple than others
-LI: 1/2 => None
- LI (SC) test: 1/2 => **Test 2**: is a more complex test case.
-    DL (SC): 2/2 => Test 2 : is a more complex test case.
-LI: 2/3 => None
- LI (SC) test: 2/3 => **Test 3**: is a very complex test case.
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **Test 2**: is a more complex test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => Test 2 : is a more complex test case.
+(DESCRIPTION) VERBOSE: LI: 2/3 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/3 => **Test 3**: is a very complex test case.
   We need more work on this one
-    DL (SC): 3/3 => Test 3 : is a very complex test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 3/3 => Test 3 : is a very complex test case.
   We need more work on this one
- LI (SC) test: 3/3 => None
-
+(DESCRIPTION) VERBOSE:  LI (SC) test: 3/3 => None
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**Test 3a**: is a very complex test case.\n  We need more work on this one</p><ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul>"
-LI: 0/1 => 
- LI (SC) test: 0/1 => **Test 3a**: is a very complex test case.
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **Test 3a**: is a very complex test case.
   We need more work on this one
-    DL (SC): 1/1 => Test 3a : is a very complex test case.
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => Test 3a : is a very complex test case.
   We need more work on this one
- LI (SC) test: 1/1 => None
-
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/1 => None
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul>"
-LI: 0/1 => **Test 3b**: is a very complex test case.
+(DESCRIPTION) VERBOSE: LI: 0/1 => **Test 3b**: is a very complex test case.
   We need more work on this one
-  DL: 1/1 => Test 3b : is a very complex test case.
+(DESCRIPTION) VERBOSE:   DL: 1/1 => Test 3b : is a very complex test case.
   We need more work on this one
-LI: 1/2 => None
- LI (SC) test: 1/2 => **Lorem**:
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **Lorem**:
   Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
-    DL (SC): 2/2 => Lorem : Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
- LI (SC) test: 2/2 => Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.
- LI (SC) test: 2/2 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
- LI (SC) test: 2/2 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
- LI (SC) test: 2/2 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
-LI: 3/4 => None
- LI (SC) test: 3/4 => **Lorem**:
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => Lorem : Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(DESCRIPTION) VERBOSE: LI: 3/4 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 3/4 => **Lorem**:
   Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
-    DL (SC): 4/4 => Lorem : Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
- LI (SC) test: 4/4 => Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.
- LI (SC) test: 4/4 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
- LI (SC) test: 4/4 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
- LI (SC) test: 4/4 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(DESCRIPTION) VERBOSE:     DL (SC): 4/4 => Lorem : Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
+(DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.

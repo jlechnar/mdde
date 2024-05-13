@@ -71,7 +71,7 @@ class ArtefactBlockProcessor(BlockProcessor):
       self.md.loa[tag][artefact].append(artefact_id)
 
       if self.config["verbose"]:
-        print("A (" + tag + "): " + artefact_id + " => " + artefact)
+        self.tools.verbose(self.config["message_identifier"], "A (" + tag + "): " + artefact_id + " => " + artefact)
 
       self.md.loa_id_map[tag][artefact_id] = artefact
 
@@ -122,9 +122,10 @@ def natural_sortkey(string):
 #
 class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
 
-  def __init__(self, md, config):
+  def __init__(self, md, tools, config):
     super().__init__(md)
     self.config = config
+    self.tools = tools
 
   def run(self, root):
     self.replace_loa(root)
@@ -186,7 +187,7 @@ class ArtefactLoaReplaceTreeProcessor(Treeprocessor):
               for artefact_id in sorted(self.md.loa[tag][artefact], key=natural_sortkey):
 
                 if self.config["verbose"]:
-                  print("LOA (" + tag + "): " + artefact_id + " => " + artefact)
+                    self.tools.verbose(self.config["message_identifier"], "LOA (" + tag + "): " + artefact_id + " => " + artefact)
 
                 if not first_element:
                   e_loa_data = etree.SubElement(e_loa_data_links, "span")
@@ -261,6 +262,11 @@ class ArtefactExtension(Extension):
   def __init__(self, tools, **kwargs):
     self.tools = tools
     self.config = {
+      'message_identifier': [
+          'ARTEFACT',
+          'Message Identifier',
+          'Default: ARTEFACT`.'
+      ],
       'debug': [
         False,
         'Debug mode',
@@ -308,12 +314,12 @@ class ArtefactExtension(Extension):
       ],
       'title_enable': [
         True,
-        'Enable Title printing'
+        'Enable Title printing',
         'Default: on`.'
       ],
       'title': [
         'List of Artefacts',
-        'Title for LOA'
+          'Title for LOA',
         'Default: `List of Artefacts`.'
       ],
     }
@@ -345,14 +351,16 @@ class ArtefactExtension(Extension):
     # ------------
     # Treeprocessors
 
-    loa_replace_ext = self.ArtefactLoaReplaceTreeProcessorClass(md, self.getConfigs())
+    loa_replace_ext = self.ArtefactLoaReplaceTreeProcessorClass(md, self.tools, self.getConfigs())
     md.treeprocessors.register(loa_replace_ext, md_id + '__loa_replace', 165)
 
     # ------------
     # Inlineprocessors
 
     ARTEFACT_PATTERN = r'\{DONE:' + self.config["tag"][0] + ':([^\}]+)\}'
-    # > 190-194 required as else parts inside code sections do not get replaced before code is decoded by python-markdown !!!
+    # >190-194 required as else parts inside code sections do not get replaced before code is decoded by python-markdown !!!
+    # then the conversion gets ignored !
+    # but we also have the issue that the code is then pure text, hence decoding is not that easy anymore in codes :(
     md.inlinePatterns.register(ArtefactReplaceInlineProcessor(ARTEFACT_PATTERN, md, self.getConfigs()), md_id + '_replace_inline', 200)
 
     # ------------

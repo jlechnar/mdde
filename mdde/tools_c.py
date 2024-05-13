@@ -15,55 +15,60 @@ import xml.etree.ElementTree as etree
 import sys
 #if sys.version_info[0] == 3:
 #    import inquirer
-    
+
 ###############################################################
 class tools_c:
 
     tools_debug = False
-    
+
     # def __init__(self):
 
     ###############################################################
-    def show(self, message):
+    def show(self, module, message):
         sys.stdout.flush()
-        print(message)
-        sys.stdout.flush()
-                
-    ###############################################################
-    def warning(self, message):
-        sys.stdout.flush()
-        print("WARNING: " + message)
-        sys.stdout.flush()
-        
-    ###############################################################
-    def info(self, message):
-        sys.stdout.flush()
-        print("INFO: " + message)
-        sys.stdout.flush()
-        
-    ###############################################################
-    def process(self, message):
-        sys.stdout.flush()
-        print("> " + message + " ...")
+        print("(" + module + ") " + message)
         sys.stdout.flush()
 
     ###############################################################
-    def status(self, message):
+    def warning(self, module, message):
         sys.stdout.flush()
-        print("> " + message + ":")
+        print("(" + module + ") WARNING: " + message)
         sys.stdout.flush()
-        
+
     ###############################################################
-    def error(self, message):
+    def info(self, module, message):
         sys.stdout.flush()
-        print("ERROR: " + message)
+        print("(" + module + ") INFO: " + message)
         sys.stdout.flush()
-        
+
     ###############################################################
-    def debug(self, message):
-        print("DEBUG: " + message)
+    def process(self, module, message):
         sys.stdout.flush()
-        
+        print("(" + module + ") > " + message + " ...")
+        sys.stdout.flush()
+
+    ###############################################################
+    def status(self, module, message):
+        sys.stdout.flush()
+        print("(" + module + ") > " + message + ":")
+        sys.stdout.flush()
+
+    ###############################################################
+    def error(self, module, message):
+        sys.stdout.flush()
+        print("(" + module + ") ERROR: " + message)
+        sys.stdout.flush()
+
+    ###############################################################
+    def debug(self, module, message):
+        print("(" + module + ") DEBUG: " + message)
+        sys.stdout.flush()
+
+    ###############################################################
+    def verbose(self, module, message):
+        print("(" + module + ") VERBOSE: " + message)
+        sys.stdout.flush()
+
     ###############################################################
     def is_pathfile_existing(self, pathfile):
         return path.exists(pathfile)
@@ -74,13 +79,13 @@ class tools_c:
 
     def run_external_command_print(self, command, verbose=False):
         return self.do_run_external_command(command, verbose, False, True, False)
-    
+
     def run_external_command_no_print(self, command, verbose=False):
         return self.do_run_external_command(command, verbose, False, False, False)
 
     def run_external_command_ignore_status_and_print(self, command, verbose=False):
         return self.do_run_external_command(command, verbose, True, True, True)
-    
+
     def do_run_external_command(self, command, verbose=False, ignore_exit_code=False, print_line=False, get_results=False):
         sys.stdout.flush()
         if verbose:
@@ -119,9 +124,9 @@ class tools_c:
                     raise ToolException("Command <" + command + "> failed with exit code <" + str(exit_code) + ">")
                 else:
                     raise ToolException("Command <" + command + "> failed with exit code <" + str(exit_code) + "> and message: \n" + '\n'.join(results) + "\n")
-        
+
         return exit_code
-    
+
     ###############################################################
     def run_external_command_and_get_results(self, command, verbose=False):
         if verbose:
@@ -141,12 +146,12 @@ class tools_c:
             raise ToolException("User abort.")
         except BaseException as e:
             raise ToolException("Error during execution:\n " + str(e))
-        
+
         if exit_code != 0:
             raise ToolException("Command <" + command + "> failed with:\n" + '\n'.join(results))
-        
+
         return results
-    
+
     ###############################################################
 #    def select_from_list(self, select_message, selections):
 #        if sys.version_info[0] == 3:
@@ -181,7 +186,7 @@ class tools_c:
 #                    m1 = p1.match("" + num_str)
 #                    if m1:
 #                        raise ToolException("User abort.")
-#                
+#
 #                    p = re.compile(r'^(\d+)$')
 #                    m = p.match(num_str)
 #                    if m:
@@ -195,7 +200,7 @@ class tools_c:
 #            result = selections[position]
 #            print("Selected: [" + str(num) + "] " + result + "\n")
 #        return result
-    
+
     ###############################################################
     # def does_path_exist(self, path):
     #     if os.path.isdir(path):
@@ -211,7 +216,7 @@ class tools_c:
 
     ###############################################################
     def read_file(self, filename, line_comment_regex, max_nr_lines):
-        # Using readline() 
+        # Using readline()
         file_handle = open(filename, 'r')
 
         line_nr = 0
@@ -222,12 +227,12 @@ class tools_c:
 
             if(line_nr > max_nr_lines):
                 raise ToolException("Max number of lines <" + max_nr_lines + "> reached when reading from <" + filename + ">")
-            
-            # Get next line from file 
+
+            # Get next line from file
             line = file_handle.readline()
 
-            # if line is empty 
-            # end of file is reached 
+            # if line is empty
+            # end of file is reached
             if not line:
                 break
 
@@ -238,12 +243,12 @@ class tools_c:
                 m1 = p1.match(line_strip)
                 if m1:
                     line_strip = m1.group(1)
-                
+
             p2 = re.compile('^\s*$')
             m2 = p2.match(line_strip)
             if not m2:
                 data.append(line_strip);
-                
+
                 if(self.tools_debug):
                     print("read_file: " + filename + "@" + line_nr + ": " + line_strip)
 
@@ -252,10 +257,10 @@ class tools_c:
         return data
 
     ###############################################################
-    def debug_etree(self, message, element):
-        print("DEBUG: " + message)
+    def debug_etree(self, module, message, element):
+        print("DEBUG: (" + module + ") " + message)
         print(etree.tostring(element, encoding='utf8'))
-        sys.stdout.flush()     
+        sys.stdout.flush()
 
 ##########################################
 ##########################################
@@ -272,4 +277,3 @@ class ToolException(Exception):
             return self.name + ': ' + self.message
         else:
             return self.name + ' has been raised'
-
