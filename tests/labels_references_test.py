@@ -21,7 +21,11 @@ tools = tools_c()
 with open('labels_references_test.md', 'r') as f:
     text = f.read()
     try:
-        html1 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=True), HtmlBaseExtension(tools, title="Labels References Test (numbered links)")])
+        html1 = markdown.markdown(text,
+                                  extensions=[
+                                    LabelsReferencesExtension(tools, verbose=True, numbered_links=True),
+                                    HtmlBaseExtension(tools, title="Labels References Test (numbered links)")
+                                  ])
         html2 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=False), HtmlBaseExtension(tools, title="Labels References Test (normal links)")])
         html3 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=True),INHTExtension(tools, verbose=True), HtmlBaseExtension(tools, title="Labels References Test (numbered links and INHT)")])
         html4 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=False),INHTExtension(tools, verbose=True), HtmlBaseExtension(tools, title="Labels References Test (normal links and INHT)")])

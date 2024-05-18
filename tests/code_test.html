@@ -49,14 +49,14 @@
 <!-- [below shows code block for]: -->
 <p><span><a class="code_header" href="#loc:1:" id="code:1:">Code 1:</a><span class="code_header_text"> Code</span></span>
 <pre class="code_data">
-<code>a = a+1</code>
-<code>c = c*a</code>
+<code class="code_data_line">a = a+1</code>
+<code class="code_data_line">c = c*a</code>
 </pre></p>
 <p><span><a class="code_header" href="#loc:2:" id="code:2:">Code 2:</a><span class="code_header_text"> Code</span></span>
 <pre class="code_data">
-<code>a = a+1</code>
-<code></code>
-<code>c = c*a</code>
+<code class="code_data_line">a = a+1</code>
+<code class="code_data_line"></code>
+<code class="code_data_line">c = c*a</code>
 </pre></p>
 <!--
 ` `` [More detailed code] { .html }
@@ -75,104 +75,144 @@ c = c*a
 <h1>Codes</h1>
 <p>The code is below.</p>
 <h2>Standalone code block</h2>
-<p><pre>standalone
-code
-block</pre></p>
+<p><pre class="code_no_header">
+<code class="code_no_header_line">standalone</code>
+<code class="code_no_header_line">code</code>
+<code class="code_no_header_line">block</code>
+</pre></p>
 <h2>Standalone code block with space at the beginning</h2>
-<p><pre>&nbsp;
-standalone
-code
-block</pre></p>
+<p><pre class="code_no_header">
+<code class="code_no_header_line"></code>
+<code class="code_no_header_line">standalone</code>
+<code class="code_no_header_line">code</code>
+<code class="code_no_header_line">block</code>
+</pre></p>
 <h2>Standalone code block with space in the middle</h2>
-<p><pre>standalone
-&nbsp;
-code
-block</pre></p>
+<p><pre class="code_no_header">
+<code class="code_no_header_line">standalone</code>
+<code class="code_no_header_line"></code>
+<code class="code_no_header_line">code</code>
+<code class="code_no_header_line">block</code>
+</pre></p>
 <h2>Standalone code block with space at end</h2>
-<p><pre>standalone
-code
-block
-&nbsp;</pre></p>
+<p><pre class="code_no_header">
+<code class="code_no_header_line">standalone</code>
+<code class="code_no_header_line">code</code>
+<code class="code_no_header_line">block</code>
+<code class="code_no_header_line"></code>
+</pre></p>
 <h2>Code</h2>
 <p><span><a class="code_header" href="#loc:3:" id="code:3:">Code 3:</a><span class="code_header_text"> Yet another Code 1</span></span>
 <pre class="code_data">
-<code>a = a + 1</code>
-<code>b = b * 2</code>
-<code>bla</code>
-<code>s <span class="artefact">1</span></code>
-<code><span class="artefact">2</span></code>
-<code><span class="artefact">3</span> s</code>
-<code>bla2 <span class="artefact">4</span> foo2 </code>
-<code>bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>
-<code>foo</code>
-<code>bar</code>
+<code class="code_data_line">a = a + 1</code>
+<code class="code_data_line">b = b * 2</code>
+<code class="code_data_line">bla</code>
+<code class="code_data_line">s <span class="artefact">1</span></code>
+<code class="code_data_line"><span class="artefact">2</span></code>
+<code class="code_data_line"><span class="artefact">3</span> s</code>
+<code class="code_data_line">bla2 <span class="artefact">4</span> foo2 </code>
+<code class="code_data_line">bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line">bar</code>
 </pre></p>
 <h2>Code starting with artefact</h2>
 <p><span><a class="code_header" href="#loc:4:" id="code:4:">Code 4:</a><span class="code_header_text"> Yet another Code 2</span></span>
 <pre class="code_data">
-<code><span class="artefact">1</span></code>
-<code>bla2 <span class="artefact">2</span> foo2</code>
-<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
-<code>foo</code>
-<code>bar</code>
+<code class="code_data_line"><span class="artefact">1</span></code>
+<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>
+<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line">bar</code>
 </pre></p>
 <h2>Code ending with artefact</h2>
 <p><span><a class="code_header" href="#loc:5:" id="code:5:">Code 5:</a><span class="code_header_text"> Yet another Code 3</span></span>
 <pre class="code_data">
-<code>bla2 <span class="artefact">2</span> foo2</code>
-<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
-<code>foo</code>
-<code>bar</code>
-<code><span class="artefact">5</span></code>
+<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>
+<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line">bar</code>
+<code class="code_data_line"><span class="artefact">5</span></code>
 </pre></p>
 <h2>Code starting and ending with artefact</h2>
 <p><span><a class="code_header" href="#loc:6:" id="code:6:">Code 6:</a><span class="code_header_text"> Yet another Code 4</span></span>
 <pre class="code_data">
-<code><span class="artefact">1</span></code>
-<code>bla2 <span class="artefact">2</span> foo2</code>
-<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
-<code>foo</code>
-<code>bar</code>
-<code><span class="artefact">5</span></code>
+<code class="code_data_line"><span class="artefact">1</span></code>
+<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>
+<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line">bar</code>
+<code class="code_data_line"><span class="artefact">5</span></code>
 </pre></p>
 <h2>Code starting and ending with space plus artefact</h2>
 <p><span><a class="code_header" href="#loc:7:" id="code:7:">Code 7:</a><span class="code_header_text"> Yet another Code 5</span></span>
 <pre class="code_data">
-<code></code>
-<code><span class="artefact">1</span></code>
-<code>bla2 <span class="artefact">2</span> foo2</code>
-<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
-<code></code>
-<code>foo</code>
-<code>bar</code>
-<code><span class="artefact">5</span></code>
-<code></code>
+<code class="code_data_line"></code>
+<code class="code_data_line"><span class="artefact">1</span></code>
+<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>
+<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code class="code_data_line"></code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line">bar</code>
+<code class="code_data_line"><span class="artefact">5</span></code>
+<code class="code_data_line"></code>
 </pre></p>
 <h2>Code starting with artefact with space line</h2>
 <p><span><a class="code_header" href="#loc:8:" id="code:8:">Code 8:</a><span class="code_header_text"> Yet another Code 6</span></span>
 <pre class="code_data">
-<code><span class="artefact">1</span></code>
-<code>bla2 <span class="artefact">2</span> foo2</code>
-<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
-<code></code>
-<code>foo</code>
-<code>bar</code>
+<code class="code_data_line"><span class="artefact">1</span></code>
+<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>
+<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>
+<code class="code_data_line"></code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line">bar</code>
 </pre></p>
 <h2>Code with space lines</h2>
 <p><span><a class="code_header" href="#loc:9:" id="code:9:">Code 9:</a><span class="code_header_text"> Yet another Code 7</span></span>
 <pre class="code_data">
-<code>bla2</code>
-<code></code>
-<code>foo</code>
-<code></code>
-<code>bar</code>
+<code class="code_data_line">bla2</code>
+<code class="code_data_line"></code>
+<code class="code_data_line">foo</code>
+<code class="code_data_line"></code>
+<code class="code_data_line">bar</code>
 </pre></p>
 <h2>Code element without decoding</h2>
 <!--{code:code block direct}-->
-<p><pre>test
-test2
-test3</pre></p>
+<p><pre class="code_no_header">
+<code class="code_no_header_line">test</code>
+<code class="code_no_header_line">test2</code>
+<code class="code_no_header_line">test3</code>
+</pre></p>
 <h2>Inline code</h2>
-<p>Inline code <code>c = d+e</code> test.</p>
+<p>Inline code <pre class="code_no_header">
+<code class="code_no_header_line">c = d+e</code>
+</pre> test.</p>
+<h2>Code tests</h2>
+<p>bla bla bla
+<pre class="code_no_header">
+<code class="code_no_header_line">a = a + 1</code>
+<code class="code_no_header_line">a = a + 2</code>
+</pre></p>
+<p>bla bla bla</p>
+<p><pre class="code_no_header">
+<code class="code_no_header_line">a = a + 1</code>
+<code class="code_no_header_line">a = a + 2</code>
+<code class="code_no_header_line"></code>
+<code class="code_no_header_line">a = a + 3</code>
+</pre></p>
+<p>bla bla bla
+<pre class="code_no_header">
+<code class="code_no_header_line">a = a + 1</code>
+<code class="code_no_header_line">a = a + 2</code>
+<code class="code_no_header_line"></code>
+<code class="code_no_header_line">a = a + 3</code>
+</pre></p>
+<p>bla bla bla
+<pre class="code_no_header">
+<code class="code_no_header_line">a = a + 1 <span class="artefact">1</span></code>
+<code class="code_no_header_line">a = a + 2 <span class="artefact">2</span></code>
+<code class="code_no_header_line">a = a + 3 <span class="artefact">3</span></code>
+<code class="code_no_header_line"></code>
+<code class="code_no_header_line">a = a + 4 <span class="artefact">4</span></code>
+</pre></p>
   </body>
 </html>

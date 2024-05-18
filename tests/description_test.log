@@ -1,3 +1,17 @@
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:1 => 1
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:1 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:1 => 2
+(LABELS_REFERENCES) VERBOSE: INT REF: foo: "foo"
+(LABELS_REFERENCES) VERBOSE: LABEL: foo: "foo"
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:1 => 4
+(LABELS_REFERENCES) VERBOSE: INT REF: bar: "bar"
+(LABELS_REFERENCES) VERBOSE: LABEL: bar: "bar"
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:2 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:3 => 4
+(LABELS_REFERENCES) VERBOSE: INT LINK: bar: "bar"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: bar: "bar"
+(LABELS_REFERENCES) VERBOSE: INT LINK: foo: "foo"
+(LABELS_REFERENCES) VERBOSE: REFERENCE: foo: "foo"
 (DESCRIPTION) VERBOSE: 
 DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**Test 1**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**Test 2**: is a more complex test case.</p></li><li><p>**Test 3**: is a very complex test case.\n  We need more work on this one</p><ul><li><p>**Test 3a**: is a very complex test case.\n  We need more work on this one</p><ul><li>**Test 3b**: is a very complex test case.\n  We need more work on this one</li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul></li><li><p>**Lorem**:\n  Id pariatur doloribus aut animi commodi. Voluptatem distinctio possimus vero temporibus totam ratione necessitatibus delectus. Consequuntur sapiente quidem accusamus. Quidem sunt qui pariatur.</p><p>Est aliquam asperiores est expedita numquam molestiae. Voluptates et quas odio magni ipsum excepturi. Quidem distinctio autem dolor quis autem enim earum. Aliquid omnis sint eos rerum. Repudiandae architecto vitae ipsam in consequatur. Dolores quaerat qui ad.</p><p>Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.</p><p>Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.</p><p>Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.</p></li></ul>"
@@ -47,3 +61,38 @@ b"<?xml version='1.0' encoding='utf8'?>\n<ul><li>**Test 3b**: is a very complex 
 (DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
 (DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
 (DESCRIPTION) VERBOSE:  LI (SC) test: 4/4 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**Test 1 {DONE:artefact:artefact:1:1}**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**{DONE:artefact:artefact:2:1}**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**{DONE:artefact:artefact:3:1}**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**{DONE:artefact:artefact:4:1} {LABEL:foo}**: is a simple test case.\n  Where it is simple than others</p></li><li><p>**{DONE:artefact:artefact:4:2} test**: is a simple test case.\n  Where it is simple than others\n  {LABEL:bar}</p></li><li><p>**{DONE:artefact:artefact:4:3} test {REFERENCE:bar:1}**: is a simple test case.\n  Where it is simple than others. {REFERENCE:foo:1}</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **Test 1 {DONE:artefact:artefact:1:1}**: is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => Test 1 {DONE:artefact:artefact:1:1} : is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **{DONE:artefact:artefact:2:1}**: is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => {DONE:artefact:artefact:2:1} : is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE: LI: 2/3 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/3 => **{DONE:artefact:artefact:3:1}**: is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE:     DL (SC): 3/3 => {DONE:artefact:artefact:3:1} : is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE: LI: 3/4 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 3/4 => **{DONE:artefact:artefact:4:1} {LABEL:foo}**: is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE:     DL (SC): 4/4 => {DONE:artefact:artefact:4:1} {LABEL:foo} : is a simple test case.
+  Where it is simple than others
+(DESCRIPTION) VERBOSE: LI: 4/5 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 4/5 => **{DONE:artefact:artefact:4:2} test**: is a simple test case.
+  Where it is simple than others
+  {LABEL:bar}
+(DESCRIPTION) VERBOSE:     DL (SC): 5/5 => {DONE:artefact:artefact:4:2} test : is a simple test case.
+  Where it is simple than others
+  {LABEL:bar}
+(DESCRIPTION) VERBOSE: LI: 5/6 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 5/6 => **{DONE:artefact:artefact:4:3} test {REFERENCE:bar:1}**: is a simple test case.
+  Where it is simple than others. {REFERENCE:foo:1}
+(DESCRIPTION) VERBOSE:     DL (SC): 6/6 => {DONE:artefact:artefact:4:3} test {REFERENCE:bar:1} : is a simple test case.
+  Where it is simple than others. {REFERENCE:foo:1}

@@ -70,7 +70,7 @@ class CommentsExtension(Extension):
     # Preprocessors
     # level must be abive preprocessor of inht ! higher numbers first !
     # level should be higher than most of the others !
-    md.preprocessors.register(Comments(md.parser, self.tools, self.getConfigs()), 'comments', 180)
+    md.preprocessors.register(Comments(md.parser, self.tools, self.getConfigs()), 'comments', 270)
 
     # ------------
     # Blockprocessors

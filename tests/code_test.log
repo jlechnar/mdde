@@ -1,3 +1,7 @@
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
 (CODES) VERBOSE: CODE MOVE: ``` [Code] => {code:Code} + ``` [CODES]
 (CODES) VERBOSE: CODE MOVE: ``` [Code] => {code:Code} + ``` [CODES]
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 1] => {code:Yet another Code 1} + ``` [CODES]
@@ -7,6 +11,9 @@
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 5] => {code:Yet another Code 5} + ``` [CODES]
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 6] => {code:Yet another Code 6} + ``` [CODES]
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 7] => {code:Yet another Code 7} + ``` [CODES]
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
+(CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
 (CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
 (CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
 (CODES) VERBOSE: CODE EMPTY LINE: <> => <{code_empty_line}>
@@ -54,79 +61,182 @@
 (ARTEFACT) VERBOSE: A (artefact): artefact:2:6 => 2
 (ARTEFACT) VERBOSE: A (artefact): artefact:1:5 => 1
 (CODES) VERBOSE: CODE: Yet another Code 7
+(ARTEFACT) VERBOSE: A (artefact): artefact:4:7 => 4
+(ARTEFACT) VERBOSE: A (artefact): artefact:3:7 => 3
+(ARTEFACT) VERBOSE: A (artefact): artefact:2:7 => 2
+(ARTEFACT) VERBOSE: A (artefact): artefact:1:6 => 1
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b"<?xml version='1.0' encoding='utf8'?>\n<code>[CODES]\na = a+1\nc = c*a</code>"
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: LINE: <a = a+1>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n</pre>'
 (CODES) DEBUG: LINE: <c = c*a>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n<code>c = c*a</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n<code class="code_data_line">c = c*a</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n<code>c = c*a</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n<code class="code_data_line">c = c*a</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>a = a+1</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">a = a+1</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>c = c*a</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">c = c*a</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b"<?xml version='1.0' encoding='utf8'?>\n<code>[CODES]\na = a+1\n{code_empty_line}\nc = c*a</code>"
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: LINE: <a = a+1>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n</pre>'
 (CODES) DEBUG: LINE: <{code_empty_line}>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n<code />\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n<code class="code_data_line" />\n</pre>'
 (CODES) DEBUG: LINE: <c = c*a>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n<code />\n<code>c = c*a</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n<code class="code_data_line" />\n<code class="code_data_line">c = c*a</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a+1</code>\n<code />\n<code>c = c*a</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a+1</code>\n<code class="code_data_line" />\n<code class="code_data_line">c = c*a</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>a = a+1</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">a = a+1</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>c = c*a</code>\n"
-line: <standalone>
-line: <code>
-line: <block>
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">c = c*a</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>standalone\ncode\nblock</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <standalone>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n</pre>'
+(CODES) DEBUG: LINE: <code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n</pre>'
+(CODES) DEBUG: LINE: <block>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<pre>standalone\ncode\nblock</pre>"
-line: <{code_empty_line}>
-line: <standalone>
-line: <code>
-line: <block>
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<pre>&amp;nbsp;\nstandalone\ncode\nblock</pre>"
-line: <standalone>
-line: <{code_empty_line}>
-line: <code>
-line: <block>
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">standalone</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<pre>standalone\n&amp;nbsp;\ncode\nblock</pre>"
-line: <standalone>
-line: <code>
-line: <block>
-line: <{code_empty_line}>
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">code</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<pre>standalone\ncode\nblock\n&amp;nbsp;</pre>"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">block</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>{code_empty_line}\nstandalone\ncode\nblock</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <{code_empty_line}>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line" />\n</pre>'
+(CODES) DEBUG: LINE: <standalone>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line" />\n<code class="code_no_header_line">standalone</code>\n</pre>'
+(CODES) DEBUG: LINE: <code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line" />\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n</pre>'
+(CODES) DEBUG: LINE: <block>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line" />\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line" />\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">standalone</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">code</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">block</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>standalone\n{code_empty_line}\ncode\nblock</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <standalone>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n</pre>'
+(CODES) DEBUG: LINE: <{code_empty_line}>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line" />\n</pre>'
+(CODES) DEBUG: LINE: <code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">code</code>\n</pre>'
+(CODES) DEBUG: LINE: <block>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">standalone</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">code</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">block</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>standalone\ncode\nblock\n{code_empty_line}</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <standalone>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n</pre>'
+(CODES) DEBUG: LINE: <code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n</pre>'
+(CODES) DEBUG: LINE: <block>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n</pre>'
+(CODES) DEBUG: LINE: <{code_empty_line}>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n<code class="code_no_header_line" />\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">standalone</code>\n<code class="code_no_header_line">code</code>\n<code class="code_no_header_line">block</code>\n<code class="code_no_header_line" />\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">standalone</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">code</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">block</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\na = a + 1\nb = b * 2\nbla\ns <span class="artefact">1</span>\n<span class="artefact">2</span>\n<span class="artefact">3</span> s\nbla2 <span class="artefact">4</span> foo2 \nbla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3\nfoo\nbar</code>'
@@ -144,25 +254,25 @@ DEBUG: (CODES) SC rm
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> foo2 \nbla3 '
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: LINE: <a = a + 1>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a + 1</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n</pre>'
 (CODES) DEBUG: LINE: <b = b * 2>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a + 1</code>\n<code>b = b * 2</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n</pre>'
 (CODES) DEBUG: LINE: <bla>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a + 1</code>\n<code>b = b * 2</code>\n<code>bla</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n<code class="code_data_line">bla</code>\n</pre>'
 (CODES) DEBUG: LINE: <s >
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a + 1</code>\n<code>b = b * 2</code>\n<code>bla</code>\n<code>s </code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n<code class="code_data_line">bla</code>\n<code class="code_data_line">s </code>\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\n'
@@ -222,27 +332,27 @@ foo
 bar>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>a = a + 1</code>\n<code>b = b * 2</code>\n<code>bla</code>\n<code>s <span class="artefact">1</span></code>\n<code><span class="artefact">2</span></code>\n<code><span class="artefact">3</span> s</code>\n<code>bla2 <span class="artefact">4</span> foo2 </code>\n<code>bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>\n<code>foo</code>\n<code>bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n<code class="code_data_line">bla</code>\n<code class="code_data_line">s <span class="artefact">1</span></code>\n<code class="code_data_line"><span class="artefact">2</span></code>\n<code class="code_data_line"><span class="artefact">3</span> s</code>\n<code class="code_data_line">bla2 <span class="artefact">4</span> foo2 </code>\n<code class="code_data_line">bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>a = a + 1</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">a = a + 1</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>b = b * 2</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">b = b * 2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bla</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>s <span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">s <span class="artefact">1</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">2</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">2</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">3</span> s</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">3</span> s</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla2 <span class="artefact">4</span> foo2 </code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">4</span> foo2 </code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\nfoo\nbar</code>'
@@ -256,7 +366,7 @@ DEBUG: (CODES) SC rm
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: ------------------
@@ -308,17 +418,17 @@ foo
 bar>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code><span class="artefact">1</span></code>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code>foo</code>\n<code>bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\nfoo\nbar\n<span class="artefact">5</span></code>'
@@ -332,13 +442,13 @@ DEBUG: (CODES) SC rm
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: LINE: <bla2 >
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2 </code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2 </code>\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
@@ -387,17 +497,17 @@ b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 DEBUG: (CODES) SUBCHILD COPY
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2 <span class="artefact">2</span> foo2</code>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code>foo</code>\n<code>bar</code>\n<code><span class="artefact">5</span></code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span class="artefact">5</span></code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">5</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">5</span></code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\nfoo\nbar\n<span class="artefact">5</span></code>'
@@ -413,7 +523,7 @@ DEBUG: (CODES) SC rm
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar\n'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: ------------------
@@ -477,19 +587,19 @@ b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 DEBUG: (CODES) SUBCHILD COPY
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code><span class="artefact">1</span></code>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code>foo</code>\n<code>bar</code>\n<code><span class="artefact">5</span></code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span class="artefact">5</span></code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">5</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">5</span></code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n{code_empty_line}\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar\n<span class="artefact">5</span>\n{code_empty_line}</code>'
@@ -505,13 +615,13 @@ DEBUG: (CODES) SC rm
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar\n'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: LINE: <{code_empty_line}>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code />\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line" />\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
@@ -590,25 +700,25 @@ b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 {code_empty_line}>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code />\n<code><span class="artefact">1</span></code>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code />\n<code>foo</code>\n<code>bar</code>\n<code><span class="artefact">5</span></code>\n<code />\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line" />\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span class="artefact">5</span></code>\n<code class="code_data_line" />\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">5</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">5</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar</code>'
@@ -622,7 +732,7 @@ DEBUG: (CODES) SC rm
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: ------------------
@@ -682,63 +792,258 @@ foo
 bar>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code><span class="artefact">1</span></code>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code />\n<code>foo</code>\n<code>bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
 b"<?xml version='1.0' encoding='utf8'?>\n<code>[CODES]\nbla2\n{code_empty_line}\nfoo\n{code_empty_line}\nbar</code>"
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n</pre>'
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE: <>
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: LINE: <bla2>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2</code>\n</pre>'
 (CODES) DEBUG: LINE: <{code_empty_line}>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2</code>\n<code />\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2</code>\n<code class="code_data_line" />\n</pre>'
 (CODES) DEBUG: LINE: <foo>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2</code>\n<code />\n<code>foo</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n</pre>'
 (CODES) DEBUG: LINE: <{code_empty_line}>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2</code>\n<code />\n<code>foo</code>\n<code />\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line" />\n</pre>'
 (CODES) DEBUG: LINE: <bar>
 (CODES) DEBUG: New code due to newline / first element
 DEBUG: (CODES) CHILD changed
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2</code>\n<code />\n<code>foo</code>\n<code />\n<code>bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line" />\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code>bla2</code>\n<code />\n<code>foo</code>\n<code />\n<code>bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line" />\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bla2</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>foo</code>\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code />\n"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<code>bar</code>\n"
-line: <test>
-line: <test2>
-line: <test3>
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>test\ntest2\ntest3</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <test>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">test</code>\n</pre>'
+(CODES) DEBUG: LINE: <test2>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">test</code>\n<code class="code_no_header_line">test2</code>\n</pre>'
+(CODES) DEBUG: LINE: <test3>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">test</code>\n<code class="code_no_header_line">test2</code>\n<code class="code_no_header_line">test3</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b"<?xml version='1.0' encoding='utf8'?>\n<pre>test\ntest2\ntest3</pre>"
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">test</code>\n<code class="code_no_header_line">test2</code>\n<code class="code_no_header_line">test3</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">test</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">test2</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">test3</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
 b"<?xml version='1.0' encoding='utf8'?>\n<code>c = d+e</code> test."
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre> test."
+(CODES) DEBUG: LINE: <c = d+e>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">c = d+e</code>\n</pre> test.'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">c = d+e</code>\n</pre> test.'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">c = d+e</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>a = a + 1\na = a + 2</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <a = a + 1>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n</pre>'
+(CODES) DEBUG: LINE: <a = a + 2>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 1</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 2</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>a = a + 1\na = a + 2\n{code_empty_line}\na = a + 3</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <a = a + 1>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n</pre>'
+(CODES) DEBUG: LINE: <a = a + 2>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n</pre>'
+(CODES) DEBUG: LINE: <{code_empty_line}>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n<code class="code_no_header_line" />\n</pre>'
+(CODES) DEBUG: LINE: <a = a + 3>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 3</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 3</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 1</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 2</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 3</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>a = a + 1\na = a + 2\n{code_empty_line}\na = a + 3</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <a = a + 1>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n</pre>'
+(CODES) DEBUG: LINE: <a = a + 2>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n</pre>'
+(CODES) DEBUG: LINE: <{code_empty_line}>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n<code class="code_no_header_line" />\n</pre>'
+(CODES) DEBUG: LINE: <a = a + 3>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 3</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1</code>\n<code class="code_no_header_line">a = a + 2</code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 3</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 1</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 2</code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 3</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>a = a + 1 <span class="artefact">1</span>\na = a + 2 <span class="artefact">2</span>\na = a + 3 <span class="artefact">3</span>\n{code_empty_line}\na = a + 4 <span class="artefact">4</span></code>'
+DEBUG: (CODES) SC rm
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\na = a + 2 '
+DEBUG: (CODES) SC rm
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>\n{code_empty_line}\na = a + 4 '
+DEBUG: (CODES) SC rm
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>\na = a + 3 '
+DEBUG: (CODES) SC rm
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <a = a + 1 >
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1 </code>\n</pre>'
+(CODES) DEBUG: ------------------
+DEBUG: (CODES) SUBCHILD
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\na = a + 2 '
+DEBUG: (CODES) SUBCHILD COPY
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+(CODES) DEBUG: LINE (CHILD): <> True <
+> < > <
+a = a + 2 >
+(CODES) DEBUG: LINE (CHILD): <a = a + 2 > False <
+> < > <
+a = a + 2 >
+(CODES) DEBUG: New code due to newline
+(CODES) DEBUG: ------------------
+DEBUG: (CODES) SUBCHILD
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>\na = a + 3 '
+DEBUG: (CODES) SUBCHILD COPY
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+(CODES) DEBUG: LINE (CHILD): <> True <
+> < > <
+a = a + 3 >
+(CODES) DEBUG: LINE (CHILD): <a = a + 3 > False <
+> < > <
+a = a + 3 >
+(CODES) DEBUG: New code due to newline
+(CODES) DEBUG: ------------------
+DEBUG: (CODES) SUBCHILD
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>\n{code_empty_line}\na = a + 4 '
+DEBUG: (CODES) SUBCHILD COPY
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+(CODES) DEBUG: LINE (CHILD): <> True <
+> < > <
+{code_empty_line}
+a = a + 4 >
+(CODES) DEBUG: LINE (CHILD): <{code_empty_line}> False <
+> < > <
+{code_empty_line}
+a = a + 4 >
+(CODES) DEBUG: New code due to newline
+(CODES) DEBUG: LINE (CHILD): <a = a + 4 > False <
+> < > <
+{code_empty_line}
+a = a + 4 >
+(CODES) DEBUG: New code due to newline
+(CODES) DEBUG: ------------------
+DEBUG: (CODES) SUBCHILD
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+DEBUG: (CODES) SUBCHILD COPY
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1 <span class="artefact">1</span></code>\n<code class="code_no_header_line">a = a + 2 <span class="artefact">2</span></code>\n<code class="code_no_header_line">a = a + 3 <span class="artefact">3</span></code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 4 <span class="artefact">4</span></code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 1 <span class="artefact">1</span></code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 2 <span class="artefact">2</span></code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 3 <span class="artefact">3</span></code>\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 4 <span class="artefact">4</span></code>\n'

@@ -15,6 +15,9 @@ from mdde.description import *
 from mdde.html_base import *
 from mdde.tools_c import *
 
+from mdde.labels_references import *
+from mdde.artefact import *
+
 tools = tools_c()
 
 with open('description_test.md', 'r') as f:
@@ -22,8 +25,12 @@ with open('description_test.md', 'r') as f:
   try:
     html = markdown.markdown(text,
                              tab_length=2,
-                             extensions=[DescriptionExtension(tools, verbose=True),
-                                         HtmlBaseExtension(tools, title="Description Test")])
+                             extensions=[
+                               DescriptionExtension(tools, verbose=True),
+                               LabelsReferencesExtension(tools, verbose=True, numbered_links=True),
+                               ArtefactExtension(tools, verbose=True, title_enable=False),
+                               HtmlBaseExtension(tools, title="Description Test")
+                             ])
     html_no_ext = markdown.markdown(text, tab_length=2)
   except DescriptionException as e:
     print(str(e))

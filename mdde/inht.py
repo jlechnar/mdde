@@ -494,7 +494,7 @@ class INHTExtension(Extension):
         # ------------
         # Preprocessors
         include_ext = self.IncludePreClass(self.tools, md, self.getConfigs())
-        md.preprocessors.register(include_ext, 'inht__include', 175)
+        md.preprocessors.register(include_ext, 'inht__include', 275)
 
         # ------------
         # Blockprocessors

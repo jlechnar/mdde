@@ -15,6 +15,7 @@ from mdde.codes import *
 from mdde.html_base import *
 from mdde.tools_c import *
 
+from mdde.comments import *
 from mdde.artefact import *
 
 tools = tools_c()
@@ -27,6 +28,7 @@ with open('code_test.md', 'r') as f:
                                      #CodesExtension(tools, verbose=True),
                                      CodesExtension(tools, verbose=True, debug=True),
                                      ArtefactExtension(tools, verbose=True, title_enable=False),
+          CommentsExtension(tools, verbose=True),
                                      HtmlBaseExtension(tools, title="Code Test")])
     except CodesException as e:
         print(str(e))

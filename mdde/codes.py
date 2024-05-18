@@ -209,133 +209,135 @@ class CodeToPreTreeProcessor(Treeprocessor):
 
                 if child.text is None:
                     pass
+                elif child.get('class') == 'code_data_line':
+                    pass
+                elif child.get('class') == 'code_no_header_line':
+                    pass
                 else:
-                    m = re.match(self.RE_CODES, child.text, re.DOTALL)
+
+                    if self.config["debug"]:
+                        self.tools.debug(self.config['message_identifier'], "######################")
+                        self.tools.debug_etree(self.config['message_identifier'], "CHILD", child)
+
+                    # copy content for processing
+                    child_copy = copy.deepcopy(child)
+
+                    # cleanup child and change to pre
+                    child.text = "\n"
+                    while child:
+                        for subchild in child:
+                            if self.config["debug"]:
+                                self.tools.debug_etree(self.config['message_identifier'], "SC rm", subchild)
+                            child.remove(subchild)
+                    child.tag = "pre"
+
+                    if self.config["debug"]:
+                        self.tools.debug(self.config['message_identifier'], "=====================")
+                        self.tools.debug_etree(self.config['message_identifier'], "CHILD after cleanup", child)
+
+                    m = re.match(self.RE_CODES, child_copy.text, re.DOTALL)
                     if m:
-
-                        if self.config["debug"]:
-                            self.tools.debug(self.config['message_identifier'], "######################")
-                            self.tools.debug_etree(self.config['message_identifier'], "CHILD", child)
-
-                        # copy content for processing
-                        child_copy = copy.deepcopy(child)
-
-                        # cleanup child and change to pre
-                        child.text = "\n"
-                        while child:
-                            for subchild in child:
-                                if self.config["debug"]:
-                                    self.tools.debug_etree(self.config['message_identifier'], "SC rm", subchild)
-                                child.remove(subchild)
-                        child.tag = "pre"
-                        child.set("class", "code_data")
-
-                        if self.config["debug"]:
-                            self.tools.debug(self.config['message_identifier'], "=====================")
-                            self.tools.debug_etree(self.config['message_identifier'], "CHILD after cleanup", child)
-
                         # remove [CODES] + split <text>
+                        child.set("class", "code_data")
                         lines = m.group(1)
-                        first_char = lines[0]
-                        last_char = lines[-1]
-                        lines_split = lines.splitlines()
-
-                        # text only
-                        code = None
-                        first = True
-                        for line in lines_split:
-                            if self.config["debug"]:
-                                self.tools.debug(self.config['message_identifier'], "LINE: <" + line + ">")
-
-                            if first:
-                                if line == "":
-                                    if self.config["debug"]:
-                                        self.tools.debug(self.config['message_identifier'], "LINE IGNORED: <" + line + ">")
-                                    continue
-                            first = False
-
-                            if self.config["debug"]:
-                                self.tools.debug(self.config['message_identifier'], "New code due to newline / first element")
-
-                            code = etree.SubElement(child, 'code')
-                            code.tail = "\n"
-                            if line == self.CODE_EMPTY_LINE_PATTERN:
-                                code.text = ""
-                            else:
-                                code.text = line
-
-                            if self.config["debug"]:
-                                self.tools.debug_etree(self.config['message_identifier'], "CHILD changed", child)
-
-                        # now process subchilds
-                        for subchild in child_copy:
-                            if self.config["debug"]:
-                                self.tools.debug(self.config['message_identifier'], "------------------")
-                                self.tools.debug_etree(self.config['message_identifier'], "SUBCHILD", subchild)
-                            if last_char == '\n':
-                                if self.config["debug"]:
-                                    self.tools.debug(self.config['message_identifier'], "New code last char newline")
-                                code = etree.SubElement(child, 'code')
-                                code.tail = "\n"
-                            # else reuse previous code element where code.text is already set before
-                            if code is None:
-                                # in case of direct subelement after [CODES], just create a code element !
-                                if self.config["debug"]:
-                                    self.tools.debug(self.config['message_identifier'],"New code none before subchild")
-                                code = etree.SubElement(child, 'code')
-                                code.tail = "\n"
-                            subchild_copy = copy.deepcopy(subchild)
-                            subchild_copy.tail = ""
-                            if self.config["debug"]:
-                                self.tools.debug_etree(self.config['message_identifier'], "SUBCHILD COPY", subchild_copy)
-
-                            code.append(subchild_copy)
-
-                            lines = subchild.tail
-                            if lines:
-                                first_char = lines[0]
-                                last_char = lines[-1]
-                                lines_split = lines.splitlines()
-
-                                if lines != "\n":
-                                    first = True
-                                    for line in lines_split:
-                                        if self.config["debug"]:
-                                            self.tools.debug(self.config['message_identifier'], "LINE (CHILD): <" + line + "> " + str(first) + " <" + first_char + "> <" + last_char + "> <" + lines + ">")
-                                        if first:
-                                            if line == "":
-                                                pass
-                                            elif first_char != '\n':
-                                                subchild_copy.tail = line
-                                                if self.config["debug"]:
-                                                    self.tools.debug(self.config['message_identifier'], "First extend to tail")
-                                        # if first and first_char != '\n':
-                                        #         subchild_copy.tail = line
-                                        #         if self.config["debug"]:
-                                        #             self.tools.debug(self.config['message_identifier'], "First extend to tail")
-                                        else:
-                                            if self.config["debug"]:
-                                                self.tools.debug(self.config['message_identifier'], "New code due to newline")
-                                            code = etree.SubElement(child, 'code')
-                                            code.tail = "\n"
-                                            if line == self.CODE_EMPTY_LINE_PATTERN:
-                                                code.text = ""
-                                            else:
-                                                code.text = line
-                                        first = False
+                        code_line_class = "code_data_line"
                     else:
-                        # codes without code description
-                        lines = child.text.splitlines()
-                        if len(lines) > 1:
-                            child.tag = "pre"
-                            child_text_new = []
-                            for line in lines:
-                                print("line: <" + line + ">")
-                                if line == self.CODE_EMPTY_LINE_PATTERN:
-                                    child_text_new.append("&nbsp;")
-                                else:
-                                    child_text_new.append(line)
-                            child.text = "\n".join(child_text_new)
+                        child.set("class", "code_no_header")
+                        lines = child_copy.text
+                        code_line_class = "code_no_header_line"
+
+                    first_char = lines[0]
+                    last_char = lines[-1]
+                    lines_split = lines.splitlines()
+
+                    # text only
+                    code = None
+                    first = True
+                    for line in lines_split:
+                        if self.config["debug"]:
+                            self.tools.debug(self.config['message_identifier'], "LINE: <" + line + ">")
+
+                        if first:
+                            if line == "":
+                                if self.config["debug"]:
+                                    self.tools.debug(self.config['message_identifier'], "LINE IGNORED: <" + line + ">")
+                                continue
+                        first = False
+
+                        if self.config["debug"]:
+                            self.tools.debug(self.config['message_identifier'], "New code due to newline / first element")
+
+                        code = etree.SubElement(child, 'code')
+                        code.set('class', code_line_class)
+                        code.tail = "\n"
+                        if line == self.CODE_EMPTY_LINE_PATTERN:
+                            code.text = ""
+                        else:
+                            code.text = line
+
+                        if self.config["debug"]:
+                            self.tools.debug_etree(self.config['message_identifier'], "CHILD changed", child)
+
+                    # now process subchilds
+                    for subchild in child_copy:
+                        if self.config["debug"]:
+                            self.tools.debug(self.config['message_identifier'], "------------------")
+                            self.tools.debug_etree(self.config['message_identifier'], "SUBCHILD", subchild)
+                        if last_char == '\n':
+                            if self.config["debug"]:
+                                self.tools.debug(self.config['message_identifier'], "New code last char newline")
+                            code = etree.SubElement(child, 'code')
+                            code.set('class', code_line_class)
+                            code.tail = "\n"
+                        # else reuse previous code element where code.text is already set before
+                        if code is None:
+                            # in case of direct subelement after [CODES], just create a code element !
+                            if self.config["debug"]:
+                                self.tools.debug(self.config['message_identifier'],"New code none before subchild")
+                            code = etree.SubElement(child, 'code')
+                            code.set('class', code_line_class)
+                            code.tail = "\n"
+                        subchild_copy = copy.deepcopy(subchild)
+                        subchild_copy.tail = ""
+                        if self.config["debug"]:
+                            self.tools.debug_etree(self.config['message_identifier'], "SUBCHILD COPY", subchild_copy)
+
+                        code.append(subchild_copy)
+
+                        lines = subchild.tail
+                        if lines:
+                            first_char = lines[0]
+                            last_char = lines[-1]
+                            lines_split = lines.splitlines()
+
+                            if lines != "\n":
+                                first = True
+                                for line in lines_split:
+                                    if self.config["debug"]:
+                                        self.tools.debug(self.config['message_identifier'], "LINE (CHILD): <" + line + "> " + str(first) + " <" + first_char + "> <" + last_char + "> <" + lines + ">")
+                                    if first:
+                                        if line == "":
+                                            pass
+                                        elif first_char != '\n':
+                                            subchild_copy.tail = line
+                                            if self.config["debug"]:
+                                                self.tools.debug(self.config['message_identifier'], "First extend to tail")
+                                    # if first and first_char != '\n':
+                                    #         subchild_copy.tail = line
+                                    #         if self.config["debug"]:
+                                    #             self.tools.debug(self.config['message_identifier'], "First extend to tail")
+                                    else:
+                                        if self.config["debug"]:
+                                            self.tools.debug(self.config['message_identifier'], "New code due to newline")
+                                        code = etree.SubElement(child, 'code')
+                                        code.set('class', code_line_class)
+                                        code.tail = "\n"
+                                        if line == self.CODE_EMPTY_LINE_PATTERN:
+                                            code.text = ""
+                                        else:
+                                            code.text = line
+                                    first = False
+
                 if self.config["debug"]:
                     self.tools.debug_etree(self.config['message_identifier'], "FINAL DATA", child)
             self.code_to_pre(child)

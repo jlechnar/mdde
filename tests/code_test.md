@@ -155,3 +155,39 @@ test3
 
 ## Inline code
 Inline code `c = d+e` test.
+
+
+## Code tests
+bla bla bla
+```
+a = a + 1
+a = a + 2
+```
+
+bla bla bla
+
+```
+a = a + 1
+a = a + 2
+
+a = a + 3
+```
+
+bla bla bla
+%
+```
+a = a + 1
+a = a + 2
+
+a = a + 3
+```
+
+bla bla bla
+%
+```
+a = a + 1 {artefact:1}
+a = a + 2 {artefact:2}
+a = a + 3 {artefact:3}
+
+a = a + 4 {artefact:4}
+```

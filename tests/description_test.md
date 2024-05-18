@@ -98,3 +98,25 @@ Orange
   Orange
   :   The fruit of an evergreen tree of the genus Citrus.
 -->
+
+* **Test 1 {artefact:1}**: is a simple test case.
+  Where it is simple than others
+
+* **{artefact:2}**: is a simple test case.
+  Where it is simple than others
+* **{artefact:3}**: is a simple test case.
+  Where it is simple than others
+
+* **{artefact:4} [foo][#foo]**: is a simple test case.
+  Where it is simple than others
+
+* **{artefact:4} test**: is a simple test case.
+  Where it is simple than others
+  [bar][#bar]
+
+* **{artefact:4} test [bar](#bar)**: is a simple test case.
+  Where it is simple than others. [foo](#foo)
+
+
+
+
