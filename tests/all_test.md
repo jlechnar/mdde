@@ -268,3 +268,51 @@ bla3 {artefact:3} foo3 {artefact:4} bar3 [Link to somewhere inside code](#inline
 foo
 bar
 ```
+
+# Newlines
+
+## Text before code
+blabla
+```
+some code
+```
+
+## Title before code
+```
+some code
+```
+
+## Comment before code
+blabla
+%
+```
+some code
+```
+
+## Newline before code
+blabla
+
+```
+some code
+```
+
+## Text before list
+blabla
+* some list 1
+* some list 2
+
+## Title before list
+* some list 1
+* some list 2
+
+## Comment before list
+blabla
+%
+* some list 1
+* some list 2
+
+## Newline before list
+blabla
+
+* some list 1
+* some list 2

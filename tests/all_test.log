@@ -169,6 +169,15 @@
 (INHT) VERBOSE:   HEADING: 8.12. Code element without decoding
 (INHT) VERBOSE:   HEADING: 8.13. Inline code
 (INHT) VERBOSE:   HEADING: 8.14. Codes with links
+(INHT) VERBOSE:  HEADING: 9. Newlines
+(INHT) VERBOSE:   HEADING: 9.1. Text before code
+(INHT) VERBOSE:   HEADING: 9.2. Title before code
+(INHT) VERBOSE:   HEADING: 9.3. Comment before code
+(INHT) VERBOSE:   HEADING: 9.4. Newline before code
+(INHT) VERBOSE:   HEADING: 9.5. Text before list
+(INHT) VERBOSE:   HEADING: 9.6. Title before list
+(INHT) VERBOSE:   HEADING: 9.7. Comment before list
+(INHT) VERBOSE:   HEADING: 9.8. Newline before list
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 1>
 (COMMENTS) VERBOSE: Comments: Not Ignoring command part of comment: <Hello world! >
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 2>
@@ -185,6 +194,55 @@
 (COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
 (COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 6.6. Descriptions> => <* **Test 1**: is a simple test case.>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* **Test 2**: is a more complex test case.>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* **Test 3**: is a very complex test case.>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.1. Standalone code block> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <block> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.2. Standalone code block with space at the beginning> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <block> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.3. Standalone code block with space in the middle> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <block> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.4. Standalone code block with space at end> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.5. Code> => <``` [Yet another Code 1]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <bar> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.6. Code starting with artefact> => <``` [Yet another Code 2]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <bar> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.7. Code ending with artefact> => <``` [Yet another Code 3]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <{artefact:5}> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.8. Code starting and ending with artefact> => <``` [Yet another Code 4]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <{artefact:5}> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.9. Code starting and ending with space plus artefact> => <``` [Yet another Code 5]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.10. Code starting with artefact with space line> => <``` [Yet another Code 6]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <bar> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.11. Code with space lines> => <``` [Yet another Code 7]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <bar> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <<!--{code:code block direct}-->> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <test3> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.14. Codes with links> => <``` [Yet another Code 8]>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <bar> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 9.2. Title before code> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#2 9.6. Title before list> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 1] => {code:Yet another Code 1} + ``` [CODES]
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 2] => {code:Yet another Code 2} + ``` [CODES]
 (CODES) VERBOSE: CODE MOVE: ``` [Yet another Code 3] => {code:Yet another Code 3} + ``` [CODES]
@@ -1118,6 +1176,34 @@ b"<?xml version='1.0' encoding='utf8'?>\n<ul><li>**Test 3b**: is a very complex 
 (DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
 (DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
 (DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>some list 1</p></li><li><p>some list 2</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => some list 1
+(DESCRIPTION) VERBOSE: LI: 0/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/2 => some list 2
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>some list 1</p></li><li><p>some list 2</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => some list 1
+(DESCRIPTION) VERBOSE: LI: 0/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/2 => some list 2
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>some list 1</p></li><li><p>some list 2</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => some list 1
+(DESCRIPTION) VERBOSE: LI: 0/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/2 => some list 2
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>some list 1</p></li><li><p>some list 2</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => some list 1
+(DESCRIPTION) VERBOSE: LI: 0/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/2 => some list 2
 (LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link>
 (LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <missing_reference>
 (LABELS_REFERENCES) ERROR: Missing link to refrerence with id: <broken_link_include>

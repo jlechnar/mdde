@@ -22,3 +22,4 @@ python3 code_test.py | tee code_test.log
 python3 link_test.py | tee link_test.log
 python3 paragraph_test.py | tee paragraph_test.log
 python3 comments_test.py | tee comments_test.log
+python3 newlines_test.py | tee newlines_test.log

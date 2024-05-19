@@ -1,0 +1,76 @@
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <# Title before code> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <```>
+(NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <# Title before list> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* some list 1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* some list 1> => <* some list 2>
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>some code</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <some code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">some code</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>some code</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <some code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">some code</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>some code</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <some code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">some code</code>\n'
+(CODES) DEBUG: ######################
+DEBUG: (CODES) CHILD
+b"<?xml version='1.0' encoding='utf8'?>\n<code>some code</code>"
+(CODES) DEBUG: =====================
+DEBUG: (CODES) CHILD after cleanup
+b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
+(CODES) DEBUG: LINE: <some code>
+(CODES) DEBUG: New code due to newline / first element
+DEBUG: (CODES) CHILD changed
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">some code</code>\n</pre>'
+DEBUG: (CODES) FINAL DATA
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">some code</code>\n'
