@@ -58,8 +58,23 @@ More text.
 
 
 # No description
+bla
+
 ![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): 
 
+# Simple image
+bla
+
+![](content/test.odt.png): Simple image description 15
+
+bla2
+
+# Simple image before
+bla
+
+![Simple image description 16](content/test.odt.png): 
+
+bla2
 
 
 

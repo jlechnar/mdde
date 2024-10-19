@@ -17,14 +17,23 @@
 ## List of Artefacts
 {loa:artefact}
 
+## List of Missing Artefacts
+{loam:artefact}
+
 ## List of Milestones
 {loa:milestone}
+
+## List of Missing Milestones
+{loam:milestone}
 
 ## List of Bugs
 {loa:bug}
 
 ## List of Issues
 {loa:issue}
+
+## List of Missing Issues
+{loam:issue}
 
 ## List of Codes
 {loc}
@@ -269,6 +278,34 @@ foo
 bar
 ```
 
+## Code lists
+
+### Test1
+* `code1` text1
+* `code2` text2
+* `code3` text3
+
+### Test2
+
+* text1 `code1` text1
+* text2 `code2` text2
+* text3 `code3` text2
+
+### Test3
+
+* **text1**: `code1`
+* **text2**: `code2`
+* **text3**: `code3`
+
+### Test4
+
+* **text1**: text1 `code1`
+* **text2**: text2 `code2` text2
+* **text3**: `code3` text3
+* **text3**: text4 `code4a` text4 `code4b` text4
+* **text3**: `code4a` text4 `code4b` text4
+* **text3**: text4 `code4a` text4 `code4b`
+
 # Newlines
 
 ## Text before code
@@ -316,3 +353,39 @@ blabla
 
 * some list 1
 * some list 2
+
+# Percent
+% Comments are ignored
+In mathematics, a percentage (from Latin per centum 'by a hundred') is a number or ratio expressed as a fraction of 100. It is often denoted using the percent sign ({percent}).
+% Comments are ignored
+For example, 45{percent} (read as "forty-five percent") is equal to the fraction ⁠45/100⁠, the ratio 45:55 (or 45:100 when comparing to the total rather than the other portion), or 0.45.
+% Comments are ignored
+Percentages are often used to express a proportionate part of a total.
+Comments starting with {percent} in the markdown files will be ignored but \{percent\} will be translated to {percent} by the extention.
+
+
+# Tables
+
+## Test 1
+
+Heading 1 | Heading 2 | Heading 3
+----------|-----------|----------
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+
+## Test 2
+
+| Heading 1 | Heading 2 | Heading 3
+| ----------| ---------- |----------
+| Text 1    | Text 2   | Text 3
+| Text 1     | Text 2    | Text 3 { .bar }
+| Text 1    | Text 2 { .foo }  | Text 3
+| Text 1  | *Text 2*    | Text 3
+| Text 1     | Text 2   | Text 3
+| *Text 1*   | Text 2    | Text 3
+
+

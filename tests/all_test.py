@@ -26,8 +26,11 @@ from mdde.comments import *
 from mdde.codes import *
 from mdde.tools_c import *
 from mdde.newlines import *
+from mdde.percent import *
 
 tools = tools_c()
+
+verbose=True
 
 with open('all_test.md', 'r') as f:
     text = f.read()
@@ -35,19 +38,22 @@ with open('all_test.md', 'r') as f:
         html = markdown.markdown(text,
                                  tab_length=2,
                                  extensions=[
-                                     LabelsReferencesExtension(tools, verbose=True, numbered_links=False, title_enable=False, ignore_duplicates=True),
-                                     INHTExtension(tools, verbose=True),
-                                     AbbreviationExtension(tools, verbose=True, title_enable=False),
-                                     TitleExtension(tools, verbose=True, title_enable=False),
-                                     ArtefactExtension(tools, verbose=True, title_enable=False),
-                                     MilestoneExtension(tools, verbose=True, title_enable=False),
-                                     IssueExtension(tools, verbose=True, title_enable=False),
-                                     BugExtension(tools, verbose=True, title_enable=False),
-                                     ImageExtension(tools, verbose=True, title_enable=False),
-                                     CodesExtension(tools, verbose=True, title_enable=False),
-                                     DescriptionExtension(tools, verbose=True),
-                                     CommentsExtension(tools, verbose=True),
-                                     NewlinesExtension(tools, verbose=True),
+                                     LabelsReferencesExtension(tools, verbose=verbose, numbered_links=False, title_enable=False, ignore_duplicates=True, use_label_text_for_empty_reference_texts=True),
+                                     INHTExtension(tools, verbose=verbose),
+                                     AbbreviationExtension(tools, verbose=verbose, title_enable=False),
+                                     ArtefactExtension(tools, verbose=verbose, title_enable=False, link=True, title_missing_enable=False, reference_list_file_name="artefact.txt", reference_list_mapped_file_name="artefact_mapped.txt"),
+                                     TitleExtension(tools, verbose=verbose, title_enable=False),
+                                     MilestoneExtension(tools, verbose=verbose, title_enable=False, link=True, link_extend=True, link_prefix="#", link_postfix="", title_missing_enable=False, reference_list_file_name="milestone.txt"),
+                                     IssueExtension(tools, verbose=verbose, title_enable=False, title_missing_enable=False, reference_list_file_name="issue.txt", reference_list_mapped_file_name="issue_mapped.txt"),
+                                     BugExtension(tools, verbose=verbose, title_enable=False, reference_list_mapped_file_name="bug_mapped.txt"),
+                                     ImageExtension(tools, verbose=verbose, title_enable=False),
+                                     CodesExtension(tools, verbose=verbose, title_enable=False),
+                                     DescriptionExtension(tools, verbose=verbose),
+                                     CommentsExtension(tools, verbose=verbose),
+                                     NewlinesExtension(tools, verbose=verbose),
+                                     PercentExtension(tools, verbose=verbose),
+                                     'tables',
+                                     'attr_list',
                                      HtmlBaseExtension(tools, title="All Test")])
     except INHTException as e:
         print(str(e))

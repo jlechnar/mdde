@@ -6,6 +6,7 @@ hi mddeBug           term=underline  cterm=bold   ctermfg=magenta guifg=#ffffff
 hi mddeMilestone     term=underline  cterm=bold   ctermfg=149     guifg=#ffffff
 hi mddeLists         term=underline  cterm=bold   ctermfg=100     guifg=#ffffff
 hi mddeAbbreviation  term=none       cterm=italic ctermfg=130     guifg=#ffffff
+hi mddeTitle         term=underline  cterm=bold   ctermfg=100     guifg=#ffffff
 
 " https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax/
 " ctermfg ... foreground

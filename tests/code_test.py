@@ -28,7 +28,7 @@ with open('code_test.md', 'r') as f:
                                      #CodesExtension(tools, verbose=True),
                                      CodesExtension(tools, verbose=True, debug=True),
                                      ArtefactExtension(tools, verbose=True, title_enable=False),
-          CommentsExtension(tools, verbose=True),
+                                     CommentsExtension(tools, verbose=True),
                                      HtmlBaseExtension(tools, title="Code Test")])
     except CodesException as e:
         print(str(e))

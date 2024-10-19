@@ -12,7 +12,8 @@ The following sub modules are provided:
 * `description`: Is used to defines descriptions within list elements. Text headings are defined per list element instead of bullets. Nested descriptions are supported. The user can format the sections using css.
 * `image`: Defines images with label texts. Also list of images can be generated with links back and forth.
 * `labels_references.py`: Enables to define lables and referenes to these labels. Links are generated for the references. Further, list with links of references and labels can be generated as document index.
-* `comments.py`: support for single line comments starting with 
+* `comments.py`: support for single line comments starting with percent sign (%) 
+* `percent.py`: in case of comments used from above percent sign requires replacement which is provided by this extension
 * `codes.py`: provides headings for code sections, list of codes and links back and forth
 
 Furthermore there is a vim folder that shows how to add syntax highlighting for new commands.
@@ -51,6 +52,8 @@ See `vim/readme.md` for more details.
   * can be links (e.g. to issue tracker)
 * comments
   * single line comments
+* percent
+  * percent sign is used for comments - this adds a command as replacement
 * code section
   * titles for code sections
   * list of codes
@@ -75,6 +78,22 @@ See `vim/readme.md` for more details.
   * count with symbols for appendix
 * more different commands for lists => lor => list_of_references
   * add selection of codes via configuration
+
+## Cheatsheet
+
+| What     | Code |
+-------------------
+| Image            | `![Alternative text](path/to/image "title of image"): Description of image` |
+| Image short      | `![](path/to/image): Description of image` |
+| Image short 2    | `![Description of image](path/to/image):` |
+| Description      | `* **description text** Desription details` |
+| Label            | `[Label Text][#label_id]` |
+| Reference        | `[Reference Text](#label_id_to_reference_to)` |
+| Reference short  | `[](#label_id_to_reference_to)` |
+| Code Block start | `<3x backtick at beginning of line> [Code Description ] ` |
+| Code Block end   | `<3x backtick in one line> ` |
+| Abbreviation     | `{abbreviation:[Letters][Short Translation][Description]}` |
+
 
 ## Usage
 tbw.

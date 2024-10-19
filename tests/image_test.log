@@ -90,11 +90,19 @@ More text.
   <Test image of opendocument file using jpg as image format. 14>
 (IMAGE) VERBOSE:     <content/test4.odt.jpg>
     <title: test odt jpg 14>
-(IMAGE) VERBOSE: IMAGE: <
-# No description
-![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): >:
+(IMAGE) VERBOSE: IMAGE: <![Alternative text: Image: test.odt.png](content/test.odt.png "title: test odt png 1"): >:
   <Alternative text: Image: test.odt.png>
   <content/test.odt.png "title: test odt png 1">
-  < >
+  <>
 (IMAGE) VERBOSE:     <content/test.odt.png>
     <title: test odt png 1>
+(IMAGE) VERBOSE: IMAGE: <![](content/test.odt.png): Simple image description 15>:
+  <>
+  <content/test.odt.png>
+  <Simple image description 15>
+(IMAGE) VERBOSE:     NO HOVER TEXT
+(IMAGE) VERBOSE: IMAGE: <![Simple image description 16](content/test.odt.png): >:
+  <Simple image description 16>
+  <content/test.odt.png>
+  <>
+(IMAGE) VERBOSE:     NO HOVER TEXT

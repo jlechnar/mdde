@@ -4,16 +4,22 @@ syn region mddeIssue     start=+{issue:+          end=+}+ keepend
 syn region mddeBug       start=+{bug:+            end=+}+ keepend
 syn region mddeArtefact  start=+{artefact:+       end=+}+ keepend
 syn region mddeMilestone start=+{milestone:+      end=+}+ keepend
+syn region mddeTitle     start=+{title:+          end=+}+ keepend
 syn region mddeComment   start=+%+                end=+$+ keepend
 "syn region mddeLists     start=+{l+      end=+}+ keepend
 syn match  mddeLists     display '{toc}'
 syn match  mddeLists     display '{loi}'
 syn match  mddeLists     display '{lor}'
 syn match  mddeLists     display '{loa}'
+syn match  mddeLists     display '{loc}'
 syn match  mddeLists     display '{loa:issue}'
 syn match  mddeLists     display '{loa:artefact}'
 syn match  mddeLists     display '{loa:milestone}'
 syn match  mddeLists     display '{loa:bug}'
+syn match  mddeLists     display '{loam:issue}'
+syn match  mddeLists     display '{loam:artefact}'
+syn match  mddeLists     display '{loam:milestone}'
+syn match  mddeLists     display '{loam:bug}'
 syn region mddeAbbreviation   start=+{a:+      end=+}+ keepend
 syn region mddeAbbreviation   start=+{abbr:+      end=+}+ keepend
 

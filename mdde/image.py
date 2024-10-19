@@ -22,7 +22,7 @@ class ImageBlockProcessor(BlockProcessor):
   # ![...](...):...
   # ![](...):...
   # !(...):...
-  RE_IMAGE = r'\!(|\[([^\]]*)\])\(([^\)]+)\)\s*\:\s*(.+)'
+  RE_IMAGE = r'\!(|\[([^\]]*)\])\(([^\)]+)\)\s*\:\s*(|.+)$'
   # contents of (...) => (... "...") = (<image_path> "<hover text>")
   #
   RE_IMAGE_HOOVER = r'^(.+)\s+\"([^\"]*)\"\s*$'
@@ -43,7 +43,18 @@ class ImageBlockProcessor(BlockProcessor):
     if m:
       image_alt = ""
 
-      if m.group(2) is None:
+      if (not m.group(1) is None and
+          m.group(4) is None):
+        image_description = m.group(1)
+        if self.config["verbose"]:
+          self.tools.verbose(self.config["message_identifier"], f"IMAGE: <{blocks[0]}>:\n  <{m.group(1)}>\n  <{m.group(3)}>\n  <NONE>")
+      elif (m.group(1) is None and
+            not m.group(2) is None and
+            m.group(4) is None):
+        image_description = m.group(2)
+        if self.config["verbose"]:
+          self.tools.verbose(self.config["message_identifier"], f"IMAGE: <{blocks[0]}>:\n  <{m.group(2)}>\n  <{m.group(3)}>\n  <NONE>")
+      elif m.group(2) is None:
         image_description = m.group(4)
         if self.config["verbose"]:
           self.tools.verbose(self.config["message_identifier"], "IMAGE: <" + blocks[0] + ">:\n  <NONE>\n  <" + m.group(3)+ ">\n  <" + m.group(4)+ ">")

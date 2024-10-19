@@ -64,12 +64,15 @@ pre.code_data {
 }
 
 pre.code_data code:before {
+  display: inline-block;
   counter-increment: line;
   content: counter(line);
-  display: inline-block;
   border-right: 1px solid #ddd;
-  padding: 0 .5em;
+  text-align: right;
+  width: 1em;
+  padding-right: 1em;
   margin-right: .5em;
+  padding: 0 .5em;
   color: #888
 }
 
@@ -226,6 +229,25 @@ p.lor_heading {
 }
 
 /* =================================== */
+.loam__issue th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loam__issue tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loam__issue td {
+    padding-right: 15px;
+}
+
+.loam__issue p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
 .loa__milestone th {
 /* background-color: lightblue;*/
   text-align: left;
@@ -240,6 +262,25 @@ p.lor_heading {
 }
 
 .loa__milestone p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+.loam__milestone th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loam__milestone tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loam__milestone td {
+    padding-right: 15px;
+}
+
+.loam__milestone p {
   font-size: 2.5em;
   font-weight: bold;
 }
@@ -264,6 +305,25 @@ p.lor_heading {
 }
 
 /* =================================== */
+.loam__artefact th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loam__artefact tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loam__artefact td {
+    padding-right: 15px;
+}
+
+.loam__artefact p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
 .loa th {
 /* background-color: lightblue;*/
   text-align: left;
@@ -278,6 +338,25 @@ p.lor_heading {
 }
 
 .loa p {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* =================================== */
+.loam th {
+/* background-color: lightblue;*/
+  text-align: left;
+}
+
+.loam tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.loam td {
+    padding-right: 15px;
+}
+
+.loam p {
   font-size: 2.5em;
   font-weight: bold;
 }

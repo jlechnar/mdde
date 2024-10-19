@@ -10,12 +10,18 @@
 <p>{lor}</p>
 <h2>List of Artefacts</h2>
 <p>{loa:artefact}</p>
+<h2>List of Missing Artefacts</h2>
+<p>{loam:artefact}</p>
 <h2>List of Milestones</h2>
 <p>{loa:milestone}</p>
+<h2>List of Missing Milestones</h2>
+<p>{loam:milestone}</p>
 <h2>List of Bugs</h2>
 <p>{loa:bug}</p>
 <h2>List of Issues</h2>
 <p>{loa:issue}</p>
+<h2>List of Missing Issues</h2>
+<p>{loam:issue}</p>
 <h2>List of Codes</h2>
 <p>{loc}</p>
 <!-- ======================================= -->
@@ -206,6 +212,34 @@ bla3 {artefact:3} foo3 {artefact:4} bar3 <a href="#inline_code">Link to somewher
 <p>foo
 bar
 ```</p>
+<h2>Code lists</h2>
+<h3>Test1</h3>
+<ul>
+<li><code>code1</code> text1</li>
+<li><code>code2</code> text2</li>
+<li><code>code3</code> text3</li>
+</ul>
+<h3>Test2</h3>
+<ul>
+<li>text1 <code>code1</code> text1</li>
+<li>text2 <code>code2</code> text2</li>
+<li>text3 <code>code3</code> text2</li>
+</ul>
+<h3>Test3</h3>
+<ul>
+<li><strong>text1</strong>: <code>code1</code></li>
+<li><strong>text2</strong>: <code>code2</code></li>
+<li><strong>text3</strong>: <code>code3</code></li>
+</ul>
+<h3>Test4</h3>
+<ul>
+<li><strong>text1</strong>: text1 <code>code1</code></li>
+<li><strong>text2</strong>: text2 <code>code2</code> text2</li>
+<li><strong>text3</strong>: <code>code3</code> text3</li>
+<li><strong>text3</strong>: text4 <code>code4a</code> text4 <code>code4b</code> text4</li>
+<li><strong>text3</strong>: <code>code4a</code> text4 <code>code4b</code> text4</li>
+<li><strong>text3</strong>: text4 <code>code4a</code> text4 <code>code4b</code></li>
+</ul>
 <h1>Newlines</h1>
 <h2>Text before code</h2>
 <p>blabla
@@ -239,3 +273,30 @@ bar
 <li>some list 1</li>
 <li>some list 2</li>
 </ul>
+<h1>Percent</h1>
+<p>% Comments are ignored
+In mathematics, a percentage (from Latin per centum 'by a hundred') is a number or ratio expressed as a fraction of 100. It is often denoted using the percent sign ({percent}).
+% Comments are ignored
+For example, 45{percent} (read as "forty-five percent") is equal to the fraction ⁠45/100⁠, the ratio 45:55 (or 45:100 when comparing to the total rather than the other portion), or 0.45.
+% Comments are ignored
+Percentages are often used to express a proportionate part of a total.
+Comments starting with {percent} in the markdown files will be ignored but {percent} will be translated to {percent} by the extention.</p>
+<h1>Tables</h1>
+<h2>Test 1</h2>
+<p>Heading 1 | Heading 2 | Heading 3
+----------|-----------|----------
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3
+Text 1    | Text 2    | Text 3</p>
+<h2>Test 2</h2>
+<p>| Heading 1 | Heading 2 | Heading 3
+| ----------| ---------- |----------
+| Text 1    | Text 2   | Text 3
+| Text 1     | Text 2    | Text 3 { .bar }
+| Text 1    | Text 2 { .foo }  | Text 3
+| Text 1  | <em>Text 2</em>    | Text 3
+| Text 1     | Text 2   | Text 3
+| <em>Text 1</em>   | Text 2    | Text 3</p>

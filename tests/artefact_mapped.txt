@@ -1,0 +1,7 @@
+USED:   1 6
+USED:   2 7
+UNUSED: 10 0
+NEW:    3 33
+NEW:    6 1
+NEW:    5 4
+NEW:    4 7

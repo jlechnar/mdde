@@ -264,6 +264,8 @@ class LABELTOCReplaceTreeProcessor(Treeprocessor):
       self.replace_toc(child, do_replace)
 
 # ------------------------------------------------------------------------
+# replaces labels with links to list of labels
+
 class LabelReplaceInlineProcessor(InlineProcessor):
 
   def __init__(self, pat, md, set_id, config):
@@ -292,6 +294,8 @@ class LabelReplaceInlineProcessor(InlineProcessor):
     return a, m.start(0), m.end(0)
 
 # ------------------------------------------------------------------------
+# replaces references with links to list of labels
+
 class ReferenceReplaceInlineProcessor(InlineProcessor):
 
   def __init__(self, pat, md, tools, config):
@@ -321,6 +325,9 @@ class ReferenceReplaceInlineProcessor(InlineProcessor):
     a.set('class', 'internal_reference_link')
     if reference_text:
       a.text = reference_text
+    elif ( (label_link_id in self.md.lor_labels) and
+           self.config["use_label_text_for_empty_reference_texts"] ):
+      a.text = self.md.lor_labels[label_link_id]
     else:
       if self.config["numbered_links"]:
         a.text = "[" + str(self.md.lor_labels_nr[label_link_id]) + "]"
@@ -361,6 +368,11 @@ class LabelsReferencesExtension(Extension):
       'numbered_links': [
         False,
         'Enable numbered links instead of text',
+        'Default: off`.'
+      ],
+      'use_label_text_for_empty_reference_texts': [
+        False,
+        'Use text of labels in case of empty reference texts',
         'Default: off`.'
       ],
       'reference_symbol': [

@@ -7,5 +7,5 @@ always:
 	python3 $*.py | tee $@
 
 clean:
-	rm -rf *.log *.html
+	rm -rf *.log *.html *_mapped.txt
 

@@ -23,7 +23,7 @@ with open('labels_references_test.md', 'r') as f:
     try:
         html1 = markdown.markdown(text,
                                   extensions=[
-                                    LabelsReferencesExtension(tools, verbose=True, numbered_links=True),
+                                    LabelsReferencesExtension(tools, verbose=True, numbered_links=True, use_label_text_for_empty_reference_texts=True),
                                     HtmlBaseExtension(tools, title="Labels References Test (numbered links)")
                                   ])
         html2 = markdown.markdown(text, extensions=[LabelsReferencesExtension(tools, verbose=True, numbered_links=False), HtmlBaseExtension(tools, title="Labels References Test (normal links)")])

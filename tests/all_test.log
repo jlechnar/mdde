@@ -3,10 +3,13 @@
 (INHT) VERBOSE:   HEADING: 1.2. List of Abbreviations
 (INHT) VERBOSE:   HEADING: 1.3. List of References
 (INHT) VERBOSE:   HEADING: 1.4. List of Artefacts
-(INHT) VERBOSE:   HEADING: 1.5. List of Milestones
-(INHT) VERBOSE:   HEADING: 1.6. List of Bugs
-(INHT) VERBOSE:   HEADING: 1.7. List of Issues
-(INHT) VERBOSE:   HEADING: 1.8. List of Codes
+(INHT) VERBOSE:   HEADING: 1.5. List of Missing Artefacts
+(INHT) VERBOSE:   HEADING: 1.6. List of Milestones
+(INHT) VERBOSE:   HEADING: 1.7. List of Missing Milestones
+(INHT) VERBOSE:   HEADING: 1.8. List of Bugs
+(INHT) VERBOSE:   HEADING: 1.9. List of Issues
+(INHT) VERBOSE:   HEADING: 1.10. List of Missing Issues
+(INHT) VERBOSE:   HEADING: 1.11. List of Codes
 (INHT) VERBOSE:  HEADING: 2. Images [img][#images]
 (INHT) VERBOSE:  HEADING: 3. Abbreviations [abbrev][#abbreviations]
 (INHT) VERBOSE:  HEADING: 4. References
@@ -169,6 +172,11 @@
 (INHT) VERBOSE:   HEADING: 8.12. Code element without decoding
 (INHT) VERBOSE:   HEADING: 8.13. Inline code
 (INHT) VERBOSE:   HEADING: 8.14. Codes with links
+(INHT) VERBOSE:   HEADING: 8.15. Code lists
+(INHT) VERBOSE:    HEADING: 8.15.1. Test1
+(INHT) VERBOSE:    HEADING: 8.15.2. Test2
+(INHT) VERBOSE:    HEADING: 8.15.3. Test3
+(INHT) VERBOSE:    HEADING: 8.15.4. Test4
 (INHT) VERBOSE:  HEADING: 9. Newlines
 (INHT) VERBOSE:   HEADING: 9.1. Text before code
 (INHT) VERBOSE:   HEADING: 9.2. Title before code
@@ -178,6 +186,10 @@
 (INHT) VERBOSE:   HEADING: 9.6. Title before list
 (INHT) VERBOSE:   HEADING: 9.7. Comment before list
 (INHT) VERBOSE:   HEADING: 9.8. Newline before list
+(INHT) VERBOSE:  HEADING: 10. Percent
+(INHT) VERBOSE:  HEADING: 11. Tables
+(INHT) VERBOSE:   HEADING: 11.1. Test 1
+(INHT) VERBOSE:   HEADING: 11.2. Test 2
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 1>
 (COMMENTS) VERBOSE: Comments: Not Ignoring command part of comment: <Hello world! >
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <% this is a comment 2>
@@ -197,6 +209,12 @@
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
 (COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
 (COMMENTS) VERBOSE: Comments: Ignoring comment: <%>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% Comments are ignored>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% Comments are ignored>
+(COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
+(COMMENTS) VERBOSE: Comments: Ignoring comment: <% Comments are ignored>
 (COMMENTS) VERBOSE: Comments: Ignoring none command part of comment: <>
 (NEWLINES) VERBOSE: Newlines: Adding between: <#2 6.6. Descriptions> => <* **Test 1**: is a simple test case.>
 (NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* **Test 2**: is a more complex test case.>
@@ -227,6 +245,21 @@
 (NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <test3> => <```>
 (NEWLINES) VERBOSE: Newlines: Adding between: <#2 8.14. Codes with links> => <``` [Yet another Code 8]>
 (NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <bar> => <```>
+(NEWLINES) VERBOSE: Newlines: Adding between: <#3 8.15.1. Test1> => <* `code1` text1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* `code1` text1> => <* `code2` text2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* `code2` text2> => <* `code3` text3>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* text1 `code1` text1>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* text1 `code1` text1> => <* text2 `code2` text2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* text2 `code2` text2> => <* text3 `code3` text2>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* **text1**: `code1`>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text1**: `code1`> => <* **text2**: `code2`>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text2**: `code2`> => <* **text3**: `code3`>
+(NEWLINES) VERBOSE: Newlines: Not adding before as already there: <> => <* **text1**: text1 `code1`>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text1**: text1 `code1`> => <* **text2**: text2 `code2` text2>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text2**: text2 `code2` text2> => <* **text3**: `code3` text3>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text3**: `code3` text3> => <* **text3**: text4 `code4a` text4 `code4b` text4>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text3**: text4 `code4a` text4 `code4b` text4> => <* **text3**: `code4a` text4 `code4b` text4>
+(NEWLINES) VERBOSE: Newlines: Adding between: <* **text3**: `code4a` text4 `code4b` text4> => <* **text3**: text4 `code4a` text4 `code4b`>
 (NEWLINES) VERBOSE: Newlines: Adding between: <blabla> => <```>
 (NEWLINES) VERBOSE: Newlines: Not adding before as inside code: <some code> => <```>
 (NEWLINES) VERBOSE: Newlines: Adding between: <#2 9.2. Title before code> => <```>
@@ -1176,6 +1209,57 @@ b"<?xml version='1.0' encoding='utf8'?>\n<ul><li>**Test 3b**: is a very complex 
 (DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Tempora sunt est odio dolorem aut earum deleniti maiores. Vel facilis reiciendis hic magnam. Adipisci quaerat molestias ipsum. Commodi aut illum vero ipsum dignissimos velit esse. Qui omnis voluptates earum.
 (DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Pariatur at optio voluptatem minima voluptates. Ea consequuntur vel ut nostrum et nostrum. Laudantium nulla quo quisquam neque.
 (DESCRIPTION) VERBOSE:  LI (SC) test: 2/2 => Ullam impedit quos ipsum nulla neque. Culpa quas voluptas officiis itaque. Est reprehenderit ipsam id. Praesentium dignissimos deleniti porro ex. Blanditiis autem cupiditate porro dolorem possimus iste fugit. Aut iusto ea placeat adipisci itaque.
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>`code1` text1</p></li><li><p>`code2` text2</p></li><li><p>`code3` text3</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => `code1` text1
+(DESCRIPTION) VERBOSE: LI: 0/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/2 => `code2` text2
+(DESCRIPTION) VERBOSE: LI: 0/3 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/3 => `code3` text3
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>text1 `code1` text1</p></li><li><p>text2 `code2` text2</p></li><li><p>text3 `code3` text2</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => text1 `code1` text1
+(DESCRIPTION) VERBOSE: LI: 0/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/2 => text2 `code2` text2
+(DESCRIPTION) VERBOSE: LI: 0/3 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/3 => text3 `code3` text2
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**text1**: `code1`</p></li><li><p>**text2**: `code2`</p></li><li><p>**text3**: `code3`</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **text1**: `code1`
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => text1 : `code1`
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **text2**: `code2`
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => text2 : `code2`
+(DESCRIPTION) VERBOSE: LI: 2/3 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/3 => **text3**: `code3`
+(DESCRIPTION) VERBOSE:     DL (SC): 3/3 => text3 : `code3`
+(DESCRIPTION) VERBOSE: 
+DEBUG: (DESCRIPTION) 
+b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>**text1**: text1 `code1`</p></li><li><p>**text2**: text2 `code2` text2</p></li><li><p>**text3**: `code3` text3</p></li><li><p>**text3**: text4 `code4a` text4 `code4b` text4</p></li><li><p>**text3**: `code4a` text4 `code4b` text4</p></li><li><p>**text3**: text4 `code4a` text4 `code4b`</p></li></ul>"
+(DESCRIPTION) VERBOSE: LI: 0/1 => 
+(DESCRIPTION) VERBOSE:  LI (SC) test: 0/1 => **text1**: text1 `code1`
+(DESCRIPTION) VERBOSE:     DL (SC): 1/1 => text1 : text1 `code1`
+(DESCRIPTION) VERBOSE: LI: 1/2 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 1/2 => **text2**: text2 `code2` text2
+(DESCRIPTION) VERBOSE:     DL (SC): 2/2 => text2 : text2 `code2` text2
+(DESCRIPTION) VERBOSE: LI: 2/3 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 2/3 => **text3**: `code3` text3
+(DESCRIPTION) VERBOSE:     DL (SC): 3/3 => text3 : `code3` text3
+(DESCRIPTION) VERBOSE: LI: 3/4 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 3/4 => **text3**: text4 `code4a` text4 `code4b` text4
+(DESCRIPTION) VERBOSE:     DL (SC): 4/4 => text3 : text4 `code4a` text4 `code4b` text4
+(DESCRIPTION) VERBOSE: LI: 4/5 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 4/5 => **text3**: `code4a` text4 `code4b` text4
+(DESCRIPTION) VERBOSE:     DL (SC): 5/5 => text3 : `code4a` text4 `code4b` text4
+(DESCRIPTION) VERBOSE: LI: 5/6 => None
+(DESCRIPTION) VERBOSE:  LI (SC) test: 5/6 => **text3**: text4 `code4a` text4 `code4b`
+(DESCRIPTION) VERBOSE:     DL (SC): 6/6 => text3 : text4 `code4a` text4 `code4b`
 (DESCRIPTION) VERBOSE: 
 DEBUG: (DESCRIPTION) 
 b"<?xml version='1.0' encoding='utf8'?>\n<ul><li><p>some list 1</p></li><li><p>some list 2</p></li></ul>"

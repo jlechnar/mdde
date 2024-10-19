@@ -239,19 +239,19 @@ DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\na = a + 1\nb = b * 2\nbla\ns <span class="artefact">1</span>\n<span class="artefact">2</span>\n<span class="artefact">3</span> s\nbla2 <span class="artefact">4</span> foo2 \nbla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3\nfoo\nbar</code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\na = a + 1\nb = b * 2\nbla\ns <span><span class="artefact" title="[1]">1</span></span>\n<span><span class="artefact" title="[2]">2</span></span>\n<span><span class="artefact" title="[3]">3</span></span> s\nbla2 <span><span class="artefact" title="[4]">4</span></span> foo2 \nbla3 <span><span class="artefact" title="[5]">5</span></span> foo3 <span><span class="artefact" title="[6]">6</span></span> bar3\nfoo\nbar</code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\n'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> s\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> s\nbla2 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span> foo3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>\n'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">6</span> bar3\nfoo\nbar'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[6]">6</span></span> bar3\nfoo\nbar'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> foo2 \nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> foo2 \nbla3 '
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -275,21 +275,21 @@ DEBUG: (CODES) CHILD changed
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n<code class="code_data_line">bla</code>\n<code class="code_data_line">s </code>\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\n'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>\n'
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> s\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> s\nbla2 '
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): < s> True < > < > < s
 bla2 >
 (CODES) DEBUG: First extend to tail
@@ -298,9 +298,9 @@ bla2 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> foo2 \nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> foo2 \nbla3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo2 > True < > < > < foo2 
 bla3 >
 (CODES) DEBUG: First extend to tail
@@ -309,16 +309,16 @@ bla3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span> foo3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo3 > True < > < > < foo3 >
 (CODES) DEBUG: First extend to tail
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">6</span> bar3\nfoo\nbar'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[6]">6</span></span> bar3\nfoo\nbar'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">6</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[6]">6</span></span>'
 (CODES) DEBUG: LINE (CHILD): < bar3> True < > <r> < bar3
 foo
 bar>
@@ -332,7 +332,7 @@ foo
 bar>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n<code class="code_data_line">bla</code>\n<code class="code_data_line">s <span class="artefact">1</span></code>\n<code class="code_data_line"><span class="artefact">2</span></code>\n<code class="code_data_line"><span class="artefact">3</span> s</code>\n<code class="code_data_line">bla2 <span class="artefact">4</span> foo2 </code>\n<code class="code_data_line">bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">a = a + 1</code>\n<code class="code_data_line">b = b * 2</code>\n<code class="code_data_line">bla</code>\n<code class="code_data_line">s <span><span class="artefact" title="[1]">1</span></span></code>\n<code class="code_data_line"><span><span class="artefact" title="[2]">2</span></span></code>\n<code class="code_data_line"><span><span class="artefact" title="[3]">3</span></span> s</code>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[4]">4</span></span> foo2 </code>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[5]">5</span></span> foo3 <span><span class="artefact" title="[6]">6</span></span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">a = a + 1</code>\n'
 DEBUG: (CODES) FINAL DATA
@@ -340,30 +340,30 @@ b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">b = b 
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">s <span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">s <span><span class="artefact" title="[1]">1</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">2</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[2]">2</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">3</span> s</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[3]">3</span></span> s</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">4</span> foo2 </code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[4]">4</span></span> foo2 </code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">5</span> foo3 <span class="artefact">6</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[5]">5</span></span> foo3 <span><span class="artefact" title="[6]">6</span></span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\nfoo\nbar</code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 <span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar</code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -371,10 +371,10 @@ b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 bla2 >
@@ -384,9 +384,9 @@ bla2 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo2> True < > < > < foo2
 bla3 >
 (CODES) DEBUG: First extend to tail
@@ -395,16 +395,16 @@ bla3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo3 > True < > < > < foo3 >
 (CODES) DEBUG: First extend to tail
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: LINE (CHILD): < bar3> True < > <r> < bar3
 foo
 bar>
@@ -418,28 +418,28 @@ foo
 bar>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\nfoo\nbar\n<span class="artefact">5</span></code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\nbla2 <span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar\n<span><span class="artefact" title="[5]">5</span></span></code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar\n'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -451,9 +451,9 @@ DEBUG: (CODES) CHILD changed
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2 </code>\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo2> True < > < > < foo2
 bla3 >
 (CODES) DEBUG: First extend to tail
@@ -462,16 +462,16 @@ bla3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo3 > True < > < > < foo3 >
 (CODES) DEBUG: First extend to tail
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar\n'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: LINE (CHILD): < bar3> True < > <
 > < bar3
 foo
@@ -492,35 +492,35 @@ bar
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span class="artefact">5</span></code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span><span class="artefact" title="[5]">5</span></span></code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">5</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[5]">5</span></span></code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\nfoo\nbar\n<span class="artefact">5</span></code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 <span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar\n<span><span class="artefact" title="[5]">5</span></span></code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar\n'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -528,10 +528,10 @@ b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 bla2 >
@@ -541,9 +541,9 @@ bla2 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo2> True < > < > < foo2
 bla3 >
 (CODES) DEBUG: First extend to tail
@@ -552,16 +552,16 @@ bla3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo3 > True < > < > < foo3 >
 (CODES) DEBUG: First extend to tail
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\nfoo\nbar\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\nfoo\nbar\n'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: LINE (CHILD): < bar3> True < > <
 > < bar3
 foo
@@ -582,37 +582,37 @@ bar
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span class="artefact">5</span></code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span><span class="artefact" title="[5]">5</span></span></code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">5</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[5]">5</span></span></code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n{code_empty_line}\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar\n<span class="artefact">5</span>\n{code_empty_line}</code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n{code_empty_line}\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 <span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3\n{code_empty_line}\nfoo\nbar\n<span><span class="artefact" title="[5]">5</span></span>\n{code_empty_line}</code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>\n{code_empty_line}'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>\n{code_empty_line}'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\n{code_empty_line}\nfoo\nbar\n'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -624,10 +624,10 @@ DEBUG: (CODES) CHILD changed
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line" />\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 bla2 >
@@ -637,9 +637,9 @@ bla2 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo2> True < > < > < foo2
 bla3 >
 (CODES) DEBUG: First extend to tail
@@ -648,16 +648,16 @@ bla3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo3 > True < > < > < foo3 >
 (CODES) DEBUG: First extend to tail
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\n{code_empty_line}\nfoo\nbar\n'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: LINE (CHILD): < bar3> True < > <
 > < bar3
 {code_empty_line}
@@ -688,10 +688,10 @@ bar
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>\n{code_empty_line}'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>\n{code_empty_line}'
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[5]">5</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > <}> <
 {code_empty_line}>
@@ -700,15 +700,15 @@ b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">5</span>'
 {code_empty_line}>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line" />\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span class="artefact">5</span></code>\n<code class="code_data_line" />\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line" />\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n<code class="code_data_line"><span><span class="artefact" title="[5]">5</span></span></code>\n<code class="code_data_line" />\n</pre>'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
@@ -716,20 +716,20 @@ b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">foo</c
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bar</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">5</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[5]">5</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span class="artefact">1</span>\nbla2 <span class="artefact">2</span> foo2\nbla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar</code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>[CODES]\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 <span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3\n{code_empty_line}\nfoo\nbar</code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\n{code_empty_line}\nfoo\nbar'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -737,10 +737,10 @@ b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
 (CODES) DEBUG: LINE IGNORED: <>
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\nbla2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\nbla2 '
 (CODES) DEBUG: New code last char newline
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 bla2 >
@@ -750,9 +750,9 @@ bla2 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span> foo2\nbla3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span> foo2\nbla3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo2> True < > < > < foo2
 bla3 >
 (CODES) DEBUG: First extend to tail
@@ -761,16 +761,16 @@ bla3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span> foo3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span> foo3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): < foo3 > True < > < > < foo3 >
 (CODES) DEBUG: First extend to tail
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span> bar3\n{code_empty_line}\nfoo\nbar'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span> bar3\n{code_empty_line}\nfoo\nbar'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: LINE (CHILD): < bar3> True < > <r> < bar3
 {code_empty_line}
 foo
@@ -792,13 +792,13 @@ foo
 bar>
 (CODES) DEBUG: New code due to newline
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span class="artefact">1</span></code>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_data">\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n<code class="code_data_line" />\n<code class="code_data_line">foo</code>\n<code class="code_data_line">bar</code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line"><span><span class="artefact" title="[1]">1</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span class="artefact">2</span> foo2</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla2 <span><span class="artefact" title="[2]">2</span></span> foo2</code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span class="artefact">3</span> foo3 <span class="artefact">4</span> bar3</code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line">bla3 <span><span class="artefact" title="[3]">3</span></span> foo3 <span><span class="artefact" title="[4]">4</span></span> bar3</code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_data_line" />\n'
 DEBUG: (CODES) FINAL DATA
@@ -971,15 +971,15 @@ DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 3</code>\n'
 (CODES) DEBUG: ######################
 DEBUG: (CODES) CHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>a = a + 1 <span class="artefact">1</span>\na = a + 2 <span class="artefact">2</span>\na = a + 3 <span class="artefact">3</span>\n{code_empty_line}\na = a + 4 <span class="artefact">4</span></code>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code>a = a + 1 <span><span class="artefact" title="[1]">1</span></span>\na = a + 2 <span><span class="artefact" title="[2]">2</span></span>\na = a + 3 <span><span class="artefact" title="[3]">3</span></span>\n{code_empty_line}\na = a + 4 <span><span class="artefact" title="[4]">4</span></span></code>'
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\na = a + 2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\na = a + 2 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>\n{code_empty_line}\na = a + 4 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>\n{code_empty_line}\na = a + 4 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>\na = a + 3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>\na = a + 3 '
 DEBUG: (CODES) SC rm
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 (CODES) DEBUG: =====================
 DEBUG: (CODES) CHILD after cleanup
 b"<?xml version='1.0' encoding='utf8'?>\n<pre>\n</pre>"
@@ -989,9 +989,9 @@ DEBUG: (CODES) CHILD changed
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1 </code>\n</pre>'
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>\na = a + 2 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>\na = a + 2 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">1</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[1]">1</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 a = a + 2 >
@@ -1001,9 +1001,9 @@ a = a + 2 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>\na = a + 3 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>\na = a + 3 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">2</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[2]">2</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 a = a + 3 >
@@ -1013,9 +1013,9 @@ a = a + 3 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>\n{code_empty_line}\na = a + 4 '
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>\n{code_empty_line}\na = a + 4 '
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">3</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[3]">3</span></span>'
 (CODES) DEBUG: LINE (CHILD): <> True <
 > < > <
 {code_empty_line}
@@ -1032,18 +1032,18 @@ a = a + 4 >
 (CODES) DEBUG: New code due to newline
 (CODES) DEBUG: ------------------
 DEBUG: (CODES) SUBCHILD
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 DEBUG: (CODES) SUBCHILD COPY
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span class="artefact">4</span>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<span><span class="artefact" title="[4]">4</span></span>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1 <span class="artefact">1</span></code>\n<code class="code_no_header_line">a = a + 2 <span class="artefact">2</span></code>\n<code class="code_no_header_line">a = a + 3 <span class="artefact">3</span></code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 4 <span class="artefact">4</span></code>\n</pre>'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<pre class="code_no_header">\n<code class="code_no_header_line">a = a + 1 <span><span class="artefact" title="[1]">1</span></span></code>\n<code class="code_no_header_line">a = a + 2 <span><span class="artefact" title="[2]">2</span></span></code>\n<code class="code_no_header_line">a = a + 3 <span><span class="artefact" title="[3]">3</span></span></code>\n<code class="code_no_header_line" />\n<code class="code_no_header_line">a = a + 4 <span><span class="artefact" title="[4]">4</span></span></code>\n</pre>'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 1 <span class="artefact">1</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 1 <span><span class="artefact" title="[1]">1</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 2 <span class="artefact">2</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 2 <span><span class="artefact" title="[2]">2</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 3 <span class="artefact">3</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 3 <span><span class="artefact" title="[3]">3</span></span></code>\n'
 DEBUG: (CODES) FINAL DATA
 b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line" />\n'
 DEBUG: (CODES) FINAL DATA
-b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 4 <span class="artefact">4</span></code>\n'
+b'<?xml version=\'1.0\' encoding=\'utf8\'?>\n<code class="code_no_header_line">a = a + 4 <span><span class="artefact" title="[4]">4</span></span></code>\n'
