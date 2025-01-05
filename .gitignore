@@ -1,3 +1,4 @@
 *.pyc
 tests/env
 tests/__pycache__
+check.sh
