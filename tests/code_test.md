@@ -191,3 +191,15 @@ a = a + 3 {artefact:3}
 
 a = a + 4 {artefact:4}
 ```
+
+# Code test issues
+
+## Lists
+bla bla bla
+
+* 1 `c1`
+* 2 `c2`
+  * 3 `c3` bla `c6`
+  * 4 `c4`
+* 5 `c5`
+

@@ -8,6 +8,29 @@ import re
 import copy
 
 
+# -------------------------------------------------------------------------------
+class InlineCodesPreprocessor(Preprocessor):
+    RE_INLINE_CODES = r'(^|^.*[^`])`([^`]+)`($|[^`].*$)'
+
+    def __init__(self, md, tools, config):
+        super().__init__(md)
+        self.tools = tools
+        self.config = config
+
+    def run(self, lines):
+        new_lines = []
+        for line in lines:
+            line_inline_code = line
+            m = re.search(self.RE_INLINE_CODES, line_inline_code, re.DOTALL)
+            while m is not None:
+                line_inline_code = m.group(1) + "{inline_code:" + m.group(2) + "}" + m.group(3)
+                m = re.search(self.RE_INLINE_CODES, line_inline_code, re.DOTALL)
+            new_lines.append(line_inline_code)
+            if self.config["verbose"]:
+                self.tools.verbose(self.config["message_identifier"], "INLINE CODE MOVE: " + line + " => " + line_inline_code)
+        return new_lines
+
+# -------------------------------------------------------------------------------
 class CodesPreprocessor(Preprocessor):
     RE_CODES = r'^(\s*```\s*)\[([^\]]+)\](.*)$'
 
@@ -31,7 +54,7 @@ class CodesPreprocessor(Preprocessor):
                 new_lines.append(line)
         return new_lines
 
-
+# -------------------------------------------------------------------------------
 class CodesEmptyLinesPreprocessor(Preprocessor):
     RE_CODE_START_END = r'^(\s*```\s*)'
     RE_EMPTY_LINES = r'^(\s*)$'
@@ -63,6 +86,7 @@ class CodesEmptyLinesPreprocessor(Preprocessor):
                     self.tools.verbose(self.config["message_identifier"], "CODE EMPTY LINE: <" + line + "> => <" + line_new + ">")
         return new_lines
 
+# -------------------------------------------------------------------------------
 class CodesBlockProcessor(BlockProcessor):
    #
    # {code:<title>}
@@ -100,6 +124,39 @@ class CodesBlockProcessor(BlockProcessor):
                 self.tools.verbose(self.config["message_identifier"], "CODE: " + code_description)
 
             blocks[0] = re.sub(re.escape(m.group(0)), "{DONE:" + code_id + m.group(2) + "}", blocks[0])
+
+            return True
+        else:
+            return False
+
+# -------------------------------------------------------------------------------
+class InlineCodesBlockProcessor(BlockProcessor):
+   #
+   # {code:<title>}
+   #
+   RE_CODE = r'\{(inline_code:)(.*)\}'
+
+   def __init__(self, parser, tools, md, config):
+       super().__init__(parser)
+       self.md = md
+       self.tools = tools
+       self.config = config
+
+   def test(self, parent, block):
+       return re.search(self.RE_CODE, block)
+
+   def run(self, parent, blocks):
+
+        m = re.search(self.RE_CODE, blocks[0])
+
+        if m:
+            code_id = m.group(1)
+            code_text = m.group(2)
+
+            if self.config["verbose"]:
+                self.tools.verbose(self.config["message_identifier"], "INLINE_CODE: " + code_text)
+
+            blocks[0] = re.sub(re.escape(m.group(0)), "{DONE:" + code_id + code_text + "}", blocks[0])
 
             return True
         else:
@@ -170,6 +227,30 @@ class CodeHeaderReplaceInlineProcessor(InlineProcessor):
 
     return e, m.start(0), m.end(0)
 
+# ------------------------------------------------------------------------
+# replaces each code header to the final structure
+# adds links, pre/postfixes, etc.
+#
+class InlineCodeHeaderReplaceInlineProcessor(InlineProcessor):
+
+  def __init__(self, pat, md, tools, config):
+    super().__init__(pat, md)
+    self.config = config
+    self.tools = tools
+
+  def handleMatch(self, m, md):
+    code_text = m.group(1)
+
+    e = etree.Element('span')
+    ea = etree.SubElement(e, 'code')
+
+    # artefact = self.md.loa_id_map[tag][artefact_id]
+    ea.set('class', 'inline_code')
+    ea.text = code_text
+
+    return e, m.start(0), m.end(0)
+
+# -------------------------------------------------------------------------------
 class CodeEmptyLinesInlineProcessor(InlineProcessor):
 
   def __init__(self, pat, md, tools, config):
@@ -212,6 +293,8 @@ class CodeToPreTreeProcessor(Treeprocessor):
                 elif child.get('class') == 'code_data_line':
                     pass
                 elif child.get('class') == 'code_no_header_line':
+                    pass
+                elif child.get('class') == 'inline_code':
                     pass
                 else:
 
@@ -444,6 +527,7 @@ class CodesExtension(Extension):
     # Preprocessors
     # level must be below preprocessor of inht ! higher numbers first !
     md.preprocessors.register(CodesPreprocessor(md.parser, self.tools, self.getConfigs()), 'codes', 170)
+    md.preprocessors.register(InlineCodesPreprocessor(md.parser, self.tools, self.getConfigs()), 'inline_codes', 170)
 
     md.preprocessors.register(CodesEmptyLinesPreprocessor(md.parser, self.tools, self.getConfigs()), 'codesemptylines', 170)
 
@@ -451,6 +535,8 @@ class CodesExtension(Extension):
     # Blockprocessors
 
     md.parser.blockprocessors.register(CodesBlockProcessor(md.parser, self.tools, md, self.getConfigs()), 'codes_block_processor', 175)
+
+    md.parser.blockprocessors.register(InlineCodesBlockProcessor(md.parser, self.tools, md, self.getConfigs()), 'inline_codes_block_processor', 175)
 
     # prepare loc for replacement
     md.parser.blockprocessors.register(LocPositionBlockProcessor(md.parser, self.tools, md, self.getConfigs()), 'reference__loc_position', 165)
@@ -476,6 +562,9 @@ class CodesExtension(Extension):
 
     CODE_HEADER_PATTERN = r'\{DONE:code:(\d+):([^\}]+)\}'
     md.inlinePatterns.register(CodeHeaderReplaceInlineProcessor(CODE_HEADER_PATTERN, md, self.tools, self.getConfigs()), 'code_header_replace_inline', 165)
+
+    INLINE_CODE_HEADER_PATTERN = r'\{DONE:inline_code:([^\}]+)\}'
+    md.inlinePatterns.register(InlineCodeHeaderReplaceInlineProcessor(INLINE_CODE_HEADER_PATTERN, md, self.tools, self.getConfigs()), 'inline_code_header_replace_inline', 165)
 
     # CODE_EMPTY_LINE_PATTERN = r'\n\{code_empty_line\}'
     # >190-194 required as else parts inside code sections do not get replaced before code is decoded by python-markdown !!!

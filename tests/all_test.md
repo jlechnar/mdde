@@ -266,7 +266,9 @@ test3
 ```
 
 ## Inline code
-Inline code `c = d+e` test. [inline code][#inline_code].
+Inline code `c = d+e` and `f = k*j` test. [inline code][#inline_code].
+
+Single Inline code `l = q/f` test.  
 
 ## Codes with links
 ``` [Yet another Code 8]

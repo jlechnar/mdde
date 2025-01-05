@@ -24,6 +24,7 @@ with open('code_test.md', 'r') as f:
     text = f.read()
     try:
         html = markdown.markdown(text,
+                                 tab_length=2,
                                  extensions=[
                                      #CodesExtension(tools, verbose=True),
                                      CodesExtension(tools, verbose=True, debug=True),

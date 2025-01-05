@@ -426,7 +426,7 @@ class ArtefactReplaceInlineProcessor(InlineProcessor):
       e2 = etree.SubElement(e0, 'a')
 
       e2.set('href', f"#loa_{tag}:{artefact}:")
-      e2.set('class', f"{tag}:internal_reference")
+      e2.set('class', f"{tag}__internal_reference")
       e2.set('title', f"[{artefact_id}]")
 
       e2.text = self.config["reference_symbol"]

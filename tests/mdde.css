@@ -81,6 +81,17 @@ code {
   color: #0f00ff;
 }
 
+code.code_no_header_line {
+  font-family: monospace;
+  color: #0fffff;
+}
+
+code.inline_code {
+  font-family: monospace;
+  color: #0fff0f;
+}
+
+
 /* =================================== */
 span.artefact {
   color: lightgreen;
